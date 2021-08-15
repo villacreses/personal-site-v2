@@ -1,0 +1,60 @@
+@use './styleVars';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: styleVars.$navy;
+  color: styleVars.$slate;
+  line-height: 1.3;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  position: relative;
+  color: inherit;
+
+  &:hover, &:focus {
+    color: styleVars.$green;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 10px 0;
+  font-weight: 600;
+  line-height: 1.1;
+  color: styleVars.$slate-lightest;
+}
+
+p {
+  & > a {
+    color: styleVars.$green;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0px;
+      height: 1px;
+      position: relative;
+      bottom: 0.37em;
+      background-color: styleVars.$green;
+      opacity: 0.5;
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
