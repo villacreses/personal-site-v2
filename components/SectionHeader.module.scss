@@ -14,7 +14,7 @@
     position: relative;
     bottom: 4px;
     counter-increment: section 1;
-    content: "0" counter(section) ".";
+    content: counter(section, decimal-leading-zero) ".";
     margin-right: 10px;
     color: styleVars.$green;
     font-weight: 400;
