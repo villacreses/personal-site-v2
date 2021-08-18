@@ -7,15 +7,20 @@ import {
 
 const Test = () => (
   <div>
+    <Head>
+      <title>Mario Villacreses</title>
+    </Head>
     <main className="fillHeight">
       <Section>
         <header>
           <h1>Hi, my name is</h1>
-          <h2>Mario Villacreses</h2>
-          <h3>I build things for the web.</h3>
+          <h2 className="big-heading">Mario Villacreses</h2>
+          <h3 className="big-heading">I build things for the web.</h3>
         </header>
         <p>
-          I&apos;m a rotational engineer at Facebook. 
+          I&apos;m a software engineer specializing in building extraordinary{' '} 
+          experiences for the web. Currently I&apos;m working as 
+          a rotational engineer at Facebook. 
         </p>
         <ActionButton href="mailto:MarioVillacreses@outlook.com">
           Get in touch

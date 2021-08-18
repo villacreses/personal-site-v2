@@ -13,8 +13,9 @@
   h1 {
     margin: 0 0 30px 4px;
     color: styleVars.$green;
-    size: clamp(styleVars.$fz-sm, 5vw, styleVars.$fz-md);
+    font-size: clamp(#{styleVars.$fz-sm}, 5vw, #{styleVars.$fz-md});
     font-weight: 400;
+    font-family: styleVars.$font-mono;
   }
 
   h3 {
