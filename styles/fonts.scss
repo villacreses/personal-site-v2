@@ -1,0 +1,25 @@
+$calibre:
+  "Black" normal 900,
+  "BlackItalic" italic 900,
+  "Bold" normal 700,
+  "BoldItalic" italic 700,
+  "Light" normal 300,
+  "LightItalic" italic 300,
+  "Medium" normal 500,
+  "MediumItalic" italic 500,
+  "Regular" normal 400,
+  "Regular" italic 400,
+  "Semibold" normal 600,
+  "SemiboldItalic" italic 600,
+  "Thin" normal 100,
+  "ThinItalic" italic 100;
+
+@each $src, $style, $weight in $calibre {
+  @font-face {
+    font-family: "Calibre";
+    src: url("../public/fonts/Calibre/Calibre#{$src}.otf");
+    font-style: $style;
+    font-weight: $weight;
+    font-display: swap;
+  }
+}
