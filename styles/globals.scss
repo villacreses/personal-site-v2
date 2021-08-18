@@ -28,6 +28,7 @@ body {
 
 body {
   font-size: styleVars.$fz-xl;
+  counter-reset: section;
 }
 
 section {

@@ -14,12 +14,12 @@
   &::before {
     position: relative;
     bottom: 4px;
-    counter-increment: section 1;
+    counter-increment: section;
     content: counter(section, decimal-leading-zero) ".";
     margin-right: 10px;
     color: styleVars.$green;
     font-family: styleVars.$font-mono;
-    font-size: clamp(styleVars.$fz-md, 3vw, styleVars.$fz-xl);
+    font-size: clamp(#{styleVars.$fz-md}, 3vw, #{styleVars.$fz-xl});
     font-weight: 400;
   }
 
