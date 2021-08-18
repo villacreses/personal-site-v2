@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+::before, ::after {
+  box-sizing: inherit;
+}
+
+::selection {
+  background-color: styleVars.$navy-lightest;
+  color: styleVars.$slate-lightest;
+}
+
 html,
 body {
   padding: 0;
@@ -15,7 +24,16 @@ body {
   background-color: styleVars.$navy;
   color: styleVars.$slate;
   line-height: 1.3;
+}
+
+body {
   font-size: styleVars.$fz-xl;
+}
+
+section {
+  margin: 0px auto;
+  padding: 100px 0px;
+  max-width: 1000px;
 }
 
 main {

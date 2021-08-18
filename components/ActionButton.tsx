@@ -6,7 +6,9 @@ const sizeMap = {
   sm: 'as-sm',
 } as const;
 
-type AnchorProps = Omit<HTMLProps<HTMLAnchorElement>, 'className' | 'rel' | 'size'>
+const omit = ['classname', 'rel', 'size'] as const;
+
+type AnchorProps = Omit<HTMLProps<HTMLAnchorElement>, typeof omit[number]>
 
 interface ActionButton extends AnchorProps {
   size?: keyof typeof sizeMap; 
