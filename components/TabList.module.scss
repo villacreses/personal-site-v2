@@ -7,8 +7,10 @@
     position: relative;
   }
 
-  .panel {
-    background-color: red;
+  *[data-containerfor=panels] {
+    position: relative;
+    width: 100%;
+    margin-left: 20px;
   }
 }
 
@@ -35,7 +37,7 @@
   }
 
   &:hover, &:focus, &[aria-selected=true] {
-    background-color: styleVars.$navy-lightest;
+    background-color: styleVars.$navy-light;
   }
 }
 
@@ -48,4 +50,26 @@
   height: styleVars.$tab-height;
   border-radius: styleVars.$border-radius;
   background-color: styleVars.$green;
+}
+
+.Panel {
+  width: 100%;
+  height: auto;
+  padding: 10px 5px;
+
+  h3 {
+    margin-bottom: 2px;
+
+    span[data-content=company] {
+      color: styleVars.$green;
+    }
+  }
+
+  p[data-content=range] {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: styleVars.$slate-light;
+    font-family: styleVars.$font-mono;
+    font-size: styleVars.$fz-xs;
+  }
 }

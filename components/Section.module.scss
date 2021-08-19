@@ -1,16 +1,22 @@
 @use '../styles/styleVars';
 
 .Section {
-  display: flex;
-  -moz-box-pack: center;
-  justify-content: center;
-  -moz-box-align: center;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: 100vh;
-  padding: 0;
+  margin: 0px auto;
+  padding: 100px 0;
+  max-width: 1000px;
 
-  h1 {
+  &[data-sectionType=intro] {
+    display: flex;
+    -moz-box-pack: center;
+    justify-content: center;
+    -moz-box-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  & > h1 {
     margin: 0 0 30px 4px;
     color: styleVars.$green;
     font-size: clamp(#{styleVars.$fz-sm}, 5vw, #{styleVars.$fz-md});
@@ -18,7 +24,7 @@
     font-family: styleVars.$font-mono;
   }
 
-  h3 {
+  & > h3 {
     margin-top: 10px;
     color: styleVars.$slate;
     line-height: 0.9;

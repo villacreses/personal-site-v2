@@ -2,6 +2,7 @@ import { Component, FC, HTMLProps } from 'react';
 import styles from './TabList.module.scss';
 
 type Content = {
+  key: string;
   role: string;
   companyName: string;
   range?: string; 
@@ -62,7 +63,7 @@ const Panel: FC<PanelProps> = ({
   >
     <h3>
       <span>{content.role}</span>
-      <span className="company">
+      <span data-content="company">
         {' @ '}
         <a
           rel="noopener noreferrer"
@@ -71,7 +72,7 @@ const Panel: FC<PanelProps> = ({
         </a>
       </span>
     </h3>
-    <p className="range">
+    <p data-content="range">
       {content.range}
     </p>
     <ul>
@@ -106,11 +107,11 @@ class TabList extends Component<TabListProps, TabListState> {
     return (
       <div className={styles.TabContainer}>
         <div role="tablist" aria-label="Work History">
-          {this.props.contentList.map(({ companyName }, idx) => (
+          {this.props.contentList.map(({ companyName, key }, idx) => (
             <TabList.Tab
-              key={`tab-${companyName}`}
-              id={`tab-${companyName}`}
-              panelId={`panel-${companyName}`}
+              key={key}
+              id={`tab-${key}`}
+              panelId={`panel-${key}`}
               selected={this.state.activeTabWork === idx}
               onClick={() => this.setActiveTab(idx)}
             >
@@ -119,12 +120,12 @@ class TabList extends Component<TabListProps, TabListState> {
           ))}
           <div className={styles.highlight} />
         </div>
-        <div>
+        <div data-containerfor="panels" >
           {this.props.contentList.map((content, idx) => (
             <Panel
-              key={`panel-${content.companyName}`}
-              id={`panel-${content.companyName}`}
-              labelId={`tab-${content.companyName}`}
+              key={content.key}
+              id={`panel-${content.key}`}
+              labelId={`tab-${content.key}`}
               content={content}
               hidden={this.state.activeTabWork !== idx}
             />

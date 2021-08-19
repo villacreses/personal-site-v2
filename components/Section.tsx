@@ -1,8 +1,15 @@
 import { FC, HTMLProps } from 'react';
 import styles from './Section.module.scss';
 
-const Section: FC<HTMLProps<HTMLElement>> = props => (
-  <section className={styles.Section} {...props} />
+interface SectionProps extends HTMLProps<HTMLElement>{
+  sectionType?: 'intro' | ''
+}
+
+const Section: FC<SectionProps> = ({ sectionType = '', ...props }) => (
+  <section
+    className={styles.Section}
+    data-sectiontype={sectionType}
+    {...props} />
 );
 
 export default Section
