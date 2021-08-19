@@ -1,0 +1,51 @@
+@use '../styles/styleVars';
+
+.TabContainer {
+  display: flex;
+  
+  *[role=tablist] {
+    position: relative;
+  }
+
+  .panel {
+    background-color: red;
+  }
+}
+
+.Tab {
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  position: relative;
+  display: flex;
+  -moz-box-align: center;
+  align-items: center;
+  width: 100%;
+  height: styleVars.$tab-height;
+  padding: 0px 20px 2px;
+  border-left: 2px solid styleVars.$navy-lightest;
+  background-color: transparent;
+  color: styleVars.$slate;
+  font-family: styleVars.$font-mono;
+  font-size: styleVars.$fz-xs;
+  text-align: left;
+  white-space: nowrap;
+
+  &:hover, &:active, &:focus {
+    color: styleVars.$green;
+  }
+
+  &:hover, &:focus, &[aria-selected=true] {
+    background-color: styleVars.$navy-lightest;
+  }
+}
+
+.highlight {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  width: 2px;
+  height: styleVars.$tab-height;
+  border-radius: styleVars.$border-radius;
+  background-color: styleVars.$green;
+}

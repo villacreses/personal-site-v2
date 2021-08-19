@@ -89,6 +89,12 @@ h6 {
   color: styleVars.$slate-lightest;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 0;
+}
+
 p {
   margin: 0 0 15px;
 
