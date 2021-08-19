@@ -1,8 +1,10 @@
 import { FC, HTMLProps } from 'react';
 import styles from './Section.module.scss';
 
+const sectionTypes = ['intro', 'about', 'work'] as const;
+
 interface SectionProps extends HTMLProps<HTMLElement>{
-  sectionType?: 'intro' | ''
+  sectionType?: typeof sectionTypes[number];
 }
 
 const Section: FC<SectionProps> = ({ sectionType = '', ...props }) => (

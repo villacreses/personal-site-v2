@@ -16,18 +16,28 @@
     padding: 0;
   }
 
-  & > h1 {
-    margin: 0 0 30px 4px;
-    color: styleVars.$green;
-    font-size: clamp(#{styleVars.$fz-sm}, 5vw, #{styleVars.$fz-md});
-    font-weight: 400;
-    font-family: styleVars.$font-mono;
+  &[data-sectiontype=about] {
+    max-width: 900px;
+  }
+  
+  &[data-sectiontype=work] {
+    max-width: 700px;
   }
 
-  & > h3 {
-    margin-top: 10px;
-    color: styleVars.$slate;
-    line-height: 0.9;
+  header {
+    h1 {
+      margin: 0 0 30px 4px;
+      color: styleVars.$green;
+      font-size: clamp(#{styleVars.$fz-sm}, 5vw, #{styleVars.$fz-md});
+      font-weight: 400;
+      font-family: styleVars.$font-mono;
+    }
+
+    h3 {
+      margin-top: 10px;
+      color: styleVars.$slate;
+      line-height: 0.9;
+    }
   }
 
   p {
