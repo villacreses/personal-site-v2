@@ -1,4 +1,4 @@
-import { Component, FC, HTMLProps } from 'react';
+import { Component, FC, HTMLProps, useState } from 'react';
 import styles from './TabList.module.scss';
 
 type Content = {
@@ -22,10 +22,6 @@ interface PanelProps extends Omit<HTMLProps<HTMLElement>, 'content'> {
 type TabListProps = {
   contentList: Array<Content>;
 };
-
-type TabListState = {
-  activeTabWork: number;
-}
 
 const Tab: FC<TabProps> = ({
   children,
@@ -85,59 +81,38 @@ const Panel: FC<PanelProps> = ({
   </div>
 );
 
-class TabList extends Component<TabListProps, TabListState> {
-  static Tab: FC<TabProps>;
-  static Panel: FC<PanelProps>
+const TabList: FC<TabListProps> = ({ contentList }) => {
+  const [activeTab, setActiveTab] = useState(0);
 
-  constructor (props: TabListProps) {
-    super(props);
-
-    this.state = {
-      activeTabWork: 0,
-    }
-
-    this.setActiveTab = this.setActiveTab.bind(this);
-  }
-
-  setActiveTab (idx: number) {
-    this.setState({ activeTabWork: idx })
-  }
-
-  render () {
-    return (
-      <div className={styles.TabContainer}>
-        <div role="tablist" aria-label="Work History">
-          {this.props.contentList.map(({ companyName, key }, idx) => (
-            <TabList.Tab
-              key={key}
-              id={`tab-${key}`}
-              panelId={`panel-${key}`}
-              selected={this.state.activeTabWork === idx}
-              onClick={() => this.setActiveTab(idx)}
-            >
-              {companyName}
-            </TabList.Tab>
-          ))}
-          <div className={styles.highlight} />
-        </div>
-        <div data-containerfor="panels" >
-          {this.props.contentList.map((content, idx) => (
-            <Panel
-              key={content.key}
-              id={`panel-${content.key}`}
-              labelId={`tab-${content.key}`}
-              content={content}
-              hidden={this.state.activeTabWork !== idx}
-            />
-          ))}
-        </div>
+  return (
+    <div className={styles.TabContainer}>
+      <div role="tablist" aria-label="Work History">
+        {contentList.map(({ companyName, key }, idx) => (
+          <Tab
+            key={key}
+            id={`tab-${key}`}
+            panelId={`panel-${key}`}
+            selected={activeTab === idx}
+            onClick={() => setActiveTab(idx)}
+          >
+            {companyName}
+          </Tab>
+        ))}
+        <div className={styles.highlight} />
       </div>
-    );
-  }
-}
-
-TabList.Tab = Tab;
-TabList.Panel = Panel;
-
+      <div data-containerfor="panels" >
+        {contentList.map((content, idx) => (
+          <Panel
+            key={content.key}
+            id={`panel-${content.key}`}
+            labelId={`tab-${content.key}`}
+            content={content}
+            hidden={activeTab !== idx}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default TabList;

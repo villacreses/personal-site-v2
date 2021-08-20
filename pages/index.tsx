@@ -1,9 +1,11 @@
 import Head from 'next/head';
 import {
   ActionButton,
-  Section,
   SectionHeader,
+  TabList,
 } from '../components';
+
+import pageContent from '../data/content.yaml';
 
 const Test = () => (
   <div>
@@ -11,28 +13,41 @@ const Test = () => (
       <title>Mario Villacreses</title>
     </Head>
     <main className="fillHeight">
-      <Section>
+      <section id="intro">
         <header>
           <h1>Hi, my name is</h1>
-          <h2 className="big-heading">Mario Villacreses.</h2>
-          <h3 className="big-heading">I build things for the web.</h3>
+          <h2 className="big-heading">{pageContent.intro.name}</h2>
+          <h3 className="big-heading">{pageContent.intro.subheading}</h3>
         </header>
         <p>
-          I&apos;m a software engineer specializing in building extraordinary{' '} 
-          experiences for the web. Currently I&apos;m working as 
-          a rotational engineer at Facebook. 
+          {pageContent.intro.teaser}
         </p>
-        <ActionButton href="mailto:MarioVillacreses@outlook.com">
+        <ActionButton href={`mailto:${pageContent.contact.email}`}>
           Get In Touch
         </ActionButton>
-      </Section>
-      <Section id="about">
+      </section>
+      <section id="about">
         <SectionHeader>About me</SectionHeader>
-        <div className="inner">
-          <div className="text-content"></div>
-          <div className="image-container"></div>
-        </div>
-      </Section>
+        {pageContent.about.map((content: string, idx: number) => (
+          <p key={`about-me-${idx}`}>{content}</p>
+        ))}
+      </section>
+      <section id="jobs">
+        <SectionHeader>Where I&apos;ve worked</SectionHeader>
+        <TabList contentList={pageContent.workHistory} />
+      </section>
+      <section id="contact">
+        <SectionHeader titleStyle="small">
+          What&apos;s Next?
+        </SectionHeader>
+        <h3>Get in touch</h3>
+        <p>
+          {pageContent.contact.ctaMessage}
+        </p>
+        <ActionButton href={`mailto:${pageContent.contact.email}`}>
+          Say hello
+        </ActionButton>
+      </section>
     </main>
   </div>
 );
