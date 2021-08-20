@@ -18,7 +18,7 @@
     content: counter(section, decimal-leading-zero) ".";
     margin-right: 10px;
     color: styleVars.$green;
-    font-family: styleVars.$font-mono;
+    font-family: styleVars.$font-mono;    
     font-size: clamp(#{styleVars.$fz-md}, 3vw, #{styleVars.$fz-xl});
     font-weight: 400;
   }
@@ -32,5 +32,23 @@
     height: 1px;
     margin-left: 20px;
     background-color: styleVars.$navy-lightest;
+  }
+
+  &[data-titleStyle=small] {
+    display: block;
+    margin-bottom: 20px;
+    color: styleVars.$green;
+    font-family: styleVars.$font-mono;
+    font-size: styleVars.$fz-md;
+    font-weight: 400;
+
+    &::before {
+      bottom: 0;
+      font-size: styleVars.$fz-sm;
+    }
+
+    &::after {
+      display: none;
+    }
   }
 }

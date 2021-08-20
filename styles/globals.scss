@@ -33,8 +33,29 @@ body {
 
 section {
   margin: 0px auto;
-  padding: 100px 0px;
+  padding: 100px 0;
   max-width: 1000px;
+
+  header {
+    h1 {
+      margin: 0 0 30px 4px;
+      color: styleVars.$green;
+      font-size: clamp(#{styleVars.$fz-sm}, 5vw, #{styleVars.$fz-md});
+      font-weight: 400;
+      font-family: styleVars.$font-mono;
+    }
+
+    h3 {
+      margin-top: 10px;
+      color: styleVars.$slate;
+      line-height: 0.9;
+    }
+  }
+
+  p {
+    margin: 20px 0 0;
+    max-width: 540px;
+  }
 }
 
 main {
