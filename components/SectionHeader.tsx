@@ -11,7 +11,7 @@ const SectionHeader: FC<SectionHeaderProps> = ({
 }) => (
   <h2
     className={styles.SectionHeader}
-    data-titleStyle={titleStyle}
+    data-titlestyle={titleStyle}
   >
     {children}
   </h2>
