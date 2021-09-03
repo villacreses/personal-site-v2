@@ -23,6 +23,12 @@ sideLinks:
   - href: https://github.com/villacreses
     label: Github
     id: github
+  - href: https://www.linkedin.com/in/villacreses
+    label: LinkedIn
+    id: linkedin
+  - href: https://stackoverflow.com/story/villacreses
+    label: Stack Overflow
+    id: stackoverflow 
 workHistory:
   - companyName: Facebook
     key: facebook
@@ -45,6 +51,13 @@ workHistory:
     impact:
       - Developed user interface components in React, reducing component sizes by up to 50%
       - Worked with a cloud architect to build analytics dashboards for project managers and student relationship managers.
+  - companyName: Socratex
+    key: socratex
+    role: Test
+    range: Test
+    impact:
+      - Test
+      - Test
   - companyName: New World Odyssey 
     key: odyssey
     role: Co-founder & Webmaster

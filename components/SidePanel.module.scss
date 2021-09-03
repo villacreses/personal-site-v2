@@ -23,12 +23,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0;
+    margin: 20px auto;
     padding: 0;
     list-style: none;
   }
 
   svg {
+    margin-top: 15px;
     font-size: styleVars.$fz-xxl;
   }
 }
@@ -46,11 +47,11 @@
 }
 
 .emailLink {
-  margin: 20px auto 25px;
+  margin: 20px auto;
   padding: 10px;
   font-family: styleVars.$font-mono;
   font-size: styleVars.$fz-xs;
-  line-height: styleVars.$fz-lg;
+  line-height: styleVars.$fz-xl;
   letter-spacing: 0.1em;
   writing-mode: vertical-rl;
 }
