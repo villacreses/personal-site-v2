@@ -3,15 +3,19 @@ import {
   ActionButton,
   SectionHeader,
   TabList,
+  EmailPanel,
+  LinksPanel
 } from '../components';
 
 import pageContent from '../data/content.yaml';
 
 const Test = () => (
-  <div>
+  <>
     <Head>
-      <title>Mario Villacreses</title>
+      <title>{pageContent.intro.name}</title>
     </Head>
+    <LinksPanel links={pageContent.sideLinks} />
+    <EmailPanel email={pageContent.contact.email} />
     <main className="fillHeight">
       <section id="intro">
         <header>
@@ -49,7 +53,7 @@ const Test = () => (
         </ActionButton>
       </section>
     </main>
-  </div>
+  </>
 );
 
 export default Test;

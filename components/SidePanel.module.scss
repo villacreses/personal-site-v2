@@ -1,0 +1,56 @@
+@use '../styles/styleVars';
+
+.container {
+  width: 40px;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 90px;
+    margin: 0 auto;
+    background-color: styleVars.$slate-light;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  svg {
+    font-size: styleVars.$fz-xxl;
+  }
+}
+
+.containerRight {
+  @extend .container;
+  left: auto;
+  right: 40px;
+}
+
+.containerLeft {
+  @extend .container;
+  left: 40px;
+  right: auto;
+}
+
+.emailLink {
+  margin: 20px auto 25px;
+  padding: 10px;
+  font-family: styleVars.$font-mono;
+  font-size: styleVars.$fz-xs;
+  line-height: styleVars.$fz-lg;
+  letter-spacing: 0.1em;
+  writing-mode: vertical-rl;
+}

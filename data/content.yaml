@@ -19,6 +19,10 @@ about:
     volutpat. Nam sapien tellus, ultrices venenatis venenatis vitae, 
     aliquam at turpis. Nulla eget dignissim urna. Nulla cursus orci at 
     leo blandit mattis.
+sideLinks:
+  - href: https://github.com/villacreses
+    label: Github
+    id: github
 workHistory:
   - companyName: Facebook
     key: facebook
