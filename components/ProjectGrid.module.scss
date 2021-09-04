@@ -1,0 +1,92 @@
+@use '../styles/styleVars';
+
+$small-break: 768px;
+
+.gridUl {
+  list-style: outside none none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 15px;
+  position: relative;
+}
+
+.gridLi {
+  min-height: 1em;
+  background-color: styleVars.$navy-light;
+  box-shadow: 0 10px 30px -15px styleVars.$navy-shadow;
+
+  padding: 2rem 1.75rem;
+  border-radius: styleVars.$border-radius;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+
+  & > * {
+    width: 100%;
+  }
+  header {
+    h3 {
+      margin: 0 0 10px;
+      color: styleVars.$slate-lightest;
+      font-size: styleVars.$fz-xxl;
+    }
+
+    p {
+      color: styleVars.$slate-light;
+      font-size: 17px;
+    }
+  }
+
+  footer {
+    ul {
+      display: flex;
+      align-items: flex-end;
+      flex-grow: 1;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 20px 0 0;
+      list-style: none;
+    }
+
+    li {
+      font-family: styleVars.$font-mono;
+      font-size: styleVars.$fz-xxs;
+      line-height: 1.75;
+
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+.projectTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 35px;
+}
+
+.expand {
+  flex: 1;
+}
+
+.mainIcons {
+  display: flex;
+  align-items: center;
+  color: styleVars.$green;
+  font-size: 40px;
+}
+
+.externalLinks {
+  a {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+}

@@ -6,15 +6,25 @@ import {
   faHackerrank,
   faLinkedinIn,
   faMedium,
-  faStackOverflow
+  faStackOverflow,
 } from '@fortawesome/free-brands-svg-icons';
+
+import {
+  faFolder,
+} from '@fortawesome/free-regular-svg-icons';
+
+import {
+  faExternalLinkAlt,
+} from '@fortawesome/free-solid-svg-icons'
 
 const iconMap = {
   github: faGithub,
   linkedin: faLinkedinIn,
   stackoverflow: faStackOverflow,
   medium: faMedium,
-  hackerrank: faHackerrank
+  hackerrank: faHackerrank,
+  folder: faFolder,
+  external: faExternalLinkAlt,
 } as const;
 
 type IconProps = {

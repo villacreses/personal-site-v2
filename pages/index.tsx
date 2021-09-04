@@ -4,7 +4,8 @@ import {
   SectionHeader,
   TabList,
   EmailPanel,
-  LinksPanel
+  LinksPanel,
+  ProjectGrid
 } from '../components';
 
 import pageContent from '../data/content.yaml';
@@ -39,6 +40,10 @@ const Test = () => (
       <section id="jobs">
         <SectionHeader>Where I&apos;ve worked</SectionHeader>
         <TabList contentList={pageContent.workHistory} />
+      </section>
+      <section id="projects">
+          <SectionHeader>Some things I&apos;ve built</SectionHeader>
+          <ProjectGrid projects={[]} />
       </section>
       <section id="contact">
         <SectionHeader titleStyle="small">
