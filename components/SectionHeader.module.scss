@@ -1,5 +1,3 @@
-@use '../styles/styleVars';
-
 .SectionHeader {
   display: flex;
   -webkit-box-align: center;
@@ -8,7 +6,7 @@
   position: relative;
   margin: 10px 0 40px;
   width: 100%;
-  font-size: clamp(26px, 5vw, styleVars.$fz-heading);
+  font-size: clamp(26px, 5vw, var(--fz-heading));
   white-space: nowrap;
   
   &::before {
@@ -17,9 +15,9 @@
     counter-increment: section;
     content: counter(section, decimal-leading-zero) ".";
     margin-right: 10px;
-    color: styleVars.$green;
-    font-family: styleVars.$font-mono;    
-    font-size: clamp(#{styleVars.$fz-md}, 3vw, #{styleVars.$fz-xl});
+    color: var(--green);
+    font-family: var(--font-mono);    
+    font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
     font-weight: 400;
   }
 
@@ -31,20 +29,20 @@
     width: 300px;
     height: 1px;
     margin-left: 20px;
-    background-color: styleVars.$navy-lightest;
+    background-color: var(--navy-lightest);
   }
 
   &[data-titlestyle=small] {
     display: block;
     margin-bottom: 20px;
-    color: styleVars.$green;
-    font-family: styleVars.$font-mono;
-    font-size: styleVars.$fz-md;
+    color: var(--green);
+    font-family: var(--font-mono);
+    font-size: var(--fz-md);
     font-weight: 400;
 
     &::before {
       bottom: 0;
-      font-size: styleVars.$fz-sm;
+      font-size: var(--fz-sm);
     }
 
     &::after {
