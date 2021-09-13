@@ -1,4 +1,6 @@
-.ActionButton {
+$highlight: var(--green-tint);
+
+%ActionButton {
   color: var(--green);
   background-color: transparent;
   border: 1px solid var(--green);
@@ -14,13 +16,13 @@
 }
 
 .as-xs {
-  @extend .ActionButton;
+  @extend %ActionButton;
   font-size: var(--fz-xs);
   padding: 0.75rem 1rem;
 }
 
 .as-sm {
-  @extend .ActionButton;
+  @extend %ActionButton;
   font-size: var(--fz-sm);
   padding: 1.25rem 1.75rem;
 }

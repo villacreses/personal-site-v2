@@ -1,4 +1,4 @@
-.container {
+%container {
   width: 40px;
   position: fixed;
   bottom: 0;
@@ -39,13 +39,13 @@
 }
 
 .containerRight {
-  @extend .container;
+  @extend %container;
   left: auto;
   right: 40px;
 }
 
 .containerLeft {
-  @extend .container;
+  @extend %container;
   left: 40px;
   right: auto;
 }

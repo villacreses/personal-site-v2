@@ -5,7 +5,7 @@
 :root{
   /* Colors */
   --green: #64ffda;
-  --green-tint: rgba(  --green, 0.1);
+  --green-tint: rgba(100, 255, 218, 0.1);
 
   --white: #e6f1ff;
 
@@ -18,7 +18,7 @@
   --navy-dark: #020c1b;
   --navy-light: #112240;
   --navy-lightest: #233554;
-  --navy-shadow: rgba(  --navy-dark, 0.7);
+  --navy-shadow: rgba(var(--navy-dark), 0.7);
 
 /* Sizing */
   --fz-xxs: 12px;
@@ -38,6 +38,9 @@
 /* fonts */
   --font-sans: 'Calibre','Inter','San Francisco','SF Pro Text',-apple-system,system-ui,sans-serif;
   --font-mono: 'SF Mono','Fira Code','Fira Mono','Roboto Mono', monospace;
+
+  /* Misc */
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 ::before, ::after {
@@ -131,6 +134,22 @@ a {
 
   &:hover, &:focus {
     color: var(--green);
+  }
+
+  &.inline {
+    transition: var(--transition);
+    
+    &::after {
+      content: "";
+      display: block;
+      width: 0px;
+      height: 1px;
+      position: relative;
+      bottom: 0.37em;
+      background-color: var(--green);
+      
+      opacity: 0.5;
+    }
   }
 }
 

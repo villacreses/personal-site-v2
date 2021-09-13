@@ -35,29 +35,31 @@ workHistory:
     role: Rotational Engineer
     range: August 2021 - Present
     impact:
-      - Test
-      - Test
+      - I've begun my Facebook journey under their rotational engineering program, allowing me to 
+        make an impact on multiple teams withing a short time frame
   - companyName: doc.ai
     key: docai
     role: Software engineer - Apps Team
     range: February 2020 - December 2020
     impact:
-      - Refactored mobile app codebase, simplifying component structures for greater readability.
-      - Built csv-to-geojson converter to display realtime visualization of COVID-19 outbreak
+      - Built new flagship app, simplifying mobile frontend to eliminate technical debt
+      - Built realtime geographic visualization of COVID-19 outbreak
+      - Build API analytics service and integrated internal dashboards with Retool 
   - companyName: Knovva Academy
     key: knovva
     role: Full stack web developer
     range: November 2018 - January 2020
     impact:
-      - Developed user interface components in React, reducing component sizes by up to 50%
+      - Developed user interface components in React, reducing load times by up to 50%
       - Worked with a cloud architect to build analytics dashboards for project managers and student relationship managers.
   - companyName: Socratex
     key: socratex
-    role: Test
-    range: Test
+    role: Co-founder & Lead Developer
+    range: August 2018 – February 2019
     impact:
-      - Test
-      - Test
+      - Collaborated with UI/UX Designer to develop video streaming platform using Firebase & React
+      - 1st Place Winner at NY Sextech Hackathon, featured in Vice, Forbes, and Men’s Health 
+      - NY Board of Education considered official curriculum integration within select schools  
   - companyName: New World Odyssey 
     key: odyssey
     role: Co-founder & Webmaster
