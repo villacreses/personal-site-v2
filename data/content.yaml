@@ -7,18 +7,20 @@ contact:
 intro:
   name: Mario Villacreses.
   subheading: I build things for the web.
-  teaser: 
+  teaser: >
     I'm a software engineer specializing in building extraordinary
     experiences for the web. Currently I'm working as 
     a rotational engineer at Facebook. 
-about: 
-  - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque 
-    blandit ac mauris et dapibus. Class aptent taciti sociosqu ad litora 
-    torquent per conubia nostra, per inceptos himenaeos.
-  - Vestibulum sit amet rhoncus dui, ut condimentum tellus. Aliquam erat 
-    volutpat. Nam sapien tellus, ultrices venenatis venenatis vitae, 
-    aliquam at turpis. Nulla eget dignissim urna. Nulla cursus orci at 
-    leo blandit mattis.
+about: >
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque 
+  blandit ac mauris et dapibus. Class aptent taciti sociosqu ad litora 
+  torquent per conubia nostra, per inceptos himenaeos.
+  
+  
+  Vestibulum sit amet rhoncus dui, ut condimentum tellus. Aliquam erat 
+  volutpat. Nam sapien tellus, ultrices venenatis venenatis vitae, 
+  aliquam at turpis. Nulla eget dignissim urna. Nulla cursus orci at 
+  leo blandit mattis.
 sideLinks:
   - href: https://github.com/villacreses
     label: Github
@@ -34,36 +36,42 @@ workHistory:
     key: facebook
     role: Rotational Engineer
     range: August 2021 - Present
-    impact:
-      - I've begun my Facebook journey under their rotational engineering program, allowing me to 
-        make an impact on multiple teams withing a short time frame
+    impact: >
+      I've begun my Facebook journey under their rotational engineering program, allowing me to 
+      make an impact on multiple teams withing a short time frame
   - companyName: doc.ai
     key: docai
     role: Software engineer - Apps Team
     range: February 2020 - December 2020
-    impact:
+    impact: >
       - Built new flagship app, simplifying mobile frontend to eliminate technical debt
+
       - Built realtime geographic visualization of COVID-19 outbreak
+      
       - Build API analytics service and integrated internal dashboards with Retool 
   - companyName: Knovva Academy
     key: knovva
     role: Full stack web developer
     range: November 2018 - January 2020
-    impact:
+    impact: >
       - Developed user interface components in React, reducing load times by up to 50%
+      
       - Worked with a cloud architect to build analytics dashboards for project managers and student relationship managers.
   - companyName: Socratex
     key: socratex
     role: Co-founder & Lead Developer
     range: August 2018 – February 2019
-    impact:
+    impact: >
       - Collaborated with UI/UX Designer to develop video streaming platform using Firebase & React
+
       - 1st Place Winner at NY Sextech Hackathon, featured in Vice, Forbes, and Men’s Health 
+      
       - NY Board of Education considered official curriculum integration within select schools  
   - companyName: New World Odyssey 
     key: odyssey
     role: Co-founder & Webmaster
     range: November 2013 - May 2014
-    impact:
+    impact: >
       - Built and maintained an online catalog of medical technologies using HTML5, CSS, and jQuery
+      
       - Researched and maintained database of U.S.-manufactured medical technologies

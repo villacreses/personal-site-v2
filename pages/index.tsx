@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Markdown from 'react-markdown';
 import {
   ActionButton,
   SectionHeader,
@@ -33,9 +34,9 @@ const Test = () => (
       </section>
       <section id="about">
         <SectionHeader>About me</SectionHeader>
-        {pageContent.about.map((content: string, idx: number) => (
-          <p key={`about-me-${idx}`}>{content}</p>
-        ))}
+        <p>
+          <Markdown>{pageContent.about}</Markdown>
+        </p>
       </section>
       <section id="jobs">
         <SectionHeader>Where I&apos;ve worked</SectionHeader>
@@ -50,9 +51,9 @@ const Test = () => (
           What&apos;s Next?
         </SectionHeader>
         <h3>Get in touch</h3>
-        <p>
+        <Markdown>
           {pageContent.contact.ctaMessage}
-        </p>
+        </Markdown>
         <ActionButton href={`mailto:${pageContent.contact.email}`}>
           Say hello
         </ActionButton>

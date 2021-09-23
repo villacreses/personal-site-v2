@@ -1,4 +1,5 @@
 import { FC, HTMLProps, useState } from 'react';
+import Markdown from 'react-markdown';
 import styles from './TabList.module.scss';
 
 type Content = {
@@ -6,7 +7,7 @@ type Content = {
   role: string;
   companyName: string;
   range?: string; 
-  impact: Array<string>;
+  impact: string;
 };
 
 interface TabProps extends HTMLProps<HTMLButtonElement> {
@@ -68,13 +69,7 @@ const Panel: FC<PanelProps> = ({
     <p data-content="range">
       {content.range}
     </p>
-    <ul>
-      {content.impact.map((impact, idx) => (
-        <li key={`impact-${idx}`}>
-          {impact}
-        </li>
-      ))}
-    </ul>
+    <Markdown>{content.impact}</Markdown>
   </div>
 );
 
