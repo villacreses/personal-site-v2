@@ -8,25 +8,14 @@ import {
   Layout
 } from '../components';
 
-import pageContent from '../data/content.yaml';
 import content from '../data/index.content.yaml';
 import experience from '../data/Experience.content.yaml';
-
-const ctaComponents: { [key: string]: React.ReactNode } = {
-  a: function ActionButtonMD ({ node, ...props }) {
-    return <ActionButton {...props} />
-  }
-};
 
 const Home = () => (
   <Layout>
     <section id="intro">
-      <Markdown>
-        {content.intro}
-      </Markdown>
-      <Markdown components={ctaComponents}>
-        {content.introCTA}
-      </Markdown>
+      <Markdown>{content.intro}</Markdown>
+      <ActionButton {...content.introCTA} />
     </section>
     <section id="about">
       <SectionHeader>About me</SectionHeader>
@@ -48,9 +37,8 @@ const Home = () => (
       <SectionHeader titleStyle="small">
         What&apos;s Next?
       </SectionHeader>
-      <Markdown components={ctaComponents}>
-        {content.contact}
-      </Markdown>
+      <Markdown>{content.contact}</Markdown>
+      <ActionButton {...content.contactCTA} />
     </section>
   </Layout>
 );

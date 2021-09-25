@@ -8,8 +8,9 @@ intro: >
   I'm a software engineer specializing in building extraordinary
   experiences for the web. Currently I'm working as 
   a rotational engineer at [Facebook](https://about.facebook.com).
-introCTA: > 
-  [Get In Touch](mailto:MarioVillacreses@outlook.com)
+introCTA:
+  children: Get in touch
+  href: mailto:MarioVillacreses@outlook.com
 about: >
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque 
   blandit ac mauris et dapibus. Class aptent taciti sociosqu ad litora 
@@ -26,6 +27,6 @@ contact: >
   Although I'm not currently looking for any new opportunities, 
   my inbox is always open. Whether you have a question or just 
   want to say hi, I'll try my best to get back to you!
-
-
-  [Say hello](mailto:MarioVillacreses@outlook.com)
+contactCTA:
+  children: Say Hello
+  href: mailto:MarioVillacreses@outlook.com
