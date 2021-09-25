@@ -1,13 +1,11 @@
-import { FC, HTMLProps, useState } from 'react';
+import { FC, HTMLProps, useState, ComponentProps } from 'react';
 import Markdown from 'react-markdown';
 import styles from './TabList.module.scss';
 
 type Content = {
-  key: string;
-  role: string;
-  companyName: string;
-  range?: string; 
-  impact: string;
+  slug: string;
+  tabLabel: string;
+  content: string;
 };
 
 interface TabProps extends HTMLProps<HTMLButtonElement> {
@@ -15,7 +13,7 @@ interface TabProps extends HTMLProps<HTMLButtonElement> {
 }
 
 interface PanelProps extends Omit<HTMLProps<HTMLElement>, 'content'> {
-  content: Content;
+  content: string;
 }
 
 type TabListProps = {
@@ -41,6 +39,13 @@ const Tab: FC<TabProps> = ({
   </button>
 );
 
+const panelMarkdownComponents: ComponentProps<typeof Markdown>['components'] = {
+  h1: 'h3',
+  h2: function DateRange ({ node, ...props }) {
+    return <p className={styles.dateRange} {...props} />
+  }
+};
+
 const Panel: FC<PanelProps> = ({
   id,
   hidden,
@@ -55,21 +60,9 @@ const Panel: FC<PanelProps> = ({
     aria-hidden={hidden}
     hidden={hidden}
   >
-    <h3>
-      <span>{content.role}</span>
-      <span data-content="company">
-        {' @ '}
-        <a
-          rel="noopener noreferrer"
-        >
-          {content.companyName}
-        </a>
-      </span>
-    </h3>
-    <p data-content="range">
-      {content.range}
-    </p>
-    <Markdown>{content.impact}</Markdown>
+    <Markdown components={panelMarkdownComponents}>
+      {content}
+    </Markdown>
   </div>
 );
 
@@ -79,14 +72,14 @@ const TabList: FC<TabListProps> = ({ contentList }) => {
   return (
     <div className={styles.TabContainer}>
       <div role="tablist" aria-label="Work History">
-        {contentList.map(({ companyName, key }, idx) => (
+        {contentList.map(({ tabLabel, slug }, idx) => (
           <Tab
-            key={key}
-            id={key}
+            key={slug}
+            id={slug}
             selected={activeTab === idx}
             onClick={() => setActiveTab(idx)}
           >
-            {companyName}
+            {tabLabel}
           </Tab>
         ))}
         <div
@@ -95,10 +88,10 @@ const TabList: FC<TabListProps> = ({ contentList }) => {
         />
       </div>
       <div data-containerfor="panels" >
-        {contentList.map((content, idx) => (
+        {contentList.map(({ slug, content }, idx) => (
           <Panel
-            key={content.key}
-            id={content.key}
+            key={slug}
+            id={slug}
             content={content}
             hidden={activeTab !== idx}
           />

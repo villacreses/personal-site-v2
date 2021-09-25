@@ -1,0 +1,12 @@
+defaultTitle: Mario Villacreses
+email: MarioVillacreses@outlook.com
+links:
+  - slug: github
+    href: https://github.com/villacreses
+    label: Github
+  - slug: linkedin
+    href: https://www.linkedin.com/in/villacreses
+    label: LinkedIn
+  - slug: stackoverflow 
+    href: https://stackoverflow.com/story/villacreses
+    label: Stack Overflow

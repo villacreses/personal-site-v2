@@ -1,0 +1,53 @@
+- slug: facebook
+  tabLabel: Facebook
+  content: >
+    # Rotational Engineer @ [Facebook]()
+    
+    ## August 2021 - Present
+
+    I've begun my Facebook journey under their rotational engineering program, allowing me to 
+    make an impact on multiple teams withing a short time frame
+- slug: doc-ai
+  tabLabel: doc.ai
+  content: >
+    # Software engineer - Apps Team @ [doc.ai]()
+    
+    ## February 2020 - December 2020
+  
+    - Built new flagship app, simplifying mobile frontend to eliminate technical debt
+  
+    - Built realtime geographic visualization of COVID-19 outbreak
+  
+    - Build API analytics service and integrated internal dashboards with Retool 
+- slug: knovva
+  tabLabel: Knovva Academy
+  content: >
+    # Full stack web developer @ [Knovva Academy]()
+    
+    ## November 2018 - January 2020
+  
+    - Developed user interface components in React, reducing load times by up to 50%
+    
+    - Worked with a cloud architect to build analytics dashboards for project managers and student relationship managers.
+- slug: socratex
+  tabLabel: Socratex
+  content: >
+    # Co-founder & Lead Developer @ Socratex
+    
+    ## August 2018 – February 2019
+
+    - Collaborated with UI/UX Designer to develop video streaming platform using Firebase & React
+    
+    - 1st Place Winner at NY Sextech Hackathon, featured in [Vice](), [Forbes](), and [Men’s Health]() 
+    
+    - NY Board of Education considered official curriculum integration within select schools  
+- slug: odyssey
+  tabLabel: New World Odyssey 
+  content: >
+    # Co-founder & Webmaster @ New World Odyssey
+    
+    ## November 2013 - May 2014
+
+    - Built and maintained an online catalog of medical technologies using HTML5, CSS, and jQuery
+    
+    - Researched and maintained database of U.S.-manufactured medical technologies

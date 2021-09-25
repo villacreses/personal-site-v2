@@ -1,65 +1,56 @@
-import Head from 'next/head';
+import React from 'react'
 import Markdown from 'react-markdown';
 import {
   ActionButton,
   SectionHeader,
   TabList,
-  EmailPanel,
-  LinksPanel,
-  ProjectGrid
+  ProjectGrid,
+  Layout
 } from '../components';
 
 import pageContent from '../data/content.yaml';
+import content from '../data/index.content.yaml';
+import experience from '../data/Experience.content.yaml';
 
-const Test = () => (
-  <>
-    <Head>
-      <title>{pageContent.intro.name}</title>
-    </Head>
-    <LinksPanel links={pageContent.sideLinks} />
-    <EmailPanel email={pageContent.contact.email} />
-    <main className="fillHeight">
-      <section id="intro">
-        <header>
-          <h1>Hi, my name is</h1>
-          <h2 className="big-heading">{pageContent.intro.name}</h2>
-          <h3 className="big-heading">{pageContent.intro.subheading}</h3>
-        </header>
-        <p>
-          {pageContent.intro.teaser}
-        </p>
-        <ActionButton href={`mailto:${pageContent.contact.email}`}>
-          Get In Touch
-        </ActionButton>
-      </section>
-      <section id="about">
-        <SectionHeader>About me</SectionHeader>
-        <p>
-          <Markdown>{pageContent.about}</Markdown>
-        </p>
-      </section>
-      <section id="jobs">
-        <SectionHeader>Where I&apos;ve worked</SectionHeader>
-        <TabList contentList={pageContent.workHistory} />
-      </section>
-      <section id="projects">
-          <SectionHeader>Some things I&apos;ve built</SectionHeader>
-          <ProjectGrid projects={[]} />
-      </section>
-      <section id="contact">
-        <SectionHeader titleStyle="small">
-          What&apos;s Next?
-        </SectionHeader>
-        <h3>Get in touch</h3>
-        <Markdown>
-          {pageContent.contact.ctaMessage}
-        </Markdown>
-        <ActionButton href={`mailto:${pageContent.contact.email}`}>
-          Say hello
-        </ActionButton>
-      </section>
-    </main>
-  </>
+const ctaComponents: { [key: string]: React.ReactNode } = {
+  a: function ActionButtonMD ({ node, ...props }) {
+    return <ActionButton {...props} />
+  }
+};
+
+const Home = () => (
+  <Layout>
+    <section id="intro">
+      <Markdown>
+        {content.intro}
+      </Markdown>
+      <Markdown components={ctaComponents}>
+        {content.introCTA}
+      </Markdown>
+    </section>
+    <section id="about">
+      <SectionHeader>About me</SectionHeader>
+      <Markdown className="about">
+        {content.about}
+      </Markdown>
+    </section>
+    <section id="jobs">
+      <SectionHeader>Where I&apos;ve worked</SectionHeader>
+      <TabList contentList={experience} />
+    </section>
+    <section id="projects">
+      <SectionHeader>Some things I&apos;ve built</SectionHeader>
+      <ProjectGrid projects={[]} />
+    </section>
+    <section id="contact">
+      <SectionHeader titleStyle="small">
+        What&apos;s Next?
+      </SectionHeader>
+      <Markdown components={ctaComponents}>
+        {content.contact}
+      </Markdown>
+    </section>
+  </Layout>
 );
 
-export default Test;
+export default Home;
