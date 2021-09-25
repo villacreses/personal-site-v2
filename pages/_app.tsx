@@ -1,5 +1,5 @@
 import '../styles/globals.scss';
-import '../styles/shared.scss';
+import '../styles/sections.scss';
 import '../styles/fonts.scss';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
