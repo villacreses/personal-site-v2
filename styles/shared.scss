@@ -1,24 +1,27 @@
+@use 'mixins';
+
 #intro {
-  display: flex;
-  -moz-box-pack: center;
-  justify-content: center;
-  -moz-box-align: center;
+  @include mixins.flexCenter;
+  
   flex-direction: column;
   align-items: flex-start;
   min-height: 100vh;
   padding: 0;
 
-  p {
-    margin: 20px 0 0;
+  @media (max-width: 480px) and (min-height: 700px) {
+    padding-bottom: 10vh;
   }
-
 
   h1 {
     margin: 0 0 30px 4px;
     color: var(--green);
+    font-family: var(--font-mono);
     font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
     font-weight: 400;
-    font-family: var(--font-mono);
+
+    @media (max-width: 480px) {
+      margin: 0 0 20px 2px;
+    }
   }
 
   h2, h3 {
@@ -31,10 +34,39 @@
     color: var(--slate);
     line-height: 0.9;
   }
+
+  p {
+    margin: 20px 0 0;
+    max-width: 540px;
+  }
 }
 
 #about {
   max-width: 900px;
+
+  & > div {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-gap: 50px;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 200px));
+    grid-gap: 0 10px;
+    padding: 0;
+    margin: 20px 0 0 0;
+    overflow: hidden;
+    list-style: none;
+  }
+
+  li {
+    @include mixins.bullet;
+  }
 }
 
 #jobs {

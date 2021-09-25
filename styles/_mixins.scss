@@ -1,0 +1,31 @@
+@mixin inline-link {
+
+}
+
+@mixin flexCenter {
+  display: flex;
+  -moz-box-pack: center;
+  justify-content: center;
+  -moz-box-align: center;
+}
+
+@mixin basicList {
+  padding: 0;
+}
+
+@mixin bullet {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 20px;
+
+  &::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    line-height: 12px;
+
+    display: flex;
+    align-items: center;
+  }
+}

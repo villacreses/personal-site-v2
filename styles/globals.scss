@@ -43,7 +43,7 @@
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-::before, ::after {
+*, ::before, ::after {
   box-sizing: inherit;
 }
 
@@ -52,47 +52,41 @@
   color: var(--slate-lightest);
 }
 
-html,
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--slate-dark) var(--navy);
+}
+
 body {
-  padding: 0;
+  counter-reset: section;
   margin: 0;
-  font-family: var(--font-sans); 
   width: 100%;
   min-height: 100%;
   overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   background-color: var(--navy);
   color: var(--slate);
-  line-height: 1.3;
-}
-
-body {
+  font-family: var(--font-sans);
   font-size: var(--fz-xl);
-  counter-reset: section;
-}
+  line-height: 1.3;
 
-section {
-  margin: 0px auto;
-  padding: 100px 0;
-  max-width: 1000px;
+  &::-webkit-scrollbar {
+    width: 12px;
 
-  header {
-    h1 {
-      margin: 0 0 30px 4px;
-      color: var(--green);
-      font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
-      font-weight: 400;
-      font-family: var(--font-mono);
+    &-track {
+      background: var(--navy);
     }
 
-    h3 {
-      margin-top: 10px;
-      color: var(--slate);
-      line-height: 0.9;
+    &-thumb {
+      background-color: var(--slate-dark);
+      border: 3px solid var(--navy);
+      border-radius: 10px;
     }
   }
 
-  p {
-    max-width: 540px;
+  @media (max-width: 480px) {
+    font-size: var(--fz-lg);
   }
 }
 
@@ -111,6 +105,10 @@ main {
     padding: 150px 50px;
   }
 
+  @media (max-width: 480px) {
+    padding: 125px 25px;
+  }
+
   &.fillHeight {
     padding: 0 150px;
 
@@ -121,16 +119,46 @@ main {
     @media (max-width: 768px) {
       padding: 0 50px;
     }
+
+    @media (max-width: 480px) {
+      padding: 0 25px;
+    }
   }
+}
+
+section {
+  margin: 0 auto;
+  padding: 100px 0;
+  max-width: 1000px;
+
+  @media (max-width: 768px) {
+    padding: 80px 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 60px 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 10px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--slate-lightest);
 }
 
 a {
   display: inline-block;
   text-decoration: none;
   text-decoration-skip-ink: auto;
-  position: relative;
   color: inherit;
-  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
 
   &:hover, &:focus {
     color: var(--green);
@@ -153,17 +181,7 @@ a {
   }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0 0 10px;
-  font-weight: 600;
-  line-height: 1.1;
-  color: var(--slate-lightest);
-}
+
 
 button {
   cursor: pointer;
@@ -174,7 +192,8 @@ button {
 p {
   margin: 0 0 15px;
 
-  &:last-child, &:last-of-type {
+  &:last-child,
+  &:last-of-type {
     margin: 0;
   }
   
@@ -184,7 +203,7 @@ p {
     &::after {
       content: '';
       display: block;
-      width: 0px;
+      width: 0;
       height: 1px;
       position: relative;
       bottom: 0.37em;

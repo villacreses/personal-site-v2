@@ -30,9 +30,11 @@ const Home = () => (
     </section>
     <section id="about">
       <SectionHeader>About me</SectionHeader>
-      <Markdown className="about">
-        {content.about}
-      </Markdown>
+      <div>
+        <Markdown className="about-me">
+          {content.about}
+        </Markdown>
+      </div>
     </section>
     <section id="jobs">
       <SectionHeader>Where I&apos;ve worked</SectionHeader>

@@ -43,6 +43,13 @@ const panelMarkdownComponents: ComponentProps<typeof Markdown>['components'] = {
   h1: 'h3',
   h2: function DateRange ({ node, ...props }) {
     return <p className={styles.dateRange} {...props} />
+  },
+  strong: function CompanyHighlight ({ children }) {
+    return ( 
+      <span className={styles.companyHighlight}>
+        {children}
+      </span>
+    );
   }
 };
 
@@ -84,7 +91,9 @@ const TabList: FC<TabListProps> = ({ contentList }) => {
         ))}
         <div
           className={styles.highlight}
-          style={{ top: `calc(${activeTab} * var(--tab-height))` }}
+          style={{ 
+            transform: `translateY(calc(${activeTab} * var(--tab-height)))` 
+          }}
         />
       </div>
       <div data-containerfor="panels" >
