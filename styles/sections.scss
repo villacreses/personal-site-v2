@@ -57,11 +57,11 @@
     grid-column: 1 / -1;
   }
 
-  .img-container {
+  div[data-container=image] {
     grid-column-start: 2;
     grid-row: 2 / span 3;
   }
-
+  
   ul {
     display: grid;
     grid-template-columns: repeat(2, minmax(140px, 200px));

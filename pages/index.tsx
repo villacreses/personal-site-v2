@@ -7,12 +7,12 @@ import {
   SectionHeader,
   TabList,
   ProjectGrid,
-  Layout
+  Layout,
+  ProfileImage
 } from '../components';
 
 import content from '../data/index.content.yaml';
 import experience from '../data/Experience.content.yaml';
-
 
 const Home = () => (
   <Layout>
@@ -23,15 +23,13 @@ const Home = () => (
     <section id="about">
       <SectionHeader>About me</SectionHeader>
       <Markdown>{content.about}</Markdown>
-      <div className="img-container">
-        <Image
-          src="/../public/images/mario.jpg"
-          alt="Headshot of Mario"
-          layout="intrinsic"
-          width={300}
-          height={300}
-        />
-      </div>
+      <ProfileImage
+        src="/../public/images/mario.jpg"
+        alt="Headshot of Mario"
+        layout="intrinsic"
+        width={300}
+        height={300}
+      />
     </section>
     <section id="jobs">
       <SectionHeader>Where I&apos;ve worked</SectionHeader>
