@@ -58,6 +58,7 @@ html {
   @include mixins.borderBox;
   scrollbar-width: thin;
   scrollbar-color: var(--slate-dark) var(--navy);
+  scroll-behavior: smooth;
 }
 
 body {

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import Link from 'next/link'
 
 import styles from './Nav.module.scss';
 const navLinks = [
@@ -20,9 +21,11 @@ const Nav: FC = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <div className={styles.logo}>
-          MV
-        </div>
+        <Link href="/" passHref> 
+          <a className={styles.logo}>
+            MV
+          </a>
+        </Link>
         <ol>
           {navLinks.map((props, i) => (
             <li key={i}>

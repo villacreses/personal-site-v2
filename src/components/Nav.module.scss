@@ -62,4 +62,17 @@
 .logo {
   font-weight: 600;
   font-family: var(--font-sans);
+  user-select: none;
+
+  border: 1px solid #777;
+  padding: 8px 5px 3px;
+  border-radius: var(--border-radius);
+
+  &:hover {
+    border-color: var(--green);
+  }
+
+  &:not(:hover) {
+    color: #fff;
+  }
 }

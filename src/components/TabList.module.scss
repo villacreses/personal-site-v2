@@ -129,11 +129,20 @@
     line-height: 1.3;
   }
 
+  %content-size {
+    font-size: var(--fz-lg);
+  }
+
+  p {
+    @extend %content-size;
+  }
+
   ul {
+    @extend %content-size;
+    
     padding: 0;
     margin: 0;
     list-style: outside none none;
-    font-size: var(--fz-lg);
 
     li {
       position: relative;
