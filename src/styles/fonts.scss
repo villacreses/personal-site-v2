@@ -42,7 +42,7 @@ $fonts: (
   @each $file-name, $font-style, $font-weight in $files {
     @font-face {
       font-family: $font-family;
-      src: url("../public/fonts/#{$dir}/#{$dir}#{$file-name}.otf");
+      src: url("../../public/fonts/#{$dir}/#{$dir}#{$file-name}.otf");
       font-style: $font-style;
       font-weight: $font-weight;
     }

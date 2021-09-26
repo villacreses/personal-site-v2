@@ -13,6 +13,7 @@ import {
 
 import content from '../data/index.content.yaml';
 import experience from '../data/Experience.content.yaml';
+import mario from '../../public/images/mario.jpg'
 
 const Home = () => (
   <Layout>
@@ -24,7 +25,7 @@ const Home = () => (
       <SectionHeader>About me</SectionHeader>
       <Markdown>{content.about}</Markdown>
       <ProfileImage
-        src="/../public/images/mario.jpg"
+        src={mario}
         alt="Headshot of Mario"
         layout="intrinsic"
         width={300}
