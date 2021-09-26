@@ -7,8 +7,12 @@ const navLinks = [
     href: '#about'
   },
   {
-    children: 'Test',
+    children: 'Experience',
     href: '#jobs'
+  },
+  {
+    children: 'Contact',
+    href: '#contact'
   }
 ];
 
