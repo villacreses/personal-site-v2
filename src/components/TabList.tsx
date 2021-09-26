@@ -1,6 +1,7 @@
 import { FC, HTMLProps, useState, ComponentProps } from 'react';
 import Markdown from 'react-markdown';
 import styles from './TabList.module.scss';
+import useMediaQuery from '../hooks/useMediaQuery';
 
 type Content = {
   slug: string;
@@ -76,6 +77,10 @@ const Panel: FC<PanelProps> = ({
 const TabList: FC<TabListProps> = ({ contentList }) => {
   const [activeTab, setActiveTab] = useState(0);
 
+  const transform = useMediaQuery('(max-width: 600px)')
+    ? `translateX(calc(${activeTab} * var(--tab-width)))`
+    : `translateY(calc(${activeTab} * var(--tab-height)))`;
+
   return (
     <div className={styles.TabContainer}>
       <div role="tablist" aria-label="Work History">
@@ -91,9 +96,7 @@ const TabList: FC<TabListProps> = ({ contentList }) => {
         ))}
         <div
           className={styles.highlight}
-          style={{ 
-            transform: `translateY(calc(${activeTab} * var(--tab-height)))` 
-          }}
+          style={{ transform }}
         />
       </div>
       <div data-containerfor="panels" >
