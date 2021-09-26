@@ -1,5 +1,7 @@
 import React from 'react'
 import Markdown from 'react-markdown';
+import Image from 'next/image';
+
 import {
   ActionButton,
   SectionHeader,
@@ -11,6 +13,7 @@ import {
 import content from '../data/index.content.yaml';
 import experience from '../data/Experience.content.yaml';
 
+
 const Home = () => (
   <Layout>
     <section id="intro">
@@ -19,20 +22,27 @@ const Home = () => (
     </section>
     <section id="about">
       <SectionHeader>About me</SectionHeader>
-      <div>
-        <Markdown className="about-me">
-          {content.about}
-        </Markdown>
+      <Markdown>{content.about}</Markdown>
+      <div className="img-container">
+        <Image
+          src="/../public/images/mario.jpg"
+          alt="Headshot of Mario"
+          layout="intrinsic"
+          width={300}
+          height={300}
+        />
       </div>
     </section>
     <section id="jobs">
       <SectionHeader>Where I&apos;ve worked</SectionHeader>
       <TabList contentList={experience} />
     </section>
+    {/*
     <section id="projects">
       <SectionHeader>Some things I&apos;ve built</SectionHeader>
       <ProjectGrid projects={[]} />
     </section>
+    */}
     <section id="contact">
       <SectionHeader titleStyle="small">
         What&apos;s Next?
