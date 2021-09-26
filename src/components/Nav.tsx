@@ -14,6 +14,10 @@ const navLinks = [
   {
     children: 'Contact',
     href: '#contact'
+  },
+  {
+    children: 'Test',
+    href: '#'
   }
 ];
 
