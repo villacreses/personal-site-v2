@@ -9,6 +9,12 @@
   -moz-box-align: center;
 }
 
+@mixin flexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 @mixin basicList {
   padding: 0;
 }

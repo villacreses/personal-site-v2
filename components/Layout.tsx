@@ -1,6 +1,7 @@
 import { FC, ComponentProps } from 'react'
 import Head from 'next/head';
 import Icon from './Icon';
+import Nav from './Nav';
 
 import content from '../data/Layout.content.yaml';
 
@@ -60,6 +61,7 @@ const Layout: FC = ({ children }) => (
     <Head>
       <title>{content.defaultTitle}</title>
     </Head>
+    <Nav />
     <LinksPanel links={content.links} />
     <EmailPanel email={content.email} />
     <main className="fillHeight">{children}</main>

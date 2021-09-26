@@ -5,3 +5,4 @@ export { EmailPanel, LinksPanel } from './SidePanel';
 export { default as Icon } from './Icon';
 export { default as ProjectGrid } from './ProjectGrid'
 export { default as Layout } from './Layout';
+export { default as Nav } from './Nav';
