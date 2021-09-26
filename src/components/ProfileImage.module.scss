@@ -1,9 +1,36 @@
-.container {
+.grid {
   grid-column-start: 2;
   grid-row: 2 / span 3;
+  align-items: center;
+}
+
+.ratio {
   position: relative;
+  width: 100%;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+
+    @media (max-width: 768px) {
+      padding: 0;
+    }
+  }
+}
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
   background: var(--green);
   border-radius: var(--border-radius);
+
+  @media (max-width: 768px) {
+    position: relative;
+    margin: 50px auto 0;
+    left: 0;
+    right: 0;
+  }
   
   &::after {
     border: 2px solid var(--green);
@@ -21,9 +48,7 @@
     overflow: overlay;
     transition: var(--transition);
   }
-  @media (max-width: 768px) {
-    margin: 50px auto 0;
-  }
+  
   img {
     mix-blend-mode: multiply;
     filter: grayscale(100%);
