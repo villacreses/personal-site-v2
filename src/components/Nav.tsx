@@ -24,19 +24,21 @@ const navLinks = [
 const Nav: FC = () => {
   return (
     <header className={styles.header}>
-      <nav className={styles.nav}>
+      <nav>
         <Link href="/" passHref> 
           <a className={styles.logo}>
             MV
           </a>
         </Link>
-        <ol>
-          {navLinks.map((props, i) => (
-            <li key={i}>
-              <a {...props} />
-            </li>
-          ))}
-        </ol>
+        <div className={styles.links}>
+          <ol>
+            {navLinks.map((props, i) => (
+              <li key={i}>
+                <a {...props} />
+              </li>
+            ))}
+          </ol>
+        </div>
       </nav>
     </header>
   )
