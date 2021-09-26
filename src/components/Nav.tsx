@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import Link from 'next/link'
+import Link from 'next/link';
+import ActionButton from './ActionButton';
 
 import styles from './Nav.module.scss';
 const navLinks = [
@@ -38,6 +39,9 @@ const Nav: FC = () => {
               </li>
             ))}
           </ol>
+          <ActionButton size="xs" href="resume.pdf" target="_blank">
+            Resume
+          </ActionButton>
         </div>
       </nav>
     </header>
