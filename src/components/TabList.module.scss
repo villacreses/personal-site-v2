@@ -137,6 +137,10 @@
     @extend %content-size;
   }
 
+  a {
+    @include mixins.inlineLink;
+  }
+
   ul {
     @extend %content-size;
     

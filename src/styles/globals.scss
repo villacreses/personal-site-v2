@@ -167,22 +167,6 @@ a {
   &:hover, &:focus {
     color: var(--green);
   }
-
-  &.inline {
-    transition: var(--transition);
-    
-    &::after {
-      content: "";
-      display: block;
-      width: 0px;
-      height: 1px;
-      position: relative;
-      bottom: 0.37em;
-      background-color: var(--green);
-      
-      opacity: 0.5;
-    }
-  }
 }
 
 
@@ -201,17 +185,6 @@ p {
   }
   
   & > a {
-    color: var(--green);
-
-    &::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 1px;
-      position: relative;
-      bottom: 0.37em;
-      background-color: var(--green);
-      opacity: 0.5;
-    }
+    @include mixins.inlineLink;
   }
 }

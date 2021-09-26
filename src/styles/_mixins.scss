@@ -1,5 +1,23 @@
-@mixin inline-link {
+@mixin inlineLink {
+  color: var(--green);
+  
+  &:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 1px;
+    position: relative;
+    bottom: 0.37em;
+    background-color: var(--green);
+    transition: var(--transition);
+    opacity: 0.5;
+  }
 
+  &:hover, &:focus, &:active {
+    &::after {
+      width: 100%;
+    }
+  }
 }
 
 @mixin flexCenter {
