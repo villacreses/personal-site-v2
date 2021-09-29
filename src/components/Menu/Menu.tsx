@@ -18,7 +18,8 @@ type MenuProps = {
 const MenuToggle: FC = ({ children }) => {
   const {
     id,
-    nodeFocusProps,
+    onBlur,
+    onFocus,
     toggleRef,
     handleToggleClick,
     toggleHandleKeyEvents,
@@ -33,7 +34,8 @@ const MenuToggle: FC = ({ children }) => {
       type="button"
       onClick={handleToggleClick}
       onKeyDown={toggleHandleKeyEvents}
-      {...nodeFocusProps}
+      onBlur={onBlur}
+      onFocus={onFocus}
     >
       {children}
     </button>
@@ -41,7 +43,13 @@ const MenuToggle: FC = ({ children }) => {
 };
 
 const MenuContainer: FC = ({ children }) => {
-  const { id, nodeFocusProps, containerRef } = useMenuContext();
+  const {
+    id,
+    onBlur,
+    onFocus,
+    containerRef,
+    menuHandleKeyEvents,
+  } = useMenuContext();
 
   return (
     <div
@@ -49,7 +57,9 @@ const MenuContainer: FC = ({ children }) => {
       id={`${id}-menu-container`}
       aria-labelledby={`${id}-menu-button`}
       role="menu"
-      {...nodeFocusProps}
+      onBlur={onBlur}
+      onFocus={onFocus}
+      onKeyDown={menuHandleKeyEvents}
     >
       {children}
     </div>
@@ -57,12 +67,15 @@ const MenuContainer: FC = ({ children }) => {
 };
 
 const MenuItem: FC<AnchorProps> = props => {
-  const { id } = useMenuContext();
+  const { id, menuItemHandleKeyEvents } = useMenuContext();
 
   return (
-    <li role="menuitem" className={`${id}-menu-item`}>
+    <li role="presentation">
       <a
+        role="menuitem"
+        className={`${id}-menu-item`}
         tabIndex={-1}
+        onKeyDown={menuItemHandleKeyEvents}
         {...props}
       />
     </li>
@@ -70,9 +83,9 @@ const MenuItem: FC<AnchorProps> = props => {
 };
 
 type MenuComposition = {
-  Container: FC;
-  Toggle: FC;
-  Item: FC<AnchorProps>;
+  Container: typeof MenuContainer;
+  Toggle: typeof MenuToggle;
+  Item: typeof MenuItem;
 }
 
 const Menu: FC<MenuProps> & MenuComposition = ({

@@ -4,17 +4,18 @@ import {
   RefObject,
   useCallback,
   MouseEventHandler,
-  KeyboardEventHandler
+  KeyboardEventHandler,
+  useEffect
 } from "react";
 
 const KEY_CODES = Object.freeze({
-  RETURN: 13,
-  ESC: 27,
-  SPACE: 32,
-  END: 35,
-  HOME: 36,
-  UP: 38,
-  DOWN: 48,
+  RETURN: 'Enter',
+  ESC: 'Escape',
+  SPACE: ' ',
+  END: 'End',
+  HOME: 'Home',
+  UP: 'ArrowUp',
+  DOWN: 'ArrowDown',
 });
 
 const useMenuState = (id: string) => {
@@ -25,9 +26,32 @@ const useMenuState = (id: string) => {
   const containerRef = useRef(null) as RefObject<HTMLDivElement>;
   const toggleRef = useRef(null) as RefObject<HTMLButtonElement>;
 
-  const itemCount = document.querySelectorAll(`.${id}-menu-item`).length;
+  const items: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(`.${id}-menu-item`);
+  const itemCount = items.length;
   
   const focusMenu = () => toggleRef.current?.focus();
+
+  useEffect(() => {
+     // as long as the menu is open, focus the next available item
+    if (isOpen && highlightIdx > -1 && highlightIdx < itemCount) {
+        items[highlightIdx].focus();
+    } else {
+      // if the menu is closed, focus the button.
+      toggleRef.current?.focus();
+    }
+  }, [isOpen, highlightIdx, itemCount, items]);
+  
+  const closeMenu = useCallback(() => {
+    setIsOpen(false);
+    setHighlightIdx(-1);
+    focusMenu();
+  }, []);
+  
+  useEffect(() => {
+          // for items we just need to stop event propagation or the menu container
+          // will handle these event(which we don't want)
+          if (!isFocused) closeMenu();
+  }, [isFocused, closeMenu]);
 
   const focusNextItem = useCallback(() => {
     setHighlightIdx(prevIdx => (prevIdx + 1) % itemCount)
@@ -37,16 +61,8 @@ const useMenuState = (id: string) => {
     setHighlightIdx(prevIdx => (prevIdx + itemCount - 1) % itemCount);
   }, [itemCount]);
 
-  const nodeFocusProps = useRef({
-    onBlur: () => setIsFocused(false),
-    onFocus: () => setIsFocused(true),
-  });
-
-  const closeMenu = useCallback(() => {
-    setIsOpen(false);
-    setHighlightIdx(-1);
-    focusMenu();
-  }, []);
+  const onBlur = useCallback(() => setIsFocused(false), []);
+  const onFocus = useCallback(() => setIsFocused(true), []);
 
   const openMenu = useCallback(() => {
     setIsOpen(true);
@@ -61,19 +77,62 @@ const useMenuState = (id: string) => {
     isOpen ? closeMenu() : openMenu();
   };
 
-  const toggleHandleKeyEvents: KeyboardEventHandler<
-    HTMLButtonElement
-  > = evt => {
+  const toggleHandleKeyEvents: KeyboardEventHandler = evt => {
     evt.preventDefault();
+    switch (evt.key) {
+      case KEY_CODES.SPACE:
+      case KEY_CODES.RETURN:
+      case KEY_CODES.DOWN:
+        openMenu();
+        break;
+      case KEY_CODES.UP:
+        openMenu();
+        break;
+      default:
+        closeMenu();
+        break;
+    }
+  };
+
+  const menuHandleKeyEvents: KeyboardEventHandler = evt => {
+    switch (evt.key) {
+      case KEY_CODES.SPACE:
+      case KEY_CODES.DOWN:
+        focusNextItem();
+        break;
+      case KEY_CODES.UP:
+        focusPrevItem();
+        break;
+      case KEY_CODES.ESC:
+        closeMenu();
+        break;
+      default:
+        break;
+    }
+  };
+
+  // for items we just need to stop event propagation or the menu container
+  // will handle these event (which we don't want)
+  const menuItemHandleKeyEvents: KeyboardEventHandler = evt => {
+    if (
+      evt.key === KEY_CODES.SPACE ||
+      evt.key === KEY_CODES.RETURN
+    ) {
+      evt.stopPropagation();
+      return;
+    }
   }
 
   return {
     id,
-    nodeFocusProps: nodeFocusProps.current,
+    onBlur,
+    onFocus,
     containerRef,
     toggleRef,
     handleToggleClick,
     toggleHandleKeyEvents,
+    menuHandleKeyEvents,
+    menuItemHandleKeyEvents,
   };
 };
 
