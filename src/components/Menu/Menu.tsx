@@ -42,7 +42,10 @@ const MenuButton: FC<MenuStandardProps> = props => {
   );
 };
 
-const MenuContainer: FC<MenuStandardProps> = props => {
+const MenuContainer: FC<MenuStandardProps> = ({
+  className,
+  children
+}) => {
   const {
     id,
     menuOpen,
@@ -50,15 +53,20 @@ const MenuContainer: FC<MenuStandardProps> = props => {
   } = useMenuContext();
 
   return (
-    <nav
-      ref={navRef}
-      id={`${id}-menu-container`}
-      aria-labelledby={`${id}-menu-button`}
+    <div
+      className={className}
       aria-hidden={!menuOpen}
-      tabIndex={menuOpen ? 1 : -1}
-      role="menu"
-      {...props}
-    />
+    >
+      <nav
+        ref={navRef}
+        id={`${id}-menu-container`}
+        aria-labelledby={`${id}-menu-button`}  
+        tabIndex={menuOpen ? 1 : -1}
+        role="menu" 
+      >
+        {children}
+      </nav>
+    </div>
   );
 };
 
@@ -66,14 +74,12 @@ const MenuItem: FC<AnchorProps> = props => {
   const { id, onItemClick } = useMenuContext();
 
   return (
-    <li role="presentation">
-      <a
-        role="menuitem"
-        className={`${id}-menu-item`}
-        onClick={onItemClick}
-        {...props}
-      />
-    </li>
+    <a
+      role="menuitem"
+      className={`${id}-menu-item`}
+      onClick={onItemClick}
+      {...props}
+    />
   )
 };
 
