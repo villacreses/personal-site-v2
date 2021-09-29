@@ -21,16 +21,16 @@
   @media (max-width: 768px) {
     padding: 0 25px;
   }
+}
 
-  nav {
-    @include mixins.flexBetween;
-    position: relative;
-    width: 100%;
-    color: var(--slate-lightest);
-    font-family: var(--font-mono);
-    counter-reset: sectionId 0;
-    z-index: 12;
-  }
+.nav {
+  @include mixins.flexBetween;
+  position: relative;
+  width: 100%;
+  color: var(--slate-lightest);
+  font-family: var(--font-mono);
+  counter-reset: sectionId 0;
+  z-index: 12;
 }
 
 .links {

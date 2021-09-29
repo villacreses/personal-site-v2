@@ -3,7 +3,7 @@ import { MenuContextProvider, useMenuContext } from './menuContext';
 import useMenuState from './useMenuState';
 
 const filteredAnchorProps = [
-  'href', 'children', 'target'
+  'href', 'children', 'target', 'className'
 ] as const;
 
 type AnchorProps = Pick<
@@ -11,71 +11,66 @@ type AnchorProps = Pick<
   typeof filteredAnchorProps[number]
 >;
 
-type MenuProps = {
+type MenuStandardProps = {
+  className?: HTMLProps<typeof HTMLElement>['className']
+}
+
+interface MenuProps extends MenuStandardProps {
   id: string;
 }
 
-const MenuToggle: FC = ({ children }) => {
+const MenuButton: FC<MenuStandardProps> = props => {
   const {
     id,
-    onBlur,
-    onFocus,
-    toggleRef,
-    handleToggleClick,
-    toggleHandleKeyEvents,
+    buttonRef,
+    toggleMenu,
+    menuOpen
   } = useMenuContext();
 
   return (
     <button
-      ref={toggleRef}
+      ref={buttonRef}
       id={`${id}-menu-button`}
       aria-haspopup="true"
       aria-controls={`${id}-menu-container`}
+      aria-label="Menu"
       type="button"
-      onClick={handleToggleClick}
-      onKeyDown={toggleHandleKeyEvents}
-      onBlur={onBlur}
-      onFocus={onFocus}
-    >
-      {children}
-    </button>
+      onClick={toggleMenu}
+      data-menuopen={menuOpen}
+      {...props}
+    />
   );
 };
 
-const MenuContainer: FC = ({ children }) => {
+const MenuContainer: FC<MenuStandardProps> = props => {
   const {
     id,
-    onBlur,
-    onFocus,
-    containerRef,
-    menuHandleKeyEvents,
+    menuOpen,
+    navRef
   } = useMenuContext();
 
   return (
-    <div
-      ref={containerRef}
+    <nav
+      ref={navRef}
       id={`${id}-menu-container`}
       aria-labelledby={`${id}-menu-button`}
+      aria-hidden={!menuOpen}
+      tabIndex={menuOpen ? 1 : -1}
       role="menu"
-      onBlur={onBlur}
-      onFocus={onFocus}
-      onKeyDown={menuHandleKeyEvents}
-    >
-      {children}
-    </div>
+      {...props}
+    />
   );
 };
 
 const MenuItem: FC<AnchorProps> = props => {
-  const { id, menuItemHandleKeyEvents } = useMenuContext();
+  const { id, onItemClick } = useMenuContext();
 
   return (
     <li role="presentation">
       <a
         role="menuitem"
         className={`${id}-menu-item`}
-        tabIndex={-1}
-        onKeyDown={menuItemHandleKeyEvents}
+        onClick={onItemClick}
         {...props}
       />
     </li>
@@ -84,7 +79,7 @@ const MenuItem: FC<AnchorProps> = props => {
 
 type MenuComposition = {
   Container: typeof MenuContainer;
-  Toggle: typeof MenuToggle;
+  Button: typeof MenuButton;
   Item: typeof MenuItem;
 }
 
@@ -101,7 +96,7 @@ const Menu: FC<MenuProps> & MenuComposition = ({
 };
 
 Menu.Container = MenuContainer;
-Menu.Toggle = MenuToggle;
+Menu.Button = MenuButton;
 Menu.Item = MenuItem;
 
 export default Menu;

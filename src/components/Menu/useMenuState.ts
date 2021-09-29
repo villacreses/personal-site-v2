@@ -1,142 +1,115 @@
 import {
+  useCallback,
   useState,
   useRef,
+  KeyboardEvent,
+  useEffect,
   RefObject,
-  useCallback,
-  MouseEventHandler,
-  KeyboardEventHandler,
-  useEffect
 } from "react";
 
-const KEY_CODES = Object.freeze({
-  RETURN: 'Enter',
-  ESC: 'Escape',
+export const KEY_CODES = {
+  ARROW_LEFT: 'ArrowLeft',
+  ARROW_LEFT_IE11: 'Left',
+  ARROW_RIGHT: 'ArrowRight',
+  ARROW_RIGHT_IE11: 'Right',
+  ARROW_UP: 'ArrowUp',
+  ARROW_UP_IE11: 'Up',
+  ARROW_DOWN: 'ArrowDown',
+  ARROW_DOWN_IE11: 'Down',
+  ESCAPE: 'Escape',
+  ESCAPE_IE11: 'Esc',
+  TAB: 'Tab',
   SPACE: ' ',
-  END: 'End',
-  HOME: 'Home',
-  UP: 'ArrowUp',
-  DOWN: 'ArrowDown',
-});
-
-const useMenuState = (id: string) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
-  const [highlightIdx, setHighlightIdx] = useState(-1);
-
-  const containerRef = useRef(null) as RefObject<HTMLDivElement>;
-  const toggleRef = useRef(null) as RefObject<HTMLButtonElement>;
-
-  const items: NodeListOf<HTMLAnchorElement> = document.querySelectorAll(`.${id}-menu-item`);
-  const itemCount = items.length;
-  
-  const focusMenu = () => toggleRef.current?.focus();
-
-  useEffect(() => {
-     // as long as the menu is open, focus the next available item
-    if (isOpen && highlightIdx > -1 && highlightIdx < itemCount) {
-        items[highlightIdx].focus();
-    } else {
-      // if the menu is closed, focus the button.
-      toggleRef.current?.focus();
-    }
-  }, [isOpen, highlightIdx, itemCount, items]);
-  
-  const closeMenu = useCallback(() => {
-    setIsOpen(false);
-    setHighlightIdx(-1);
-    focusMenu();
-  }, []);
-  
-  useEffect(() => {
-          // for items we just need to stop event propagation or the menu container
-          // will handle these event(which we don't want)
-          if (!isFocused) closeMenu();
-  }, [isFocused, closeMenu]);
-
-  const focusNextItem = useCallback(() => {
-    setHighlightIdx(prevIdx => (prevIdx + 1) % itemCount)
-  }, [itemCount]);
-
-  const focusPrevItem = useCallback(() => {
-    setHighlightIdx(prevIdx => (prevIdx + itemCount - 1) % itemCount);
-  }, [itemCount]);
-
-  const onBlur = useCallback(() => setIsFocused(false), []);
-  const onFocus = useCallback(() => setIsFocused(true), []);
-
-  const openMenu = useCallback(() => {
-    setIsOpen(true);
-    setIsFocused(true);
-    setHighlightIdx(0);
-  }, []);
-
-  const handleToggleClick: MouseEventHandler<
-    HTMLButtonElement
-  > = evt => {
-    evt.preventDefault();
-    isOpen ? closeMenu() : openMenu();
-  };
-
-  const toggleHandleKeyEvents: KeyboardEventHandler = evt => {
-    evt.preventDefault();
-    switch (evt.key) {
-      case KEY_CODES.SPACE:
-      case KEY_CODES.RETURN:
-      case KEY_CODES.DOWN:
-        openMenu();
-        break;
-      case KEY_CODES.UP:
-        openMenu();
-        break;
-      default:
-        closeMenu();
-        break;
-    }
-  };
-
-  const menuHandleKeyEvents: KeyboardEventHandler = evt => {
-    switch (evt.key) {
-      case KEY_CODES.SPACE:
-      case KEY_CODES.DOWN:
-        focusNextItem();
-        break;
-      case KEY_CODES.UP:
-        focusPrevItem();
-        break;
-      case KEY_CODES.ESC:
-        closeMenu();
-        break;
-      default:
-        break;
-    }
-  };
-
-  // for items we just need to stop event propagation or the menu container
-  // will handle these event (which we don't want)
-  const menuItemHandleKeyEvents: KeyboardEventHandler = evt => {
-    if (
-      evt.key === KEY_CODES.SPACE ||
-      evt.key === KEY_CODES.RETURN
-    ) {
-      evt.stopPropagation();
-      return;
-    }
-  }
-
-  return {
-    id,
-    onBlur,
-    onFocus,
-    containerRef,
-    toggleRef,
-    handleToggleClick,
-    toggleHandleKeyEvents,
-    menuHandleKeyEvents,
-    menuItemHandleKeyEvents,
-  };
+  SPACE_IE11: 'Spacebar',
+  ENTER: 'Enter',
 };
 
-// source: https://randyperez.tech/blog/react-navigation
+type Focusable = HTMLAnchorElement | HTMLButtonElement;
+
+const useMenuState = (id: string) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const focusables = useRef<Array<Focusable>>([]);
+  
+  const toggleMenu = useCallback(() => { 
+    setMenuOpen(prevState => !prevState)
+  }, []);
+
+  const buttonRef = useRef() as RefObject<HTMLButtonElement>;
+  const navRef = useRef() as RefObject<HTMLDivElement>;
+  
+  const onItemClick = useCallback(() => setMenuOpen(false), []);
+
+  const handleBackwardTab = (evt: KeyboardEvent) => {
+    if (document.activeElement === focusables.current[0]) {
+      evt.preventDefault();
+      focusables.current[focusables.current.length - 1].focus();
+    }
+  };
+
+  const handleForwardTab = (evt: KeyboardEvent) => {
+    if (
+      document.activeElement === focusables.current[
+        focusables.current.length - 1
+      ]
+    ) {
+      evt.preventDefault();
+      focusables.current[0].focus();
+    }
+  };
+
+  const onKeyDown = (evt: Event | KeyboardEvent) => {
+    const e = evt as KeyboardEvent; // since typescript won't be nice
+    switch(e.key) {
+      case KEY_CODES.ESCAPE:
+      case KEY_CODES.ESCAPE_IE11: {
+        setMenuOpen(false);
+        break;
+      }
+      case KEY_CODES.TAB: {
+        if (focusables.current.length === 1) {
+          evt.preventDefault();
+          break;
+        }
+        if (e.shiftKey) handleBackwardTab(e);
+        else handleForwardTab(e);
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+  };
+
+  const onResize = (evt: UIEvent) => {
+    const target = evt.target as Window;
+    if (target.innerWidth > 768) setMenuOpen(false);
+  }
+
+  useEffect(() => {
+    document.addEventListener('keydown', onKeyDown)
+    window.addEventListener('resize', onResize)
+
+    focusables.current = [buttonRef.current as Focusable].concat(
+      Array.from(
+        navRef.current?.querySelectorAll('a') || []
+      )
+    );
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      window.removeEventListener('resize', onResize);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return {
+    id,
+    menuOpen,
+    toggleMenu,
+    buttonRef,
+    navRef,
+    onItemClick
+  }
+};
 
 export type MenuContextType = ReturnType<typeof useMenuState>;
 export default useMenuState;
