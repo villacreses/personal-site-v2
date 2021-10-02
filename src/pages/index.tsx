@@ -1,15 +1,13 @@
 import React from 'react'
 import Markdown from 'react-markdown';
-import Image from 'next/image';
 
 import {
   ActionButton,
   SectionHeader,
   TabList,
-  ProjectGrid,
   Layout,
   ProfileImage
-} from '../components';
+} from '@components';
 
 import content from '../data/index.content.yaml';
 import experience from '../data/Experience.content.yaml';

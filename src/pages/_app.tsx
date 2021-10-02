@@ -1,6 +1,6 @@
-import '../styles/globals.scss';
-import '../styles/sections.scss';
-import '../styles/fonts.scss';
+import '@styles/globals.scss';
+import '@styles/sections.scss';
+import '@styles/fonts.scss';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import { config } from '@fortawesome/fontawesome-svg-core';
