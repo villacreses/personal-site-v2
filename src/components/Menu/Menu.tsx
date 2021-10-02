@@ -1,7 +1,7 @@
 import { FC, HTMLProps } from 'react';
 import { MenuContextProvider, useMenuContext } from './menuContext';
 import useMenuState from './useMenuState';
-import useBlur from '../../hooks/useBlur';
+import useBlur from '@hooks/useBlur';
 
 const filteredAnchorProps = [
   'href', 'children', 'target', 'className'

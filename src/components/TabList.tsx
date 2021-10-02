@@ -1,7 +1,7 @@
 import { FC, HTMLProps, useState, ComponentProps } from 'react';
 import Markdown from 'react-markdown';
 import styles from './TabList.module.scss';
-import useMediaQuery from '../hooks/useMediaQuery';
+import useMediaQuery from '@hooks/useMediaQuery';
 
 type Content = {
   slug: string;
