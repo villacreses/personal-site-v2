@@ -21,6 +21,23 @@
   @media (max-width: 768px) {
     padding: 0 25px;
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+    &[data-scrolledtotop=false] {
+      &[data-scrolldirection=up] {
+        height: var(--nav-scroll-height);
+        transform: translateY(0px);
+        background-color: rgba(10,15, 47, 0.85);
+        box-shadow: 0 10px 30px -10px var(--navy-shadow);
+      }
+
+      &[data-scrolldirection=down] {
+        height: var(--nav-scroll-height);
+        transform: translateY(calc(var(--nav-scroll-height) * -1));
+        box-shadow: 0 10px 30px -10px var(--navy-shadow);
+      }
+    }
+  }
 }
 
 .nav {
