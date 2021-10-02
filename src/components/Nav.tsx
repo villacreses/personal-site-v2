@@ -1,9 +1,11 @@
-import { FC } from 'react';
+import { FC, HTMLProps } from 'react';
 import Link from 'next/link';
 import ActionButton from './ActionButton';
 
 import styles from './Nav.module.scss';
-const navLinks = [
+import BurgerMenu from './BurgerMenu';
+
+const navLinks: HTMLProps<HTMLAnchorElement>[] = [
   {
     children: 'About',
     href: '#about'
@@ -21,7 +23,7 @@ const navLinks = [
 const Nav: FC = () => {
   return (
     <header className={styles.header}>
-      <nav>
+      <nav className={styles.nav}>
         <Link href="/" passHref> 
           <a className={styles.logo}>
             MV
@@ -39,6 +41,7 @@ const Nav: FC = () => {
             Resume
           </ActionButton>
         </div>
+        <BurgerMenu items={navLinks} />
       </nav>
     </header>
   )

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ComponentProps } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import {
@@ -14,6 +14,7 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 
 import {
+  faBars,
   faExternalLinkAlt,
 } from '@fortawesome/free-solid-svg-icons'
 
@@ -25,14 +26,17 @@ const iconMap = {
   hackerrank: faHackerrank,
   folder: faFolder,
   external: faExternalLinkAlt,
+  burger: faBars
 } as const;
 
-type IconProps = {
+type FAProps = Omit<ComponentProps<typeof FontAwesomeIcon>, 'icon'>
+
+interface IconProps extends FAProps {
   id: keyof typeof iconMap;
 }
 
-const Icon: FC<IconProps> = ({ id }) => (
-  <FontAwesomeIcon icon={iconMap[id]} />
+const Icon: FC<IconProps> = ({ id, ...props }) => (
+  <FontAwesomeIcon icon={iconMap[id]} {...props} />
 );
 
 export default Icon;
