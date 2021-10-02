@@ -68,10 +68,21 @@
       li {
         position: relative;
         margin: 0 auto 20px;
+        counter-increment: menuItem 1;
         font-size: clamp(var(--fz-sm), 4vw, var(--fz-lg));
 
         @media (max-width: 600px) {
           margin: 0 auto 10px;
+        }
+
+        a {
+          &::before {
+            content: counter(menuItem, decimal-leading-zero) ".";
+            color: var(--green);
+            font-size: var(--fz-sm);
+            margin-right: 5px;
+
+          }
         }
       }
 
