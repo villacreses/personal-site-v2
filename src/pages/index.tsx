@@ -1,6 +1,5 @@
 import React from 'react'
 import Markdown from 'react-markdown';
-
 import {
   ActionButton,
   SectionHeader,
@@ -8,19 +7,17 @@ import {
   Layout,
   ProfileImage
 } from '@components';
-
-import content from '../data/index.content.yaml';
-import experience from '../data/Experience.content.yaml';
+import { experience, indexContent } from '@data';
 
 const Home = () => (
   <Layout>
     <section id="intro">
-      <Markdown>{content.intro}</Markdown>
-      <ActionButton {...content.introCTA} />
+      <Markdown>{indexContent.content.intro}</Markdown>
+      <ActionButton {...indexContent.cta.intro} />
     </section>
     <section id="about">
       <SectionHeader>About me</SectionHeader>
-      <Markdown>{content.about}</Markdown>
+      <Markdown>{indexContent.content.about}</Markdown>
       <ProfileImage
         src="/images/mario.jpg"
         alt="Headshot of Mario"
@@ -43,8 +40,8 @@ const Home = () => (
       <SectionHeader titleStyle="small">
         What&apos;s Next?
       </SectionHeader>
-      <Markdown>{content.contact}</Markdown>
-      <ActionButton {...content.contactCTA} />
+      <Markdown>{indexContent.content.contact}</Markdown>
+      <ActionButton {...indexContent.cta.contact} />
     </section>
   </Layout>
 );

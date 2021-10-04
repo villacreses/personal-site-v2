@@ -2,12 +2,7 @@ import { FC, HTMLProps, useState, ComponentProps } from 'react';
 import Markdown from 'react-markdown';
 import styles from './TabList.module.scss';
 import useMediaQuery from '@hooks/useMediaQuery';
-
-type Content = {
-  slug: string;
-  tabLabel: string;
-  content: string;
-};
+import { TabContent } from '@types';
 
 interface TabProps extends HTMLProps<HTMLButtonElement> {
   selected?: boolean;
@@ -18,7 +13,7 @@ interface PanelProps extends Omit<HTMLProps<HTMLElement>, 'content'> {
 }
 
 type TabListProps = {
-  contentList: Array<Content>;
+  contentList: Array<TabContent>;
 };
 
 const Tab: FC<TabProps> = ({
