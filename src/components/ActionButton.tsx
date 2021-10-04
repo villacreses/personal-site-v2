@@ -1,14 +1,12 @@
-import { FC, HTMLProps } from 'react';
+import { FC } from 'react';
 import styles from './ActionButton.module.scss';
-
+import { AnchorProps } from '@types';
 const sizeMap = {
   xs: 'as-xs',
   sm: 'as-sm',
 } as const;
 
 const omit = ['classname', 'rel', 'size'] as const;
-
-type AnchorProps = Omit<HTMLProps<HTMLAnchorElement>, typeof omit[number]>
 
 interface ActionButton extends AnchorProps {
   size?: keyof typeof sizeMap; 
