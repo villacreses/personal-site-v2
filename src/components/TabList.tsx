@@ -1,11 +1,12 @@
-import { FC, HTMLProps, useState, ComponentProps } from 'react';
+import { FC, HTMLProps, useState, ComponentProps, RefObject } from 'react';
 import Markdown from 'react-markdown';
 import styles from './TabList.module.scss';
-import useMediaQuery from '@hooks/useMediaQuery';
+import { useMediaQuery, useTabFocus } from '@hooks';
 import { TabContent } from '@types';
 
 interface TabProps extends HTMLProps<HTMLButtonElement> {
   selected?: boolean;
+  tabRef?: RefObject<HTMLButtonElement>;
 }
 
 interface PanelProps extends Omit<HTMLProps<HTMLElement>, 'content'> {
@@ -21,8 +22,10 @@ const Tab: FC<TabProps> = ({
   selected = false,
   id,
   onClick,
+  tabRef
 }) => (
   <button
+    ref={tabRef}
     className={styles.Tab}
     role="tab"
     aria-selected={selected}
@@ -70,7 +73,8 @@ const Panel: FC<PanelProps> = ({
 );
 
 const TabList: FC<TabListProps> = ({ contentList }) => {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(0);  
+  const { onKeyDown, tabRefs } = useTabFocus(contentList.length);
 
   const transform = useMediaQuery('(max-width: 600px)')
     ? `translateX(calc(${activeTab} * var(--tab-width)))`
@@ -78,9 +82,14 @@ const TabList: FC<TabListProps> = ({ contentList }) => {
 
   return (
     <div className={styles.TabContainer}>
-      <div role="tablist" aria-label="Work History">
+      <div
+        role="tablist"
+        aria-label="Work History"
+        onKeyDown={onKeyDown}
+      >
         {contentList.map(({ tabLabel, slug }, idx) => (
           <Tab
+            tabRef={tabRefs[idx]}
             key={slug}
             id={slug}
             selected={activeTab === idx}
