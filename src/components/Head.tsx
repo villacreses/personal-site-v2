@@ -33,6 +33,7 @@ const Head: FC<HeadProps> = ({
 
       <meta name="robots" content="all" />
       <meta name="google" content="nositelinkssearchbox" />
+      <meta name="description" content={seo.description} />
       
       <meta property="og:title" content={seo.title} />
       <meta property="og:description" content={seo.description} />
