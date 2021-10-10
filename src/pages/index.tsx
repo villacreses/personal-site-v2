@@ -21,7 +21,7 @@ const Home = () => (
       <ProfileImage
         src="/images/mario.jpg"
         alt="Headshot of Mario"
-        layout="intrinsic"
+        layout="intrinsic"  
         width={300}
         height={300}
       />
