@@ -1,5 +1,5 @@
 import { FC, ComponentProps } from 'react'
-import Head from 'next/head';
+import Head, { HeadProps } from './Head';
 import Icon from './Icon';
 import Nav from './Nav';
 
@@ -56,11 +56,9 @@ const LinksPanel: FC<LinksPanelProps> = ({ links }) => (
   </div>
 );
 
-const Layout: FC = ({ children }) => (
+const Layout: FC<HeadProps> = ({ children, ...props }) => (
   <>
-    <Head>
-      <title>{content.defaultTitle}</title>
-    </Head>
+    <Head {...props} />
     <Nav />
     <LinksPanel links={content.links} />
     <EmailPanel email={content.email} />

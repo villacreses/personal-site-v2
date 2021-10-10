@@ -21,3 +21,10 @@ export type indexContentType = {
     [key: string]: AnchorProps;
   }
 }
+
+export type metadataType = {
+  title: string;
+  description: string;
+  siteUrl: string;
+  image: string;
+}
