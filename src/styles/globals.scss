@@ -206,3 +206,7 @@ p {
     @include mixins.inlineLink;
   }
 }
+
+ins {
+  text-decoration: none;
+}
