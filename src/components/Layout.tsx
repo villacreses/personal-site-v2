@@ -7,21 +7,18 @@ import content from '../data/Layout.content.yaml';
 
 import styles from './SidePanel.module.scss';
 
-type EmailPanelProps = {
-  email: string;
-}
-
 type IconLinkProps = {
   href: string;
   label: string;
   slug: ComponentProps<typeof Icon>['id'];
 };
 
-type LinksPanelProps = {
-  links: Array<IconLinkProps>;
+type LayoutContent = {
+  email: string;
+  links: Array<IconLinkProps>
 }
 
-export const EmailPanel: FC<EmailPanelProps> = ({
+export const EmailPanel: FC<Pick<LayoutContent,'email'>> = ({
   email
 }) => (
   <div className={styles.containerRight}>
@@ -48,7 +45,7 @@ const IconLink: FC<IconLinkProps> = ({ href, label, slug }) => (
   </li>
 )
 
-const LinksPanel: FC<LinksPanelProps> = ({ links }) => (
+const LinksPanel: FC<Pick<LayoutContent,'links'>> = ({ links }) => (
   <div className={styles.containerLeft}>
     <ul>
       {links.map(link => <IconLink key={link.slug} {...link} />)}
