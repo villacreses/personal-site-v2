@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {ComponentProps} from 'react'
 import Markdown from 'react-markdown';
 import {
   ActionButton,
@@ -7,7 +7,18 @@ import {
   Layout,
   ProfileImage
 } from '@components';
-import { experience, indexContent } from '@data';
+import {experience, indexContent} from '@data';
+
+type CustomMarkdownComponents = ComponentProps<typeof Markdown>['components'];
+
+const aboutMeMarkdownComponents: CustomMarkdownComponents = {
+  em: function Del ({children}) {
+    return <del>{children}</del>;
+  },
+  strong: function Ins ({children}) {
+    return <ins>{children}</ins>;
+  }
+};
 
 const Home = () => (
   <Layout>
@@ -17,7 +28,9 @@ const Home = () => (
     </section>
     <section id="about">
       <SectionHeader>About me</SectionHeader>
-      <Markdown>{indexContent.content.about}</Markdown>
+      <Markdown components={aboutMeMarkdownComponents}>
+        {indexContent.content.about}
+      </Markdown>
       <ProfileImage
         src="/images/mario.jpg"
         alt="Headshot of Mario"
