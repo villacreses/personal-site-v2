@@ -21,7 +21,12 @@
 
     @media (max-width: 600px) {
       display: flex;
-      overflow-x: auto;
+      /**
+      * On mobile, the user can't intuitively tell that the tablist is
+      * scrollable, so I've desided just to have the scrollbar showing
+      * at all times. 
+      */
+      overflow-x: scroll;
       width: calc(100% + 100px);
       padding-left: 50px;
       margin-left: -50px;
