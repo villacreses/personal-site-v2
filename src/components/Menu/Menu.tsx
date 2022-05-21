@@ -1,7 +1,6 @@
 import { FC, HTMLProps } from 'react';
 import { MenuContextProvider, useMenuContext } from './menuContext';
 import useMenuState from './useMenuState';
-import useBlur from '@hooks/useBlur';
 
 const filteredAnchorProps = [
   'href', 'children', 'target', 'className'
@@ -95,7 +94,6 @@ const Menu: FC<MenuProps> & MenuComposition = ({
   children,
 }) => {
   const menuState = useMenuState(id);
-  useBlur(menuState.menuOpen);
   
   return (
     <MenuContextProvider value={menuState}>

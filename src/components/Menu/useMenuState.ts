@@ -1,17 +1,17 @@
 import {
   useCallback,
-  useState,
   useRef,
   KeyboardEvent,
   useEffect,
   RefObject,
 } from "react";
+import useBlur from '@hooks/useBlur';
 import { KEY_CODES } from '@utils';
 
 type Focusable = HTMLAnchorElement | HTMLButtonElement;
 
 const useMenuState = (id: string) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useBlur(false);
   const focusables = useRef<Array<Focusable>>([]);
   
   const toggleMenu = useCallback(() => { 

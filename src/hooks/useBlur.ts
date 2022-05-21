@@ -1,6 +1,7 @@
-import { useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
-const useBlur = (blurred?: boolean) => {
+const useBlur = (initBlurred: boolean = false) => {
+  const [blurred, setBlurred] = useState(initBlurred);
   const bodyRef = useRef<HTMLBodyElement|null>();
   
   useEffect(() => {
@@ -10,7 +11,9 @@ const useBlur = (blurred?: boolean) => {
   useEffect(() => {
     const className = blurred ? 'blur' : '';
     bodyRef.current?.setAttribute('class', className);
-  }, [blurred])
+  }, [blurred]);
+
+  return [blurred, setBlurred] as const;
 }
 
 export default useBlur;
