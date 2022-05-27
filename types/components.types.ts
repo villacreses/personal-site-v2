@@ -14,12 +14,9 @@ export type TabContent = {
 }
 
 export type indexContentType = {
-  content: {
-    [key: string]: string
-  };
-  cta: {
-    [key: string]: AnchorProps;
-  }
+  content: { [key: string]: string };
+  cta: { [key: string]: AnchorProps };
+  sections: Section[];
 }
 
 export type metadataType = {
@@ -27,4 +24,29 @@ export type metadataType = {
   description: string;
   siteUrl: string;
   image: string;
+}
+
+type SectionCTA = {
+  href: string;
+  text: string;
+}
+
+type HeaderOptions = {
+  showHeader?: boolean;
+};
+
+type Schema = Array<{
+  component: string;
+  props: { [key: string]: any }
+}>;
+
+
+export type Section = {
+  id: string;
+  header: string;
+  headerOptions?: HeaderOptions;
+  navHeader?: string;
+  markdown?: string;
+  miscLayout?: Schema;
+  callToAction?: SectionCTA;
 }
