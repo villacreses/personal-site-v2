@@ -3,6 +3,7 @@ import Markdown from 'react-markdown';
 import styles from './TabList.module.scss';
 import { useMediaQuery, useTabFocus } from '@hooks';
 import { TabContent } from '@types';
+import {TabListContentMap} from '@data';
 
 interface TabProps extends HTMLProps<HTMLButtonElement> {
   selected?: boolean;
@@ -14,7 +15,7 @@ interface PanelProps extends Omit<HTMLProps<HTMLElement>, 'content'> {
 }
 
 type TabListProps = {
-  contentList: Array<TabContent>;
+  id: string
 };
 
 const Tab: FC<TabProps> = ({
@@ -72,8 +73,12 @@ const Panel: FC<PanelProps> = ({
   </div>
 );
 
-const TabList: FC<TabListProps> = ({ contentList }) => {
-  const [activeTab, setActiveTab] = useState(0);  
+const TabList: FC<TabListProps> = ({ id }) => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const contentList = TabListContentMap[id];
+  if (!contentList) throw "Invalid TabList id";
+
   const { onKeyDown, tabRefs } = useTabFocus(contentList.length);
 
   const transform = useMediaQuery('(max-width: 600px)')
