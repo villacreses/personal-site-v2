@@ -1,5 +1,10 @@
 @use 'mixins';
 
+%large-intro {
+  margin: 0;
+  font-size: clamp(40px, 8vw, 80px);
+}
+
 #intro {
   @include mixins.flexCenter;
   
@@ -13,25 +18,35 @@
   }
 
   h1 {
-    margin: 0 0 30px 4px;
-    color: var(--green);
-    font-family: var(--font-mono);
-    font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
-    font-weight: 400;
+    margin: 0;
+    
+    & > * {
+      display: block;
+    }
 
-    @media (max-width: 480px) {
-      margin: 0 0 20px 2px;
+    span.prelude {
+      margin: 0 0 30px 4px;
+      color: var(--green);
+      font-family: var(--font-mono);
+      font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
+      font-weight: 400;
+
+      @media (max-width: 480px) {
+        margin: 0 0 20px 2px;
+      }
+    }
+
+    strong {
+      @extend %large-intro;
+      font-weight: 600;
+      line-height: 1.1;
     }
   }
 
-  h2, h3 {
-    margin: 0;
-    font-size: clamp(40px, 8vw, 80px);
-  }
-
-  h3 {
-    margin-top: 10px;
+  h2 {
+    @extend %large-intro;
     color: var(--slate);
+    margin-top: 10px;
     line-height: 0.9;
   }
 

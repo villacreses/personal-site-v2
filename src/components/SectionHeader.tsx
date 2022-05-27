@@ -1,17 +1,16 @@
 import { FC, HTMLProps } from 'react';
 import styles from './SectionHeader.module.scss';
+import {HeaderOptions} from '@types';
 
-interface SectionHeaderProps extends HTMLProps<HTMLElement> {
-  titleStyle?: 'small' | 'default'
-}
-
-const SectionHeader: FC<SectionHeaderProps> = ({ 
+const SectionHeader: FC<HeaderOptions> = ({ 
   titleStyle = 'default',
-  children
-}) => (
+  showHeader = true,
+  children,
+}) => showHeader 
+? (
   <h2 className={styles[titleStyle]}>
     {children}
   </h2>
-);
+) : null;
 
 export default SectionHeader;

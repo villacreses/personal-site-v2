@@ -31,13 +31,17 @@ type SectionCTA = {
   text: string;
 }
 
-type HeaderOptions = {
+export type HeaderOptions = {
   showHeader?: boolean;
+  titleStyle?: 'small' | 'default'
 };
 
 type Schema = Array<{
   component: string;
-  props: { [key: string]: any }
+  props: {
+    id: string;
+    [key: string]: any;
+  }
 }>;
 
 

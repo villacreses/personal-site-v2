@@ -8,6 +8,11 @@ import {
   metadataType
 } from '@types';
 
-export const experience = exp as Array<TabContent>;
 export const indexContent = idx as indexContentType;
 export const metadata = meta as metadataType;
+
+export const TabListContentMap: {
+  [key: string]: Array<TabContent>
+} = {
+  workexperience: exp,
+}

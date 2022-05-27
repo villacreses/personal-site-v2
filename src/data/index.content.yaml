@@ -95,6 +95,8 @@ sections:
           id: workexperience
   - id: contact
     header: What's Next?
+    headerOptions:
+      titleStyle: small
     markdown: >
       ### Get in touch
 

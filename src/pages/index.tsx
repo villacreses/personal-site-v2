@@ -1,4 +1,4 @@
-import React, {ComponentProps} from 'react'
+import {ComponentProps, ReactNode} from 'react'
 import Markdown from 'react-markdown';
 import {
   ActionButton,
@@ -7,55 +7,63 @@ import {
   Layout,
   ProfileImage
 } from '@components';
-import {experience, indexContent} from '@data';
+import {indexContent} from '@data';
 
-type CustomMarkdownComponents = ComponentProps<typeof Markdown>['components'];
-
-const aboutMeMarkdownComponents: CustomMarkdownComponents = {
-  em: function Del ({children}) {
-    return <del>{children}</del>;
+const MarkdownComponentMap: {
+  [key: string]: ComponentProps<typeof Markdown>['components']
+} = {
+  intro: {
+    code: function Prelude ({children}) {
+      return <span className="prelude">{children}</span>
+    }
   },
-  strong: function Ins ({children}) {
-    return <ins>{children}</ins>;
-  }
+  about: {
+    em: function Del ({children}) {
+      return <del>{children}</del>;
+    },
+    strong: function Ins ({children}) {
+      return <ins>{children}</ins>;
+    }
+  },
+};
+
+const MiscComponentMap: {
+  [key: string]: ReactNode
+} = {
+  TabList,
+  ProfileImage,
 };
 
 const Home = () => (
   <Layout>
-    <section id="intro">
-      <Markdown>{indexContent.content.intro}</Markdown>
-      <ActionButton {...indexContent.cta.intro} />
-    </section>
-    <section id="about">
-      <SectionHeader>About me</SectionHeader>
-      <Markdown components={aboutMeMarkdownComponents}>
-        {indexContent.content.about}
-      </Markdown>
-      <ProfileImage
-        src="/images/mario.jpg"
-        alt="Headshot of Mario"
-        layout="intrinsic"  
-        width={300}
-        height={300}
-      />
-    </section>
-    <section id="jobs">
-      <SectionHeader>Where I&apos;ve worked</SectionHeader>
-      <TabList contentList={experience} />
-    </section>
-    {/*
-    <section id="projects">
-      <SectionHeader>Some things I&apos;ve built</SectionHeader>
-      <ProjectGrid projects={[]} />
-    </section>
-    */}
-    <section id="contact">
-      <SectionHeader titleStyle="small">
-        What&apos;s Next?
-      </SectionHeader>
-      <Markdown>{indexContent.content.contact}</Markdown>
-      <ActionButton {...indexContent.cta.contact} />
-    </section>
+    {indexContent.sections.map(({
+      id,
+      header,
+      headerOptions,
+      markdown,
+      miscLayout = [],
+      callToAction,
+    }) => (
+      <section id={id} key={id}>
+        {headerOptions?.showHeader !== false && (
+          <SectionHeader titleStyle={headerOptions?.titleStyle}>{header}</SectionHeader>
+        )}
+        {markdown && (
+          <Markdown
+            components={MarkdownComponentMap[id]}
+          >
+            {markdown}
+          </Markdown>
+        )}
+        {miscLayout.map(({component, props}) => {
+          const Component = MiscComponentMap[component];
+          if (!Component) return null;
+          // @ts-ignore
+          return <Component key={props.id} {...props}/>
+        })}
+        {callToAction && <ActionButton {...callToAction} />}
+      </section>
+    ))}
   </Layout>
 );
 
