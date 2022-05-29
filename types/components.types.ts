@@ -13,12 +13,6 @@ export type TabContent = {
   content: string;
 }
 
-export type indexContentType = {
-  content: { [key: string]: string };
-  cta: { [key: string]: AnchorProps };
-  sections: Section[];
-}
-
 export type metadataType = {
   title: string;
   description: string;
