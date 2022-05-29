@@ -1,7 +1,11 @@
-@use '@styles/mixins';
+%flexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .header {
-  @include mixins.flexBetween;
+  @extend %flexBetween;
 
   position: fixed;
   top: 0;
@@ -41,7 +45,7 @@
 }
 
 .nav {
-  @include mixins.flexBetween;
+  @extend %flexBetween;
   position: relative;
   width: 100%;
   color: var(--slate-lightest);
@@ -59,7 +63,7 @@
   }
 
   ol {
-    @include mixins.flexBetween;
+    @extend %flexBetween;
     padding: 0;
     margin: 0;
     list-style: none;

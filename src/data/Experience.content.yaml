@@ -5,20 +5,25 @@
     
     ## August 2021 - Present
 
-    I've begun my Meta journey under their rotational engineering program, allowing me to 
-    make an impact on multiple teams withing a short time frame
+    I've begun my Meta journey under their rotational engineering program, where I'm
+    helping build the new Metrics platform to enable confident decision-making at 
+    Meta. This is a new initiative to build the backbone of metrics at data infra.
 - slug: doc-ai
   tabLabel: doc.ai
   content: >
-    # Software engineer - Apps Team **@ [doc.ai](https://doc.ai/)**
+    # Software engineer **@ [doc.ai](https://doc.ai/)**
     
     ## February 2020 - December 2020
+
+    Worked on the Apps team, which was responsible for building the mobile front-end
+    for customer-facing apps.
+
+    - Spearheaded development of UI library for company's new flagship app. 
+      
+    - Constructed realtime geographic visualization of COVID-19 outbreak, which was 
+      used heavily in marketing towards new users.
   
-    - Built new flagship app, simplifying mobile frontend to eliminate technical debt
-  
-    - Built realtime geographic visualization of COVID-19 outbreak
-  
-    - Build API analytics service and integrated internal dashboards with Retool 
+    - Streamlined analytics collection and metric vizualization using Retool. 
 - slug: knovva
   tabLabel: Knovva Academy
   content: >
@@ -26,24 +31,26 @@
     
     ## November 2018 - January 2020
   
-    - Developed user interface components in React, reducing load times by up to 50%
+    - Standardized UI components, reducing non-business frontend code by 80%  
     
-    - Worked with a cloud architect to build analytics dashboards for project managers and student relationship managers.
+    - Collaborated with cloud architect to build administrative and analytics tools for 
+      entire company.
 - slug: socratex
   tabLabel: Socratex
   content: >
     # Co-founder & Lead Developer @ Socratex
     
-    ## August 2018 – February 2019
+    ## August 2018 - February 2019
 
-    - Collaborated with UI/UX Designer to develop video streaming platform using Firebase & React
+    - Collaborated with UI/UX Designer and high school teacher in hackathon to develop 
+      video-based platform for sex education.
     
     - 1st Place Winner at NY Sextech Hackathon, featured in 
     [BK Mag](https://www.bkmag.com/2018/09/06/4-brooklyn-entrepreneurs-on-how-their-style-impacts-business/), 
     [Forbes](https://www.forbes.com/sites/estrellajaramillo/2018/09/18/technology-meets-sex-to-solve-some-of-the-most-pressing-concerns-of-our-times), 
-    and [Men’s Health](https://www.menshealth.com/sex-women/a23064407/sex-tech-hackathon/) 
+    and [Men's Health](https://www.menshealth.com/sex-women/a23064407/sex-tech-hackathon/) 
     
-    - NY Board of Education considered official curriculum integration within select schools  
+    - Project considered for official curriculum integration within select NYC high schools. 
 - slug: odyssey
   tabLabel: New World Odyssey 
   content: >

@@ -1,7 +1,17 @@
 @use 'mixins';
 
+%box-sizing-inherit {
+  box-sizing: inherit;
+}
+
 * {
-  box-sizing: border-box;
+  @extend %box-sizing-inherit;
+  &::before {
+    @extend %box-sizing-inherit;
+  }
+  &::after {
+    @extend %box-sizing-inherit;
+  }
 }
 
 :root{
