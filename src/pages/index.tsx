@@ -36,7 +36,7 @@ const MiscComponentMap: {
 
 const Home = () => (
   <Layout>
-    {indexContent.sections.map(({
+    {indexContent.map(({
       id,
       header,
       headerOptions,

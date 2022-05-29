@@ -1,15 +1,22 @@
-content:
-  intro: >
-    # Hi, my name is
-    
-    ## Mario Villacreses
-    
-    ### I build things for the web.
-  
+- id: intro
+  header: Introduction
+  headerOptions:
+    showHeader: false
+  markdown: >
+    # `Hi, my name is` **Mario Villacreses**
+      
+    ## I build things for the web.
+
     I'm a software engineer specializing in building extraordinary
-    experiences for the web. Currently I'm working as 
+    experiences for the web. Currently I'm working as
     a rotational engineer at [Meta](https://about.facebook.com).
-  about: >
+  callToAction:
+    children: Get in touch
+    href: mailto:MarioVillacreses@outlook.com
+- id: about
+  header: About Me
+  navHeader: About
+  markdown: > 
     Hello! My name is Mario and I'm a firm believer in the web's ability
     to empower individuals. While studying for a BA in Mathematics, I joined 
     an international trade startup with friends. With the sparse HTML and
@@ -27,82 +34,32 @@ content:
     startups—and participating in many hackathons—before landing at my 
     dream company: *Facebook* **Meta**. My journey has just begun and I have nothing
     but optimism for what the future will bring!
-  contact: >
+  miscLayout:
+    - component: ProfileImage
+      props:
+        id: profileimage
+        src: /images/mario.jpg
+        alt: Headshot of Mario
+        layout: intrinsic
+        width: 300
+        height: 300
+- id: workexperience
+  header: Where I've Worked
+  navHeader: Experience
+  miscLayout:
+    - component: TabList
+      props:
+        id: workexperience
+- id: contact
+  header: What's Next?
+  headerOptions:
+    titleStyle: small
+  markdown: >
     ### Get in touch
 
     Although I'm not currently looking for any new opportunities, 
     my inbox is always open. Whether you have a question or just 
     want to say hi, I'll try my best to get back to you!
-cta:
-  intro:
-    children: Get in touch
-    href: mailto:MarioVillacreses@outlook.com
-  contact:
+  callToAction:
     children: Say Hello
     href: mailto:MarioVillacreses@outlook.com
-
-sections:
-  - id: intro
-    header: Introduction
-    headerOptions:
-      showHeader: false
-    markdown: >
-      # `Hi, my name is` **Mario Villacreses**
-        
-      ## I build things for the web.
-  
-      I'm a software engineer specializing in building extraordinary
-      experiences for the web. Currently I'm working as 
-      a rotational engineer at [Meta](https://about.facebook.com).
-    callToAction:
-      children: Get in touch
-      href: mailto:MarioVillacreses@outlook.com
-  - id: about
-    header: About Me
-    navHeader: About
-    markdown: > 
-      Hello! My name is Mario and I'm a firm believer in the web's ability
-      to empower individuals. While studying for a BA in Mathematics, I joined 
-      an international trade startup with friends. With the sparse HTML and
-      CSS knowledge I had remembered from high school, I helped build the 
-      reputation of our humble business across urban China.
-
-
-      How much we had accomplished with so little technical knowledge opened 
-      my eyes to how transformative the web can truly be. I joined a coding 
-      bootcamp after college because I wanted to see how big of an impact I 
-      could make.
-
-
-      Fast forward to today, and I've had the privilege of working at several 
-      startups—and participating in many hackathons—before landing at my 
-      dream company: *Facebook* **Meta**. My journey has just begun and I have nothing
-      but optimism for what the future will bring!
-    miscLayout:
-      - component: ProfileImage
-        props:
-          src: /images/mario.jpg
-          alt: Headshot of Mario
-          layout: intrinsic
-          width: 300
-          height: 300
-  - id: workexperience
-    header: Where I've Worked
-    navHeader: Experience
-    miscLayout:
-      - component: TabList
-        props:
-          id: workexperience
-  - id: contact
-    header: What's Next?
-    headerOptions:
-      titleStyle: small
-    markdown: >
-      ### Get in touch
-
-      Although I'm not currently looking for any new opportunities, 
-      my inbox is always open. Whether you have a question or just 
-      want to say hi, I'll try my best to get back to you!
-    callToAction:
-      children: Say Hello
-      href: mailto:MarioVillacreses@outlook.com

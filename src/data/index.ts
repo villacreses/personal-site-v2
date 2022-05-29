@@ -4,11 +4,11 @@ import meta from './index.metadata.yaml';
 
 import {
   TabContent,
-  indexContentType,
+  Section,
   metadataType
 } from '@types';
 
-export const indexContent = idx as indexContentType;
+export const indexContent = idx as Section[];
 export const metadata = meta as metadataType;
 
 export const TabListContentMap: {
