@@ -1,4 +1,6 @@
-$highlight: var(--green-tint);
+%bg-color-active {
+  background-color: var(--green-tint);
+}
 
 %ActionButton {
   color: var(--green);
@@ -10,8 +12,14 @@ $highlight: var(--green-tint);
   text-decoration: none;
   cursor: pointer;
 
-  &:hover, &:focus, &:active {
-    background-color: var(--green-tint);
+  &:hover {
+    @extend %bg-color-active;
+  }
+  &:focus {
+    @extend %bg-color-active;
+  }
+  &:active {
+    @extend %bg-color-active;
   }
 }
 
