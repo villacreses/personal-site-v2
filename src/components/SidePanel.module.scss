@@ -1,3 +1,12 @@
+@use '@styles/mixins';
+
+%content {
+  margin: 20px auto;
+  @include mixins.for-mobile-landscape {
+    margin: 15px auto;
+  }
+}
+
 %container {
   width: 40px;
   position: fixed;
@@ -16,13 +25,17 @@
     height: 90px;
     margin: 0 auto;
     background-color: var(--slate-light);
+
+    @include mixins.for-mobile-landscape {
+      height: 50px;
+    }
   }
 
   ul {
+    @extend %content;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px auto;
     padding: 0;
     list-style: none;
   }
@@ -60,7 +73,7 @@
 }
 
 .emailLink {
-  margin: 20px auto;
+  @extend %content;
   padding: 10px;
   font-family: var(--font-mono);
   font-size: var(--fz-xs);

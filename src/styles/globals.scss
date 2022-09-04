@@ -140,19 +140,8 @@ main {
     padding: 0 25px;
   }
   
-  &.legacy {
-    padding: 200px 150px;
-    @media (max-width: 1080px) {
-      padding: 200px 100px;
-    }
-    
-    @media (max-width: 768px) {
-      padding: 150px 50px;
-    }
-    
-    @media (max-width: 480px) {
-      padding: 125px 25px;
-    }
+  @include mixins.for-mobile-landscape {
+    padding-top: var(--nav-height);
   }
 }
 
@@ -167,6 +156,13 @@ section {
   
   @media (max-width: 480px) {
     padding: 60px 0;
+  }
+
+  @include mixins.for-mobile-landscape {
+    &:not(:first-of-type) {
+      padding: 0;
+      margin: 80px auto;
+    }
   }
 }
 

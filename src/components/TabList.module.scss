@@ -8,7 +8,7 @@
   }
 
   // Prevent container from jumping
-  @media (min-width: 700px) {
+  @media (min-width: 700px) and (min-height: 500px) {
     min-height: 340px;
   }
   
