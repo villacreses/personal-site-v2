@@ -2,6 +2,7 @@ import {ComponentProps, ReactNode} from 'react'
 import Markdown from 'react-markdown';
 import {
   ActionButton,
+  DisplayIf,
   SectionHeader,
   TabList,
   Layout,
@@ -45,23 +46,25 @@ const Home = () => (
       callToAction,
     }) => (
       <section id={id} key={id}>
-        {headerOptions?.showHeader !== false && (
-          <SectionHeader titleStyle={headerOptions?.titleStyle}>{header}</SectionHeader>
-        )}
-        {markdown && (
-          <Markdown
-            components={MarkdownComponentMap[id]}
-          >
-            {markdown}
+        <DisplayIf condition={headerOptions?.showHeader !== false}>
+          <SectionHeader titleStyle={headerOptions?.titleStyle}>
+            {header}
+          </SectionHeader>
+        </DisplayIf>
+        <DisplayIf condition={!!markdown}>
+          <Markdown components={MarkdownComponentMap[id]}>
+            {markdown!}
           </Markdown>
-        )}
+        </DisplayIf>
         {miscLayout.map(({component, props}) => {
           const Component = MiscComponentMap[component];
           if (!Component) return null;
           // @ts-ignore
           return <Component key={props.id} {...props}/>
         })}
-        {callToAction && <ActionButton {...callToAction} />}
+        <DisplayIf condition={!!callToAction}>
+          <ActionButton {...(callToAction!)} />
+        </DisplayIf>
       </section>
     ))}
   </Layout>
