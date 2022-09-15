@@ -18,6 +18,10 @@ type LayoutContent = {
   links: Array<IconLinkProps>
 }
 
+interface LayoutProps extends HeadProps {
+  flex?: boolean;
+}
+
 export const EmailPanel: FC<Pick<LayoutContent,'email'>> = ({
   email
 }) => (
@@ -53,14 +57,25 @@ const LinksPanel: FC<Pick<LayoutContent,'links'>> = ({ links }) => (
   </div>
 );
 
-const Layout: FC<HeadProps> = ({ children, ...props }) => (
-  <>
+const Layout: FC<LayoutProps> = ({
+  children,
+  flex = false,
+  ...props
+}) => {
+
+  const mainClassNames = flex 
+    ? "fillHeight flex-column"
+    : "fillHeight";
+
+  return (
+    <>
     <Head {...props} />
     <Nav />
     <LinksPanel links={content.links} />
     <EmailPanel email={content.email} />
-    <main className="fillHeight">{children}</main>
+    <main className={mainClassNames}>{children}</main>
   </>
 );
+}
 
 export default Layout;

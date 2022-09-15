@@ -40,7 +40,8 @@
   --fz-lg: 18px;
   --fz-xl: 20px;
   --fz-xxl: 22px;
-  --fz-heading: 32px;
+  --fz-h1: clamp(40px, 5vw, 60px);
+  --fz-h2: clamp(26px, 5vw, 32px);
   --border-radius: 4px;
   --nav-height: 100px;
   --nav-scroll-height: 70px;
@@ -127,6 +128,11 @@ main {
   max-width: 1600px;
   min-height: 100vh;
   padding: 0 150px;
+
+  &.flex-column {
+    display: flex;
+    flex-direction: column;
+  }
   
   @media (max-width: 1080px) {
     padding: 0 100px;
@@ -178,6 +184,14 @@ h6 {
   color: var(--slate-lightest);
 }
 
+h1 {
+  font-size: var(--fz-h1);
+}
+
+h2 {
+  font-size: var(--fz-h2);
+}
+
 a {
   display: inline-block;
   text-decoration: none;
@@ -190,8 +204,6 @@ a {
     color: var(--green);
   }
 }
-
-
 
 button {
   cursor: pointer;
@@ -214,4 +226,8 @@ p {
 
 ins {
   text-decoration: none;
+}
+
+.display-flex {
+  display: flex;
 }
