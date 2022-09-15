@@ -105,7 +105,7 @@
   text-align: center;
 
   h3 {
-    font-size: clamp(40px, 5vw, 60px);
+    font-size: var(--fz-h1);
   }
 
   p {

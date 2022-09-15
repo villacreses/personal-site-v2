@@ -1,0 +1,121 @@
+$diameter: 40px;
+$border_width: 2px;
+$triangle_size: 11px;
+$grid-top-row-height: 10px;
+
+%grid {
+  display: grid;
+  grid-template-columns: $diameter ($triangle_size + 10px) minmax(auto, 793px); 
+}
+
+%content-box {
+  border: $border_width solid var(--slate-dark);
+  background-color: var(--navy);
+  transition: var(--transition);
+}
+
+.top-section {
+  margin-left: $diameter + $triangle_size + 10;
+  padding: 0;
+}
+ 
+/* The triangle */
+.triangle {
+  grid-area: 2 / 2 / 3 /3;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: -$border_width;
+
+  pointer-events: none;
+  span {
+    @extend %content-box;
+    content: " ";
+    display: block;
+    
+    height: $triangle_size * 2;
+    width: $triangle_size * 2;
+    transform: rotate(45deg);
+    align-self: center;
+    margin-right: -$triangle_size;
+    z-index: 3;
+  }
+}
+
+.timeline {
+  @extend %grid;
+  flex: 1;
+
+  position: relative;
+  margin: 55px 0 0 0;
+  padding: 0 0 20px 0;
+  
+  row-gap: 55px;
+  
+  /* The line */
+  &::before {
+    content: " ";
+    width: 4px;
+    background-color: var(--navy-lightest);
+    justify-self: center;
+    position: absolute;
+    grid-column: 1 / 2;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    margin-top: $grid-top-row-height;
+  }
+  
+  li {
+    @extend %grid;
+    grid-template-rows: $grid-top-row-height $diameter 1fr;
+    grid-column: 1 / -1;
+    position: relative;
+
+    pointer-events: none;
+
+    & > * {
+      pointer-events: auto;
+    }
+
+    $li: &;
+
+    &:hover {
+      & > i,
+      & > div,
+      & > span span {
+        border-color: var(--green);
+        background-color: var(--navy-light);
+      }
+    }
+    
+    & > i {
+      @extend %content-box;
+      transition: var(--transition);
+      display: block;
+      border-width: 4px;
+      border-radius: 50%;
+      background-color: var(--navy);
+      box-sizing: border-box;
+      grid-area: 2 / 1 /3/ 2;
+    }
+
+    & > div {
+      @extend %content-box;
+      
+      grid-column: 3 / -2;
+      grid-row: 1 / -1;
+
+      padding: 1.25rem 1.75rem;
+      border-radius: var(--border-radius);
+      position: relative;
+      z-index: 2;
+    }
+    
+    time {
+      font-family: var(--font-mono);
+      font-size: var(--fz-sm);
+    }
+  }
+}

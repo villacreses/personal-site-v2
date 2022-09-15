@@ -21,7 +21,13 @@ const navLinks: HTMLProps<HTMLAnchorElement>[] = [
   },
 ];
 
-const Nav: FC = () => {
+const NavFiller = () => <div style={{height: "var(--nav-height)"}} />
+
+type NavComposition = {
+  Filler: typeof NavFiller,
+}
+
+const Nav: FC & NavComposition = () => {
   const scrollDirection = useScrollDirection();
   const scrolledToTop = useNavAutohide();
 
@@ -54,5 +60,7 @@ const Nav: FC = () => {
     </header>
   )
 }
+
+Nav.Filler = NavFiller;
 
 export default Nav;
