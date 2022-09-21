@@ -43,7 +43,11 @@ $grid-top-row-height: 10px;
   }
 }
 
-.timeline {
+.timerange {
+  font-family: var(--font-mono);
+}
+
+.timeline { // ul
   @extend %grid;
   flex: 1;
 
@@ -66,56 +70,54 @@ $grid-top-row-height: 10px;
     z-index: 0;
     margin-top: $grid-top-row-height;
   }
+}
+
+.timeline-entry { // li
+  @extend %grid;
+  grid-template-rows: $grid-top-row-height $diameter 1fr;
+  grid-column: 1 / -1;
+  position: relative;
+
+  pointer-events: none;
+
+  & > * {
+    pointer-events: auto;
+  }
+
+  &:hover {
+    & > i,
+    & > div,
+    & > span span {
+      border-color: var(--green);
+      background-color: var(--navy-light);
+    }
+  }
   
-  li {
-    @extend %grid;
-    grid-template-rows: $grid-top-row-height $diameter 1fr;
-    grid-column: 1 / -1;
+  & > i {
+    @extend %content-box;
+    transition: var(--transition);
+    display: block;
+    border-width: 4px;
+    border-radius: 50%;
+    background-color: var(--navy);
+    box-sizing: border-box;
+    grid-area: 2 / 1 /3/ 2;
+  }
+
+  & > div {
+    @extend %content-box;
+    
+    grid-column: 3 / -2;
+    grid-row: 1 / -1;
+
+    padding: 1.25rem 1.75rem;
+    border-radius: var(--border-radius);
     position: relative;
-
-    pointer-events: none;
-
-    & > * {
-      pointer-events: auto;
-    }
-
-    $li: &;
-
-    &:hover {
-      & > i,
-      & > div,
-      & > span span {
-        border-color: var(--green);
-        background-color: var(--navy-light);
-      }
-    }
-    
-    & > i {
-      @extend %content-box;
-      transition: var(--transition);
-      display: block;
-      border-width: 4px;
-      border-radius: 50%;
-      background-color: var(--navy);
-      box-sizing: border-box;
-      grid-area: 2 / 1 /3/ 2;
-    }
-
-    & > div {
-      @extend %content-box;
-      
-      grid-column: 3 / -2;
-      grid-row: 1 / -1;
-
-      padding: 1.25rem 1.75rem;
-      border-radius: var(--border-radius);
-      position: relative;
-      z-index: 2;
-    }
-    
-    time {
-      font-family: var(--font-mono);
-      font-size: var(--fz-sm);
-    }
+    z-index: 2;
+  }
+  
+  time {
+    font-family: var(--font-mono);
+    font-size: var(--fz-sm);
   }
 }

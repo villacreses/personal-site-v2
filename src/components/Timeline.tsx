@@ -1,20 +1,12 @@
-import {FC, TimeHTMLAttributes} from 'react';
+import {FC} from 'react';
 import Markdown from 'react-markdown';
+import {TTimelineEntry} from '@types';
+import TimeRange from './TimeRange';
 
 import styles from './Timeline.module.scss';
 
-export interface TimelineListEntryProps {
-  title: string,
-  content: string,
-  timeMetadata: {
-    date: string,
-    timestamp?: TimeHTMLAttributes<HTMLElement>['dateTime'],
-    timeOfDay?: string,
-  },
-} 
-
 type TimelineProps = {
-  entries: TimelineListEntryProps[],
+  entries: TTimelineEntry[],
 };
 
 const triangle = (
@@ -27,15 +19,20 @@ export const Timeline: FC<TimelineProps> = ({entries}) => (
   <ol className={styles.timeline}>
     {
       entries.map(({
-        timeMetadata,
-        title,
+        startDate,
+        endDate,
         content,
       }) => (
-        <li key={timeMetadata.date}>
+        <li
+          key={startDate}
+          className={styles["timeline-entry"]}
+        >
           <i />
           <div>
-            <time>January 14, 1991</time>
-            <h2>{title}</h2>
+            <TimeRange
+              startTimestamp={startDate}
+              endTimestamp={endDate}
+            />
             <Markdown>{content}</Markdown>
           </div>
           {triangle}
