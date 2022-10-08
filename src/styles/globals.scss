@@ -231,3 +231,17 @@ ins {
 .display-flex {
   display: flex;
 }
+
+li {
+  position: relative;
+  font-size: var(--fz-lg); 
+
+  ::marker {
+    content: "▹";
+    color: var(--green);
+  }
+
+  & > * {
+    font-size: var(--fz-lg);
+  }
+}

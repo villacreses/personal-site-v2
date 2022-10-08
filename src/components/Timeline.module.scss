@@ -1,3 +1,5 @@
+@use '../styles//mixins';
+
 $diameter: 40px;
 $border_width: 2px;
 $triangle_size: 11px;
@@ -8,10 +10,15 @@ $grid-top-row-height: 10px;
   grid-template-columns: $diameter ($triangle_size + 10px) minmax(auto, 793px); 
 }
 
-%content-box {
+%hover-highlight {
+  transition: var(--transition);
   border: $border_width solid var(--slate-dark);
   background-color: var(--navy);
-  transition: var(--transition);
+
+  li:hover & {
+    border-color: var(--green);
+    background-color: var(--navy-light);
+  }
 }
 
 .top-section {
@@ -30,7 +37,8 @@ $grid-top-row-height: 10px;
 
   pointer-events: none;
   span {
-    @extend %content-box;
+    @extend %hover-highlight;
+
     content: " ";
     display: block;
     
@@ -45,15 +53,16 @@ $grid-top-row-height: 10px;
 
 .timerange {
   font-family: var(--font-mono);
+  font-size: var(--fz-sm);
 }
 
-.timeline { // ul
+.timeline { // ol
   @extend %grid;
   flex: 1;
 
   position: relative;
-  margin: 55px 0 0 0;
-  padding: 0 0 20px 0;
+  margin: 55px auto 0;
+  padding: 1em 2em var(--fz-h1);
   
   row-gap: 55px;
   
@@ -65,10 +74,9 @@ $grid-top-row-height: 10px;
     justify-self: center;
     position: absolute;
     grid-column: 1 / 2;
-    top: 0;
+    top: calc($grid-top-row-height + 1em);
     bottom: 0;
     z-index: 0;
-    margin-top: $grid-top-row-height;
   }
 }
 
@@ -83,41 +91,43 @@ $grid-top-row-height: 10px;
   & > * {
     pointer-events: auto;
   }
+}
 
-  &:hover {
-    & > i,
-    & > div,
-    & > span span {
-      border-color: var(--green);
-      background-color: var(--navy-light);
+.content-container {
+  @extend %hover-highlight;
+    
+  grid-column: 3 / -2;
+  grid-row: 1 / -1;
+
+  padding: 1.25rem 1.75rem;
+  border-radius: var(--border-radius);
+  position: relative;
+  z-index: 2;
+
+  ul {
+    padding-left: var(--fz-sm);
+  }
+
+  li {
+    position: relative;
+    padding-left: var(--fz-xs);
+    margin-bottom: 10px;
+
+    ::marker {
+      content: "▹";
+      color: var(--green);
     }
   }
-  
-  & > i {
-    @extend %content-box;
-    transition: var(--transition);
-    display: block;
-    border-width: 4px;
-    border-radius: 50%;
-    background-color: var(--navy);
-    box-sizing: border-box;
-    grid-area: 2 / 1 /3/ 2;
-  }
+}
 
-  & > div {
-    @extend %content-box;
-    
-    grid-column: 3 / -2;
-    grid-row: 1 / -1;
+.timeline-pin { 
+  @extend %hover-highlight;
 
-    padding: 1.25rem 1.75rem;
-    border-radius: var(--border-radius);
-    position: relative;
-    z-index: 2;
-  }
-  
-  time {
-    font-family: var(--font-mono);
-    font-size: var(--fz-sm);
-  }
+  transition: var(--transition);
+  display: block;
+  border-width: 4px;
+  border-radius: 50%;
+  background-color: var(--navy);
+  box-sizing: border-box;
+  grid-area: 2 / 1 /3/ 2;
 }

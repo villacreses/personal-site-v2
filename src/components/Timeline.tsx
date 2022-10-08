@@ -27,8 +27,8 @@ export const Timeline: FC<TimelineProps> = ({entries}) => (
           key={startDate}
           className={styles["timeline-entry"]}
         >
-          <i />
-          <div>
+          <i className={styles["timeline-pin"]} />
+          <div className={styles["content-container"]}>
             <TimeRange
               startTimestamp={startDate}
               endTimestamp={endDate}

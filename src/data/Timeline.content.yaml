@@ -54,7 +54,7 @@
   tabLabel: New World Odyssey
   startDate: 2013-11-01 # November 2013
   endDate: 2014-05-01 # May 2014
-  contentDefault: >
+  content: >
     ## Co-founder & Webmaster @ New World Odyssey
 
     - Built and maintained an online catalog of medical technologies using HTML5, CSS, and jQuery
