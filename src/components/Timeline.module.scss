@@ -1,10 +1,7 @@
-@use '../styles//mixins';
-
 $diameter: 40px;
 $border_width: 2px;
 $triangle_size: 11px;
 $grid-top-row-height: 10px;
-
 
 %hover-highlight {
   transition: var(--transition);
@@ -165,6 +162,7 @@ $grid-top-row-height: 10px;
   display: grid;
   grid-template-rows: var(--nav-height) repeat(auto);
   grid-template-columns: auto 40px 21px minmax(auto, 793px) auto;
+  grid-row-gap: 30px;
 
   & > * {
     grid-column: 2 / 5;
