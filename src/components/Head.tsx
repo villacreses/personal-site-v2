@@ -27,8 +27,6 @@ const Head: FC<HeadProps> = ({
 
   return (
     <NextHead>
-      <html lang="en" />
-
       <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
 

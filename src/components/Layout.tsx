@@ -1,7 +1,9 @@
 import { FC, ComponentProps } from 'react'
+import {AnchorProps} from '@types';
 import Head, { HeadProps } from './Head';
 import Icon from './Icon';
 import Nav from './Nav';
+import DisplayIf from './DisplayIf';
 
 import content from '../data/Layout.content.yaml';
 
@@ -15,10 +17,18 @@ type IconLinkProps = {
 
 type LayoutContent = {
   email: string;
-  links: Array<IconLinkProps>
+  iconLinks: Array<IconLinkProps>;
+  navLinks: Array<AnchorProps>;
 }
 
-export const EmailPanel: FC<Pick<LayoutContent,'email'>> = ({
+interface LayoutProps extends HeadProps {
+  mainClassNames?: string;
+  navFiller?: boolean;
+  navLinks: Array<AnchorProps>;
+  navNumbered?: boolean
+}
+
+export const EmailPanel: FC<{email: string}> = ({
   email
 }) => (
   <div className={styles.containerRight}>
@@ -45,21 +55,35 @@ const IconLink: FC<IconLinkProps> = ({ href, label, slug }) => (
   </li>
 )
 
-const LinksPanel: FC<Pick<LayoutContent,'links'>> = ({ links }) => (
+const LinksPanel: FC<Pick<LayoutContent,'iconLinks'>> = ({
+  iconLinks
+}) => (
   <div className={styles.containerLeft}>
     <ul>
-      {links.map(link => <IconLink key={link.slug} {...link} />)}
+      {iconLinks.map(
+        link => <IconLink key={link.slug} {...link} />
+      )}
     </ul>
   </div>
 );
 
-const Layout: FC<HeadProps> = ({ children, ...props }) => (
+const Layout: FC<LayoutProps> = ({
+  children,
+  mainClassNames = '',
+  navFiller = false,
+  navLinks,
+  navNumbered = false,
+  ...props
+}) => (
   <>
     <Head {...props} />
-    <Nav />
-    <LinksPanel links={content.links} />
+    <Nav links={navLinks} numbered={navNumbered} />
+    <DisplayIf condition={navFiller}>
+      <Nav.Filler />
+    </DisplayIf>
+    <LinksPanel iconLinks={content.links} />
     <EmailPanel email={content.email} />
-    <main className="fillHeight">{children}</main>
+    <main className={mainClassNames}>{children}</main>
   </>
 );
 

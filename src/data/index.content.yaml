@@ -50,7 +50,11 @@
     - component: TabList
       props:
         id: workexperience
+  callToActionText: >
+    Want to see my full career history? Check out my [career timeline](/timeline)!
+
 - id: contact
+  navHeader: Contact
   header: What's Next?
   headerOptions:
     titleStyle: small

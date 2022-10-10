@@ -1,4 +1,4 @@
-import { HTMLProps } from "react";
+import {HTMLProps} from "react";
 
 const omit = ['classname', 'rel', 'size'] as const;
 
@@ -47,4 +47,13 @@ export type Section = {
   markdown?: string;
   miscLayout?: Schema;
   callToAction?: SectionCTA;
+  callToActionText?: string;
 }
+
+export interface TTimelineEntry {
+  slug: string,
+  tabLabel: string,
+  startDate: string,
+  endDate?: string,
+  content: string,
+} 

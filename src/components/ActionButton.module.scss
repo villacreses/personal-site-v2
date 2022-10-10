@@ -23,6 +23,12 @@
   }
 }
 
+.as-xxs {
+  @extend %ActionButton;
+  font-size: var(--fz-xxs);
+  padding: .55rem .65rem;
+}
+
 .as-xs {
   @extend %ActionButton;
   font-size: var(--fz-xs);
