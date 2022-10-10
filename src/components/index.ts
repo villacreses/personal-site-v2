@@ -9,3 +9,4 @@ export { default as Nav } from './Nav';
 export { default as ProfileImage } from './ProfileImage';
 export { default as DisplayIf } from './DisplayIf'
 export { Timeline } from './Timeline';
+export { default as AnchorLink } from './AnchorLink';

@@ -2,6 +2,7 @@ import {ComponentProps, ReactNode, HTMLProps} from 'react'
 import Markdown from 'react-markdown';
 import {
   ActionButton,
+  AnchorLink,
   DisplayIf,
   SectionHeader,
   TabList,
@@ -17,7 +18,8 @@ const MarkdownComponentMap: {
   intro: {
     code: function Prelude ({children}) {
       return <span className="prelude">{children}</span>
-    }
+    },
+    a: props => <AnchorLink {...props} />
   },
   about: {
     em: function Del ({children}) {
@@ -25,8 +27,12 @@ const MarkdownComponentMap: {
     },
     strong: function Ins ({children}) {
       return <ins>{children}</ins>;
-    }
+    },
+    a: props => <AnchorLink {...props} />
   },
+  workexperience: {
+    a: props => <AnchorLink {...props} />
+  }
 };
 
 const MiscComponentMap: {

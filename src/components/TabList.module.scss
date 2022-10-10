@@ -2,16 +2,13 @@
 
 .TabContainer {
   display: flex;
+  margin-bottom: 30px;
 
   @media (max-width: 600px) {
     display: block;
+    margin-bottom: 20px;
   }
 
-  // Prevent container from jumping
-  @media (min-width: 700px) and (min-height: 500px) {
-    min-height: 340px;
-  }
-  
   *[role=tablist] {
     position: relative;
     z-index: 3;

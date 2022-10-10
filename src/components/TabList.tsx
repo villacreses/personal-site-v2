@@ -2,8 +2,8 @@ import { FC, HTMLProps, useState, ComponentProps, RefObject } from 'react';
 import Markdown from 'react-markdown';
 import styles from './TabList.module.scss';
 import { useMediaQuery, useTabFocus } from '@hooks';
-import { TabContent } from '@types';
 import {TabListContentMap} from '@data';
+import AnchorLink from './AnchorLink';
 
 interface TabProps extends HTMLProps<HTMLButtonElement> {
   selected?: boolean;
@@ -50,7 +50,8 @@ const panelMarkdownComponents: ComponentProps<typeof Markdown>['components'] = {
         {children}
       </span>
     );
-  }
+  },
+  a: (props) => <AnchorLink {...props} />,
 };
 
 const Panel: FC<PanelProps> = ({

@@ -97,6 +97,11 @@
 
 #workexperience {
   max-width: 700px;
+
+  & > p {
+    border-top: 1px solid var(--navy-light);
+    padding-top: 15px;
+  }
 }
 
 #contact {

@@ -1,6 +1,7 @@
-import {FC} from 'react';
+import {FC, ComponentProps} from 'react';
 import Markdown from 'react-markdown';
 import {TTimelineEntry} from '@types';
+import {AnchorLink} from '@components';
 import TimeRange from './TimeRange';
 
 import styles from './Timeline.module.scss';
@@ -14,6 +15,10 @@ const triangle = (
     <span />
   </span>
 );
+
+const markdownComponents: ComponentProps<typeof Markdown>['components'] = {
+  a: props => <AnchorLink {...props} />
+}
 
 export const Timeline: FC<TimelineProps> = ({entries}) => (
   <ol className={styles.timeline}>
@@ -33,7 +38,7 @@ export const Timeline: FC<TimelineProps> = ({entries}) => (
               startTimestamp={startDate}
               endTimestamp={endDate}
             />
-            <Markdown>{content}</Markdown>
+            <Markdown components={markdownComponents}>{content}</Markdown>
           </div>
           {triangle}
         </li>
