@@ -1,10 +1,19 @@
 import { Layout, Timeline, Nav } from '@components';
 import styles from '../components/Timeline.module.scss';
 import {timelineContent} from '@data';
+import {AnchorProps} from '@types';
+
+const navLinks: AnchorProps[] = [
+  {
+    href: '/',
+    children: 'Home'
+  }
+];
 
 const CareerTimeline = () => (
   <Layout
     navFiller
+    navLinks={navLinks}
     mainClassNames={styles["page-grid"]}
   >
     <section className={styles["top-section"]}>

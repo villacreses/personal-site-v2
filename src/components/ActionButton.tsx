@@ -3,6 +3,7 @@ import styles from './ActionButton.module.scss';
 import { AnchorProps } from '@types';
 
 const sizeMap = {
+  xxs: 'as-xxs',
   xs: 'as-xs',
   sm: 'as-sm',
 } as const;

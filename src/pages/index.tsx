@@ -1,4 +1,4 @@
-import {ComponentProps, ReactNode} from 'react'
+import {ComponentProps, ReactNode, HTMLProps} from 'react'
 import Markdown from 'react-markdown';
 import {
   ActionButton,
@@ -9,6 +9,7 @@ import {
   ProfileImage
 } from '@components';
 import {indexContent} from '@data';
+import {AnchorProps} from '@types';
 
 const MarkdownComponentMap: {
   [key: string]: ComponentProps<typeof Markdown>['components']
@@ -35,8 +36,15 @@ const MiscComponentMap: {
   ProfileImage,
 };
 
+const navLinks: AnchorProps[] = indexContent
+  .filter(({headerOptions}) => headerOptions?.showHeader !== false)
+  .map(({id, navHeader}) => ({
+    children: navHeader,
+    href: `#${id}`
+  }));
+
 const Home = () => (
-  <Layout>
+  <Layout navLinks={navLinks} navNumbered>
     {indexContent.map(({
       id,
       header,
@@ -44,6 +52,7 @@ const Home = () => (
       markdown,
       miscLayout = [],
       callToAction,
+      callToActionText,
     }) => (
       <section id={id} key={id}>
         <DisplayIf condition={headerOptions?.showHeader !== false}>
@@ -62,6 +71,11 @@ const Home = () => (
           // @ts-ignore
           return <Component key={props.id} {...props}/>
         })}
+        <DisplayIf condition={!!callToActionText}>
+          <Markdown components={MarkdownComponentMap[id]}>
+            {callToActionText!}
+          </Markdown>
+        </DisplayIf>
         <DisplayIf condition={!!callToAction}>
           <ActionButton {...(callToAction!)} />
         </DisplayIf>

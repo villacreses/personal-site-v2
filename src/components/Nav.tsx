@@ -1,35 +1,31 @@
-import { FC, HTMLProps } from 'react';
+import {FC} from 'react';
 import Link from 'next/link';
+import {AnchorProps} from '@types';
 import ActionButton from './ActionButton';
 import BurgerMenu from './BurgerMenu';
 
 import { useScrollDirection, useNavAutohide } from '@hooks';
 import styles from './Nav.module.scss';
 
-const navLinks: HTMLProps<HTMLAnchorElement>[] = [
-  {
-    children: 'About',
-    href: '#about'
-  },
-  {
-    children: 'Experience',
-    href: '#jobs'
-  },
-  {
-    children: 'Contact',
-    href: '#contact'
-  },
-];
-
 const NavFiller = () => <div style={{height: "var(--nav-height)"}} />
+
+type NavProps = {
+  links: AnchorProps[];
+  numbered?: boolean;
+}
 
 type NavComposition = {
   Filler: typeof NavFiller,
 }
 
-const Nav: FC & NavComposition = () => {
+const Nav: FC<NavProps> & NavComposition = ({
+  links,
+  numbered = false,
+}) => {
   const scrollDirection = useScrollDirection();
   const scrolledToTop = useNavAutohide();
+
+  const numberingStyles = numbered ? styles.numbered : '';
 
   return (
     <header
@@ -45,17 +41,23 @@ const Nav: FC & NavComposition = () => {
         </Link>
         <div className={styles.links}>
           <ol>
-            {navLinks.map((props, i) => (
+            {links.map(({href, ...props}, i) => (
               <li key={i}>
-                <a {...props} />
+                <Link href={href!} passHref>
+                  <a className={numberingStyles} {...props} />
+                </Link>
               </li>
             ))}
           </ol>
-          <ActionButton size="xs" href="resume.pdf" target="_blank">
+          <ActionButton
+            size={numbered ? "xs" : "xxs"}
+            href="resume.pdf"
+            target="_blank"
+            >
             Resume
           </ActionButton>
         </div>
-        <BurgerMenu items={navLinks} />
+        <BurgerMenu items={links} />
       </nav>
     </header>
   )
