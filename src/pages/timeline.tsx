@@ -3,8 +3,10 @@ import styles from '../components/Timeline.module.scss';
 import {timelineContent} from '@data';
 
 const CareerTimeline = () => (
-  <Layout flex>
-    <Nav.Filler />
+  <Layout
+    navFiller
+    mainClassNames={styles["page-grid"]}
+  >
     <section className={styles["top-section"]}>
       <h1>{`Mario's Career History`}</h1>   
       <p>

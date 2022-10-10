@@ -2,6 +2,7 @@ import { FC, ComponentProps } from 'react'
 import Head, { HeadProps } from './Head';
 import Icon from './Icon';
 import Nav from './Nav';
+import DisplayIf from './DisplayIf';
 
 import content from '../data/Layout.content.yaml';
 
@@ -19,7 +20,8 @@ type LayoutContent = {
 }
 
 interface LayoutProps extends HeadProps {
-  flex?: boolean;
+  mainClassNames?: string;
+  navFiller?: boolean;
 }
 
 export const EmailPanel: FC<Pick<LayoutContent,'email'>> = ({
@@ -59,23 +61,20 @@ const LinksPanel: FC<Pick<LayoutContent,'links'>> = ({ links }) => (
 
 const Layout: FC<LayoutProps> = ({
   children,
-  flex = false,
+  mainClassNames = '',
+  navFiller = false,
   ...props
-}) => {
-
-  const mainClassNames = flex 
-    ? "fillHeight flex-column"
-    : "fillHeight";
-
-  return (
-    <>
+}) => (
+  <>
     <Head {...props} />
     <Nav />
+    <DisplayIf condition={navFiller}>
+      <Nav.Filler />
+    </DisplayIf>
     <LinksPanel links={content.links} />
     <EmailPanel email={content.email} />
     <main className={mainClassNames}>{children}</main>
   </>
 );
-}
 
 export default Layout;
