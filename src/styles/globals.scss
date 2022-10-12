@@ -142,6 +142,10 @@ main {
   @media (max-width: 768px) {
     padding: 0 50px;
   }
+
+  @media(max-width: 600px) {
+    padding: 0 34px;
+  }
   
   @media (max-width: 480px) {
     padding: 0 25px;
@@ -191,6 +195,10 @@ h1 {
 
 h2 {
   font-size: var(--fz-h2);
+}
+
+h3 {
+  font-size: var(--fz-xxl);
 }
 
 a {

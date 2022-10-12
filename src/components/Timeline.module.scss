@@ -5,7 +5,7 @@ $grid-top-row-height: 10px;
 
 %hover-highlight {
   transition: var(--transition);
-  border: $border_width solid var(--slate-shadow);
+  border: $border_width solid var(--slate-dark);
   background-color: var(--navy-light);
 
   li:hover & {
@@ -21,7 +21,7 @@ $grid-top-row-height: 10px;
 }
 
 @mixin mobile-portrait {
-  @media screen and (orientation: portrait) and (max-width: 600px) {
+  @media screen and (orientation: portrait) and (max-width: 620px) {
     @content;
   }
 }
@@ -65,8 +65,8 @@ $grid-top-row-height: 10px;
     margin-right: -$triangle_size;
 
     @include mobile-portrait {
-      height: $triangle_size * 1.5;
-      width: $triangle_size * 1.5;
+      height: $triangle_size * 1.75;
+      width: $triangle_size * 1.75;
       margin-right: -$triangle_size;
     }
   }
@@ -166,6 +166,7 @@ $grid-top-row-height: 10px;
   border-radius: 50%;
   box-sizing: border-box;
   grid-area: 2 / 1 /3/ 2;
+  box-shadow: 0 1px 10px 2px var(--navy-shadow);
 }
 
 .page-grid {
