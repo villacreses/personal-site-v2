@@ -1,4 +1,5 @@
 import { FC, HTMLProps } from 'react';
+import AnchorLink from '../AnchorLink';
 import { MenuContextProvider, useMenuContext } from './menuContext';
 import useMenuState from './useMenuState';
 
@@ -74,7 +75,7 @@ const MenuItem: FC<AnchorProps> = props => {
   const { id, onItemClick } = useMenuContext();
 
   return (
-    <a
+    <AnchorLink
       role="menuitem"
       className={`${id}-menu-item`}
       onClick={onItemClick}

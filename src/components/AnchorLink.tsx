@@ -1,16 +1,17 @@
 import {FC, HTMLProps} from 'react';
 import Link from 'next/link';
-
-type AnchorLinkProps = HTMLProps<HTMLAnchorElement> 
+const omit = ['target', 'rel'] as const;
+type AnchorLinkProps = Omit<HTMLProps<HTMLAnchorElement>, typeof omit[number]> 
 
 const AnchorLink: FC<AnchorLinkProps> = ({
   children,
   href = '/',
+  ...props
 }) => {
   if(href[0] === '/') {
     return (
       <Link href={href} passHref>
-        <a>{children}</a>
+        <a {...props}>{children}</a>
       </Link>
     )
   }
@@ -19,6 +20,7 @@ const AnchorLink: FC<AnchorLinkProps> = ({
       href={href} 
       target="_blank"
       rel="noreferrer"
+      {...props}
     >
       {children}
     </a>
