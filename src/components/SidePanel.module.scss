@@ -1,8 +1,9 @@
 @use '@styles/mixins';
+@use '@styles/breakpoints';
 
 %content {
   margin: 20px auto;
-  @include mixins.for-mobile-landscape {
+  @include breakpoints.mobile-landscape {
     margin: 15px auto;
   }
 }
@@ -14,7 +15,7 @@
   z-index: 10;
   color: var(--slate-light);
 
-  @media (max-width: 768px) {
+  @include breakpoints.md {
     display: none;
   }
 
@@ -26,7 +27,7 @@
     margin: 0 auto;
     background-color: var(--slate-light);
 
-    @include mixins.for-mobile-landscape {
+    @include breakpoints.mobile-landscape {
       height: 50px;
     }
   }
@@ -57,7 +58,7 @@
   left: auto;
   right: 40px;
 
-  @media (max-width: 1080px) {
+  @include breakpoints.lg {
     right: 20px;
   }
 }
@@ -67,7 +68,7 @@
   left: 40px;
   right: auto;
 
-  @media (max-width: 1080px) {
+  @include breakpoints.lg {
     left: 20px;
   }
 }

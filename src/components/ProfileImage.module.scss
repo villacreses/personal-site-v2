@@ -1,3 +1,5 @@
+@use '@styles/breakpoints';
+
 .grid {
   grid-column-start: 2;
   grid-row: 2 / span 3;
@@ -8,7 +10,7 @@
   position: relative;
   width: 100%;
 
-  @media (max-width: 768px) {
+  @include breakpoints.md {
     width: 70%;
     margin: 0 auto;
   }
@@ -18,7 +20,7 @@
     display: block;
     padding-top: 100%;
 
-    @media (max-width: 768px) {
+    @include breakpoints.md {
       padding-top: 70%;
     }
   }
@@ -30,7 +32,7 @@
   background: var(--green);
   border-radius: var(--border-radius);
 
-  @media (max-width: 768px) {
+  @include breakpoints.md {
     width: 70%;
     left: 0;
     right: 0;

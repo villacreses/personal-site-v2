@@ -1,3 +1,5 @@
+@use '@styles/breakpoints';
+
 %flexBetween {
   display: flex;
   justify-content: space-between;
@@ -18,11 +20,11 @@
   backdrop-filter: blur(10px);
   transition: var(--transition);
 
-  @media (max-width: 1080px) {
+  @include breakpoints.lg {
     padding: 0 40px;
   }
 
-  @media (max-width: 768px) {
+  @include breakpoints.md {
     padding: 0 25px;
   }
 
@@ -58,7 +60,7 @@
   display: flex;
   align-items: center;
 
-  @media (max-width: 768px) {
+  @include breakpoints.md {
     display: none;
   }
 

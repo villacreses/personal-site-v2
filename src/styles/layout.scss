@@ -1,0 +1,13 @@
+#__next {
+  display: contents;
+}
+
+body {
+  display: grid;
+  grid-template-rows: var(--nav-height) auto;
+  grid-template-columns: 40px 1fr 40px;
+}
+
+main {
+  grid-area: 2 / 2 / 3 / 3;
+}

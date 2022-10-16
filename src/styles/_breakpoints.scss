@@ -1,0 +1,35 @@
+@mixin mobile-landscape {
+  @media screen and (orientation: landscape) and (max-height: 500px) {
+    @content;
+  }
+}
+
+@mixin mobile-portrait {
+  @media screen and (orientation: portrait) and (max-width: 620px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (max-width: 1080px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin xs {
+  @media (max-width: 480px) {
+    @content;
+  }
+}

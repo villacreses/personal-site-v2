@@ -1,3 +1,5 @@
+@use '@styles/breakpoints';
+
 %counter {
   &::before {
     position: relative;
@@ -10,7 +12,7 @@
     font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
     font-weight: 400;
 
-    @media (max-width: 480px) {
+    @include breakpoints.xs {
       margin-bottom: -3px;
       margin-right: 5px;
     }
@@ -39,15 +41,15 @@
     margin-left: 20px;
     background-color: var(--navy-lightest);
 
-    @media (max-width: 1080px) {
+    @include breakpoints.lg {
       width: 200px;
     }
 
-    @media (max-width: 768px) {
+    @include breakpoints.md {
       width: 100%;
     }
 
-    @media (max-width: 600px) {
+    @include breakpoints.sm {
       margin-left: 10px;
     }
   }
