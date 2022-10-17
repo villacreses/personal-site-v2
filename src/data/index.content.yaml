@@ -52,7 +52,13 @@
         id: workexperience
   callToActionText: >
     Want to see my full career history? Check out my [career timeline](/timeline)!
-
+- id: projects
+  header: Some Things I've built
+  navHeader: Projects
+  miscLayout: 
+    - component: ProjectGrid
+      props:
+        id: personalprojects
 - id: contact
   navHeader: Contact
   header: What's Next?

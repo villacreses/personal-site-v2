@@ -1,0 +1,18 @@
+- slug: chronos
+  title: Chronos
+  description: >
+    Capstone team project at Fullstack Academy
+- slug: 8bit
+  title: 8-Bit Bargains
+  description: >
+    First collaborative project made in Fullstack Academy
+  github: https://github.com/8BitBargains/8bitBargains
+  tools:
+    - React
+    - Redux
+    - Express.js
+    - Stripe
+- slug: qrd
+  title: Quick Rundown
+  description: >
+    Solo project made during 3-day hackathon at Fullstack Academy

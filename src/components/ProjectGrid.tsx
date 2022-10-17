@@ -1,19 +1,8 @@
 import { FC } from 'react'
 import Icon from './Icon';
 import styles from './ProjectGrid.module.scss';
-
-type ProjectGridItemProps = {
-  id: string;
-  title: string;
-  description: string;
-  tools?: Array<string>;
-  github?: string;
-  website?: string;
-}
-
-type ProjectGridProps = {
-  projects: Array<ProjectGridItemProps>;
-}
+import {ProjectGridItemProps} from '@types';
+import {projectContent} from '@data';
 
 const ProjectGridItem: FC<ProjectGridItemProps> = ({
   title,
@@ -56,10 +45,10 @@ const ProjectGridItem: FC<ProjectGridItemProps> = ({
   </li>
 );
 
-const ProjectGrid: FC<ProjectGridProps> = ({ projects }) => ( 
+const ProjectGrid = () => ( 
   <ul className={styles.gridUl}>
-    {projects.map(project => (
-      <ProjectGridItem key={project.id} {...project} />
+    {projectContent.map(project => (
+      <ProjectGridItem key={project.slug} {...project} />
     ))}
   </ul>
 );
