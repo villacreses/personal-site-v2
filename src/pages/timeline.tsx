@@ -12,9 +12,8 @@ const navLinks: AnchorProps[] = [
 
 const CareerTimeline = () => (
   <Layout
-    navFiller
     navLinks={navLinks}
-    mainClassNames={styles["page-grid"]}
+    mainClassNames={`${styles["page-grid"]} nav-filler`}
   >
     <section className={styles["top-section"]}>
       <h1>{`Mario's Career History`}</h1>   

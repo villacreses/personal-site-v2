@@ -1,10 +1,11 @@
 @use '@styles/mixins';
+@use '@styles/breakpoints';
 
 .TabContainer {
   display: flex;
   margin-bottom: 30px;
 
-  @media (max-width: 600px) {
+  @include breakpoints.sm {
     display: block;
     margin-bottom: 20px;
   }
@@ -16,7 +17,7 @@
     padding: 0;
     margin: 0;
 
-    @media (max-width: 600px) {
+    @include breakpoints.sm {
       display: flex;
       /**
       * On mobile, the user can't intuitively tell that the tablist is
@@ -30,7 +31,7 @@
       margin-bottom: 30px;
     }
 
-    @media (max-width: 480px) {
+    @include breakpoints.xs {
       width: calc(100% + 50px);
       padding-left: 25px;
       margin-left: -25px;
@@ -42,7 +43,7 @@
     width: 100%;
     margin-left: 20px;
 
-    @media (max-width: 600px) {
+    @include breakpoints.sm {
       margin-left: 0;
     }
   }
@@ -72,12 +73,12 @@
     background-color: var(--navy-light);
   }
 
-  @media (max-width: 768px) {
+  @include breakpoints.md {
     padding: 0 15px 2px;
     white-space: normal;
   }
 
-  @media (max-width: 600px) {
+  @include breakpoints.sm {
     @include mixins.flexCenter;
 
     min-width: 120px;
@@ -99,7 +100,7 @@
   background-color: var(--green);
   transition: transform 250ms cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s;
 
-  @media (max-width: 600px) {
+  @include breakpoints.sm {
     top: auto;
     bottom: 0;
     width: 100%;
@@ -108,7 +109,7 @@
     margin-left: 50px;
   }
 
-  @media (max-width: 480px) {
+  @include breakpoints.xs {
     margin-left: 25px;
   }
 }
@@ -120,7 +121,7 @@
   padding: 10px 5px;
   height: auto;
 
-  @media (max-width: 600px) {
+  @include breakpoints.sm {
     margin-left: 0;
   }
 

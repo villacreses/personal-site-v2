@@ -7,18 +7,12 @@ import BurgerMenu from './BurgerMenu';
 import { useScrollDirection, useNavAutohide } from '@hooks';
 import styles from './Nav.module.scss';
 
-const NavFiller = () => <div style={{height: "var(--nav-height)"}} />
-
 type NavProps = {
   links: AnchorProps[];
   numbered?: boolean;
 }
 
-type NavComposition = {
-  Filler: typeof NavFiller,
-}
-
-const Nav: FC<NavProps> & NavComposition = ({
+const Nav: FC<NavProps> = ({
   links,
   numbered = false,
 }) => {
@@ -62,7 +56,5 @@ const Nav: FC<NavProps> & NavComposition = ({
     </header>
   )
 }
-
-Nav.Filler = NavFiller;
 
 export default Nav;

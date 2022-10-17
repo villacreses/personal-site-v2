@@ -1,9 +1,10 @@
 @use 'mixins';
+@use 'breakpoints';
 
 %large-intro {
   margin: 0;
   font-size: clamp(40px, 8vw, 80px);
-  @include mixins.for-mobile-landscape {
+  @include breakpoints.mobile-landscape {
     font-size: clamp(40px, 8vw, 60px);
   }
 }
@@ -34,7 +35,7 @@
       font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
       font-weight: 400;
 
-      @media (max-width: 480px) {
+      @include breakpoints.xs {
         margin: 0 0 20px 2px;
       }
     }
@@ -67,7 +68,7 @@
   grid-template-columns: 3fr 2fr;
   column-gap: 50px;
 
-  @media (max-width: 768px) {
+  @include breakpoints.md {
     display: block;
   }
 
