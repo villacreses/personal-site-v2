@@ -70,7 +70,6 @@ const LinksPanel: FC<Pick<LayoutContent,'iconLinks'>> = ({
 const Layout: FC<LayoutProps> = ({
   children,
   mainClassNames = '',
-  navFiller = false,
   navLinks,
   navNumbered = false,
   ...props
@@ -78,9 +77,6 @@ const Layout: FC<LayoutProps> = ({
   <>
     <Head {...props} />
     <Nav links={navLinks} numbered={navNumbered} />
-    <DisplayIf condition={navFiller}>
-      <Nav.Filler />
-    </DisplayIf>
     <LinksPanel iconLinks={content.links} />
     <EmailPanel email={content.email} />
     <main className={mainClassNames}>{children}</main>

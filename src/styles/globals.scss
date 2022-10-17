@@ -121,7 +121,10 @@ body {
       user-select: none;
     }
   }
+}
 
+#__next {
+  display: contents;
 }
 
 main {
@@ -131,9 +134,12 @@ main {
   min-height: 100vh;
   padding: 0 150px;
 
-  &.flex-column {
-    display: flex;
-    flex-direction: column;
+  &.nav-filler {
+    &::before {
+      content: ' ';
+      grid-column: 1/-1;
+      height: var(--nav-height);
+    }
   }
   
   @include breakpoints.lg {
