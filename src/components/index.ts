@@ -10,3 +10,4 @@ export { default as ProfileImage } from './ProfileImage';
 export { default as DisplayIf } from './DisplayIf'
 export { Timeline } from './Timeline';
 export { default as AnchorLink } from './AnchorLink';
+export { default as LayoutBlank } from './LayoutBlank';

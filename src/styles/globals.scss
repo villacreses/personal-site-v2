@@ -261,3 +261,44 @@ li {
     font-size: var(--fz-lg);
   }
 }
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.full-page {
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+%prelude {
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
+  font-weight: 400;
+}
+
+span {
+  &.prelude {
+    @extend %prelude;
+    margin: 0 0 30px 4px;
+    
+    @include breakpoints.xs {
+      margin: 0 0 20px 2px;
+    }
+  }
+
+  &.prelude-compact {
+    @extend %prelude;
+    margin-bottom: 15px;
+  }
+}
