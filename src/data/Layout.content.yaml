@@ -7,5 +7,14 @@ links:
     href: https://www.linkedin.com/in/villacreses
     label: LinkedIn
   - slug: stackoverflow 
-    href: https://stackoverflow.com/story/villacreses
+    href: https://stackoverflow.com/users/9746767/mario-villacreses
     label: Stack Overflow
+  - slug: devto
+    href: https://dev.to/villacreses
+    label: DEV.TO
+  - slug: codepen
+    href: https://codepen.io/villacreses
+    label: CodePen
+  - slug: hackernews
+    href: https://news.ycombinator.com/user?id=mario970v
+    label: Hacker News

@@ -47,6 +47,7 @@ const IconLink: FC<IconLinkProps> = ({ href, label, slug }) => (
     <a
       href={href}
       aria-label={label}
+      title={label}
       target="_blank"
       rel="noreferrer"
     >

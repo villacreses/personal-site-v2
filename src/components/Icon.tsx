@@ -7,6 +7,9 @@ import {
   faLinkedinIn,
   faMedium,
   faStackOverflow,
+  faDev,
+  faCodepen,
+  faHackerNews,
 } from '@fortawesome/free-brands-svg-icons';
 
 import {
@@ -26,7 +29,10 @@ const iconMap = {
   hackerrank: faHackerrank,
   folder: faFolder,
   external: faExternalLinkAlt,
-  burger: faBars
+  burger: faBars,
+  devto: faDev,
+  codepen: faCodepen,
+  hackernews: faHackerNews,
 } as const;
 
 type FAProps = Omit<ComponentProps<typeof FontAwesomeIcon>, 'icon'>
