@@ -25,6 +25,7 @@
   position: relative;
 
   pointer-events: none;
+  transition: var(--transition);
 
   & > * {
     width: 100%;

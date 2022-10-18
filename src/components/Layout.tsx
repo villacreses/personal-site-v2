@@ -1,9 +1,9 @@
-import { FC, ComponentProps } from 'react'
+import {FC, ComponentProps} from 'react'
 import {AnchorProps} from '@types';
-import Head, { HeadProps } from './Head';
+import AnchorLink from './AnchorLink';
+import Head, {HeadProps} from './Head';
 import Icon from './Icon';
 import Nav from './Nav';
-import DisplayIf from './DisplayIf';
 
 import content from '../data/Layout.content.yaml';
 
@@ -44,15 +44,13 @@ export const EmailPanel: FC<{email: string}> = ({
 
 const IconLink: FC<IconLinkProps> = ({ href, label, slug }) => (
   <li>
-    <a
+    <AnchorLink
       href={href}
-      aria-label={label}
       title={label}
-      target="_blank"
-      rel="noreferrer"
+      aria-label={label}
     >
       <Icon id={slug} />
-    </a>
+    </AnchorLink>
   </li>
 )
 

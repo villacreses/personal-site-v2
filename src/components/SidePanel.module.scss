@@ -48,7 +48,7 @@
 
   a {
     &:hover, &:focus {
-      transform: translateY(-3px);
+      transform: translateY(-3px) scale(1.003);
     }
   }
 }
