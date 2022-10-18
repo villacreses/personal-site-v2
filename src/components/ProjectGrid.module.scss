@@ -1,4 +1,4 @@
-$small-break: 768px;
+@use '@styles/breakpoints';
 
 .gridUl {
   list-style: outside none none;
@@ -24,15 +24,37 @@ $small-break: 768px;
   align-items: flex-start;
   position: relative;
 
+  pointer-events: none;
+
   & > * {
     width: 100%;
+  }
+
+  &:hover {
+    transform: translateY(-5px) scale(1.003);
+  }
+
+  a {
+    pointer-events: auto;
   }
 
   header {
     h3 {
       margin: 0 0 10px;
       color: var(--slate-lightest);
-      font-size: var(--fz-xxl);
+
+      // Card link
+      a {
+        position: initial;
+        &::before {
+          content: " ";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+      }
     }
 
     p {
@@ -56,6 +78,7 @@ $small-break: 768px;
       font-family: var(--font-mono);
       font-size: var(--fz-xxs);
       line-height: 1.75;
+      display: inline-block;
 
       &:not(:last-child) {
         margin-right: 15px;
@@ -64,28 +87,26 @@ $small-break: 768px;
   }
 }
 
-.projectTop {
+.icons {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 35px;
+
+  // Only the main (decorative) icon is a direct svg child
+  & > svg {
+    color: var(--green);
+    margin-right: auto;
+    font-size: 40px;
+  }
 }
 
-.expand {
-  flex: 1;
-}
-
-.mainIcons {
+.externalLink {
+  font-size: var(--fz-xxl);
   display: flex;
   align-items: center;
-  color: var(--green);
-  font-size: 40px;
-}
-
-.externalLinks {
-  a {
-    &:not(:last-child) {
-      margin-right: 15px;
-    }
+  padding: 5px 7px;
+  z-index: 3;
+  &:not(:last-child) {
+    margin-right: 15px;
   }
 }

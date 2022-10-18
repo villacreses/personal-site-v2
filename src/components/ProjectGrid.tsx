@@ -1,52 +1,54 @@
-import { FC } from 'react'
+import { FC, ComponentProps } from 'react'
+import Markdown from 'react-markdown';
 import Icon from './Icon';
+import DisplayIf from './DisplayIf';
+import AnchorLink from './AnchorLink';
 import styles from './ProjectGrid.module.scss';
+import {ProjectGridItemProps} from '@types';
+import {projectContent} from '@data';
 
-type ProjectGridItemProps = {
-  id: string;
-  title: string;
-  description: string;
-  tools?: Array<string>;
-  github?: string;
-  website?: string;
-}
-
-type ProjectGridProps = {
-  projects: Array<ProjectGridItemProps>;
-}
+const markdownComponents: ComponentProps<typeof Markdown>['components'] = {
+  a: ({node, ...props}) => <AnchorLink {...props} />,
+};
 
 const ProjectGridItem: FC<ProjectGridItemProps> = ({
-  title,
   description,
   tools = [],
   github,
-  website
+  website,
+  note,
 }) => (
   <li className={styles.gridLi}>
     <header>
-      <div className={styles.projectTop}>
-        <div className={styles.mainIcons}>
-          <Icon id="folder" />
-        </div>
-        <div className={styles.externalLinks}>
-          {!!github && (
-            <a
-              href={github}
-            >
-              <Icon id="github" />
-            </a>
-          )}
-          {!!website && (
-            <a
-              href={website}
-            >
-              <Icon id="external" />
-            </a>
-          )}
-        </div>
+      <div className={styles.icons}>
+        <Icon id="folder" />
+        <DisplayIf condition={!!github}>
+          <AnchorLink
+            href={github}
+            className={styles.externalLink}
+            title="Github repo"
+            aria-label="Link to github repo"
+          >
+            <Icon id="github" />
+          </AnchorLink>
+        </DisplayIf>
+        <DisplayIf condition={!!website}>
+          <a
+            href={website}
+            className={styles.externalLink}
+            title="External link"
+            aria-label="External link"
+          >
+            <Icon id="external" />
+          </a>
+        </DisplayIf>
       </div>
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <Markdown components={markdownComponents}>
+        {description}
+      </Markdown>
+      <DisplayIf condition={!!note}>
+        <p role="note">{note!}</p>
+      </DisplayIf>
     </header>
     <footer>
       <ul>
@@ -56,10 +58,10 @@ const ProjectGridItem: FC<ProjectGridItemProps> = ({
   </li>
 );
 
-const ProjectGrid: FC<ProjectGridProps> = ({ projects }) => ( 
+const ProjectGrid = () => ( 
   <ul className={styles.gridUl}>
-    {projects.map(project => (
-      <ProjectGridItem key={project.id} {...project} />
+    {projectContent.map(project => (
+      <ProjectGridItem key={project.slug} {...project} />
     ))}
   </ul>
 );

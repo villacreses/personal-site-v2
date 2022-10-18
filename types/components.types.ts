@@ -38,7 +38,6 @@ type Schema = Array<{
   }
 }>;
 
-
 export type Section = {
   id: string;
   header: string;
@@ -57,3 +56,13 @@ export interface TTimelineEntry {
   endDate?: string,
   content: string,
 } 
+
+export type ProjectGridItemProps = {
+  slug: string;
+  title: string;
+  description: string;
+  tools?: Array<string>;
+  github?: string;
+  website?: string;
+  note?: string;
+}

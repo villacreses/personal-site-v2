@@ -7,7 +7,8 @@ import {
   SectionHeader,
   TabList,
   Layout,
-  ProfileImage
+  ProfileImage,
+  ProjectGrid,
 } from '@components';
 import {indexContent} from '@data';
 import {AnchorProps} from '@types';
@@ -40,6 +41,7 @@ const MiscComponentMap: {
 } = {
   TabList,
   ProfileImage,
+  ProjectGrid,
 };
 
 const navLinks: AnchorProps[] = indexContent
