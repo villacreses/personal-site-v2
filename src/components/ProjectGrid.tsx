@@ -7,6 +7,10 @@ import styles from './ProjectGrid.module.scss';
 import {ProjectGridItemProps} from '@types';
 import {projectContent} from '@data';
 
+const markdownComponents: ComponentProps<typeof Markdown>['components'] = {
+  a: ({node, ...props}) => <AnchorLink {...props} />,
+};
+
 const ProjectGridItem: FC<ProjectGridItemProps> = ({
   description,
   tools = [],
@@ -39,7 +43,7 @@ const ProjectGridItem: FC<ProjectGridItemProps> = ({
           </a>
         </DisplayIf>
       </div>
-      <Markdown>
+      <Markdown components={markdownComponents}>
         {description}
       </Markdown>
       <DisplayIf condition={!!note}>

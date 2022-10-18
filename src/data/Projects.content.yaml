@@ -1,6 +1,6 @@
 - slug: chronos
   description: >
-    ### Chronos
+    ### [Chronos](https://chronos-d08ff.firebaseapp.com/)
     
     Chronos is a data visualization interface that allows users to create and 
     share high quality interactive graphics.
@@ -14,7 +14,7 @@
 - slug: 8bit
   title: 
   description: >
-    ### 8-Bit Bargains
+    ### [8-Bit Bargains](https://github.com/8BitBargains/8bitBargains)
 
     8-bit Bargains is an eCommerce platform for classic video game cartridges.
   note: My first collaborative project made at Fullstack Academy.

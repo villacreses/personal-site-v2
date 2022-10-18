@@ -24,14 +24,37 @@
   align-items: flex-start;
   position: relative;
 
+  pointer-events: none;
+
   & > * {
     width: 100%;
+  }
+
+  &:hover {
+    transform: translateY(-5px) scale(1.003);
+  }
+
+  a {
+    pointer-events: auto;
   }
 
   header {
     h3 {
       margin: 0 0 10px;
       color: var(--slate-lightest);
+
+      // Card link
+      a {
+        position: initial;
+        &::before {
+          content: " ";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+      }
     }
 
     p {
@@ -79,6 +102,10 @@
 
 .externalLink {
   font-size: var(--fz-xxl);
+  display: flex;
+  align-items: center;
+  padding: 5px 7px;
+  z-index: 3;
   &:not(:last-child) {
     margin-right: 15px;
   }
