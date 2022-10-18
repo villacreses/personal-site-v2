@@ -64,4 +64,5 @@ export type ProjectGridItemProps = {
   tools?: Array<string>;
   github?: string;
   website?: string;
+  note?: string;
 }

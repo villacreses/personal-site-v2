@@ -1,41 +1,50 @@
-import { FC } from 'react'
+import { FC, ComponentProps } from 'react'
+import Markdown from 'react-markdown';
 import Icon from './Icon';
+import DisplayIf from './DisplayIf';
+import AnchorLink from './AnchorLink';
 import styles from './ProjectGrid.module.scss';
 import {ProjectGridItemProps} from '@types';
 import {projectContent} from '@data';
 
 const ProjectGridItem: FC<ProjectGridItemProps> = ({
-  title,
   description,
   tools = [],
   github,
-  website
+  website,
+  note,
 }) => (
   <li className={styles.gridLi}>
     <header>
-      <div className={styles.projectTop}>
-        <div className={styles.mainIcons}>
-          <Icon id="folder" />
-        </div>
-        <div className={styles.externalLinks}>
-          {!!github && (
-            <a
-              href={github}
-            >
-              <Icon id="github" />
-            </a>
-          )}
-          {!!website && (
-            <a
-              href={website}
-            >
-              <Icon id="external" />
-            </a>
-          )}
-        </div>
+      <div className={styles.icons}>
+        <Icon id="folder" />
+        <DisplayIf condition={!!github}>
+          <AnchorLink
+            href={github}
+            className={styles.externalLink}
+            title="Github repo"
+            aria-label="Link to github repo"
+          >
+            <Icon id="github" />
+          </AnchorLink>
+        </DisplayIf>
+        <DisplayIf condition={!!website}>
+          <a
+            href={website}
+            className={styles.externalLink}
+            title="External link"
+            aria-label="External link"
+          >
+            <Icon id="external" />
+          </a>
+        </DisplayIf>
       </div>
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <Markdown>
+        {description}
+      </Markdown>
+      <DisplayIf condition={!!note}>
+        <p role="note">{note!}</p>
+      </DisplayIf>
     </header>
     <footer>
       <ul>

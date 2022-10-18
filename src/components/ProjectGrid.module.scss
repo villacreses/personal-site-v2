@@ -1,4 +1,4 @@
-$small-break: 768px;
+@use '@styles/breakpoints';
 
 .gridUl {
   list-style: outside none none;
@@ -32,7 +32,6 @@ $small-break: 768px;
     h3 {
       margin: 0 0 10px;
       color: var(--slate-lightest);
-      font-size: var(--fz-xxl);
     }
 
     p {
@@ -65,28 +64,22 @@ $small-break: 768px;
   }
 }
 
-.projectTop {
+.icons {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 35px;
+
+  // Only the main (decorative) icon is a direct svg child
+  & > svg {
+    color: var(--green);
+    margin-right: auto;
+    font-size: 40px;
+  }
 }
 
-.expand {
-  flex: 1;
-}
-
-.mainIcons {
-  display: flex;
-  align-items: center;
-  color: var(--green);
-  font-size: 40px;
-}
-
-.externalLinks {
-  a {
-    &:not(:last-child) {
-      margin-right: 15px;
-    }
+.externalLink {
+  font-size: var(--fz-xxl);
+  &:not(:last-child) {
+    margin-right: 15px;
   }
 }
