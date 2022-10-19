@@ -1,4 +1,4 @@
-import {FC, ComponentProps} from 'react'
+import {FC} from 'react'
 import {AnchorProps} from '@types';
 import AnchorLink from './AnchorLink';
 import Head, {HeadProps} from './Head';
@@ -65,6 +65,13 @@ const Layout: FC<LayoutProps> = ({
     <main className={mainClassNames}>{children}</main>
     <footer className={styles["layout-footer"]}>
       <LinksPanel links={content.links} className={styles.footerLinks}/>
+      <p>
+        Think my website looks great? Check out&nbsp;
+        <AnchorLink href="https://github.com/villacreses/personal-site-v2/">
+          the github repo for this site
+        </AnchorLink>
+        !
+      </p>
     </footer>
   </>
 );

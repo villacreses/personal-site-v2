@@ -82,11 +82,15 @@
   align-items: center;
   padding: 15px;
 
+  p {
+    font-size: var(--fz-md);
+  }
 }
 
 .footerLinks {
   display: none;
   font-size: var(--fz-xxl);
+  margin: 0 auto 15px;
   
   @include breakpoints.md {
     display: block;
