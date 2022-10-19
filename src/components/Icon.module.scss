@@ -1,0 +1,12 @@
+.icon-link {
+  padding: 10px;
+  line-height: 0.8;
+
+  &:hover, &:focus {
+    transform: translateY(-3px) scale(1.003);
+  }
+  
+  svg {
+    font-size: var(--fz-xxl);
+  }
+}

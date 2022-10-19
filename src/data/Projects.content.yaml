@@ -1,0 +1,26 @@
+- slug: chronos
+  description: >
+    ### [Chronos](https://chronos-d08ff.firebaseapp.com/)
+    
+    Chronos is a data visualization interface that allows users to create and 
+    share high quality interactive graphics.
+  note: Capstone team project at Fullstack Academy
+  website: https://chronos-d08ff.firebaseapp.com/
+  github: https://github.com/Capstone-Chronos/chronos
+  tools:
+    - React
+    - Redux
+    - D3.js
+- slug: 8bit
+  title: 
+  description: >
+    ### [8-Bit Bargains](https://github.com/8BitBargains/8bitBargains)
+
+    8-bit Bargains is an eCommerce platform for classic video game cartridges.
+  note: My first collaborative project made at Fullstack Academy.
+  github: https://github.com/8BitBargains/8bitBargains
+  tools:
+    - React
+    - Redux
+    - Express.js
+    - Stripe

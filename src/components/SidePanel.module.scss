@@ -40,17 +40,6 @@
     padding: 0;
     list-style: none;
   }
-
-  svg {
-    margin-top: 15px;
-    font-size: var(--fz-xxl);
-  }
-
-  a {
-    &:hover, &:focus {
-      transform: translateY(-3px);
-    }
-  }
 }
 
 .containerRight {
@@ -81,4 +70,36 @@
   line-height: var(--fz-xl);
   letter-spacing: 0.1em;
   writing-mode: vertical-rl;
+
+  &:hover, &:focus {
+    transform: translateY(-3px) scale(1.003);
+  }
+}
+
+.layout-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+
+  p {
+    font-size: var(--fz-md);
+  }
+}
+
+.footerLinks {
+  display: none;
+  font-size: var(--fz-xxl);
+  margin: 0 auto 15px;
+  
+  @include breakpoints.md {
+    display: block;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+  }
 }

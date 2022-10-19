@@ -1,31 +1,24 @@
-import { FC, ComponentProps } from 'react'
+import {FC} from 'react'
 import {AnchorProps} from '@types';
-import Head, { HeadProps } from './Head';
-import Icon from './Icon';
+import AnchorLink from './AnchorLink';
+import Head, {HeadProps} from './Head';
+import {IconLink, IconLinkProps} from './Icon';
 import Nav from './Nav';
-import DisplayIf from './DisplayIf';
 
 import content from '../data/Layout.content.yaml';
 
 import styles from './SidePanel.module.scss';
-
-type IconLinkProps = {
-  href: string;
-  label: string;
-  slug: ComponentProps<typeof Icon>['id'];
-};
-
-type LayoutContent = {
-  email: string;
-  iconLinks: Array<IconLinkProps>;
-  navLinks: Array<AnchorProps>;
-}
 
 interface LayoutProps extends HeadProps {
   mainClassNames?: string;
   navFiller?: boolean;
   navLinks: Array<AnchorProps>;
   navNumbered?: boolean
+}
+
+type LinksPanelProps = {
+  links: IconLinkProps[];
+  className?: string;
 }
 
 export const EmailPanel: FC<{email: string}> = ({
@@ -42,28 +35,17 @@ export const EmailPanel: FC<{email: string}> = ({
   </div>
 );
 
-const IconLink: FC<IconLinkProps> = ({ href, label, slug }) => (
-  <li>
-    <a
-      href={href}
-      aria-label={label}
-      title={label}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <Icon id={slug} />
-    </a>
-  </li>
-)
-
-const LinksPanel: FC<Pick<LayoutContent,'iconLinks'>> = ({
-  iconLinks
+const LinksPanel: FC<LinksPanelProps> = ({
+  links,
+  className
 }) => (
-  <div className={styles.containerLeft}>
+  <div className={className}>
     <ul>
-      {iconLinks.map(
-        link => <IconLink key={link.slug} {...link} />
-      )}
+      {links.map(link => (
+        <li key={link.slug}>
+          <IconLink {...link} />
+        </li>
+      ))}
     </ul>
   </div>
 );
@@ -78,9 +60,19 @@ const Layout: FC<LayoutProps> = ({
   <>
     <Head {...props} />
     <Nav links={navLinks} numbered={navNumbered} />
-    <LinksPanel iconLinks={content.links} />
+    <LinksPanel links={content.links} className={styles.containerLeft} />
     <EmailPanel email={content.email} />
     <main className={mainClassNames}>{children}</main>
+    <footer className={styles["layout-footer"]}>
+      <LinksPanel links={content.links} className={styles.footerLinks}/>
+      <p>
+        Think my website looks great? Check out&nbsp;
+        <AnchorLink href="https://github.com/villacreses/personal-site-v2/">
+          the github repo for this site
+        </AnchorLink>
+        !
+      </p>
+    </footer>
   </>
 );
 

@@ -28,17 +28,7 @@
       display: block;
     }
 
-    span.prelude {
-      margin: 0 0 30px 4px;
-      color: var(--green);
-      font-family: var(--font-mono);
-      font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
-      font-weight: 400;
 
-      @include breakpoints.xs {
-        margin: 0 0 20px 2px;
-      }
-    }
 
     strong {
       @extend %large-intro;
@@ -116,5 +106,9 @@
 
   p {
     max-width: none;
+  }
+
+  @include breakpoints.md {
+    margin: 0 auto;
   }
 }

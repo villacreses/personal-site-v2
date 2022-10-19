@@ -114,11 +114,19 @@ body {
       background-color: transparent;
     }
 
-    main {
+    %blurred {
       filter: blur(5px) brightness(0.7);
       transition: var(--transition);
       pointer-events: none;
       user-select: none;
+    }
+
+    main {
+      @extend %blurred;
+    }
+
+    footer {
+      @extend %blurred;
     }
   }
 }
@@ -151,7 +159,7 @@ main {
   }
 
   @include breakpoints.sm {
-    padding: 0 34px;
+    padding: 0 43px;
   }
   
   @include breakpoints.xs {
@@ -259,5 +267,46 @@ li {
 
   & > * {
     font-size: var(--fz-lg);
+  }
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.full-page {
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+%prelude {
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
+  font-weight: 400;
+}
+
+span {
+  &.prelude {
+    @extend %prelude;
+    margin: 0 0 30px 4px;
+    
+    @include breakpoints.xs {
+      margin: 0 0 20px 2px;
+    }
+  }
+
+  &.prelude-compact {
+    @extend %prelude;
+    margin-bottom: 15px;
   }
 }
