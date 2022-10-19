@@ -1,4 +1,5 @@
 @use '@styles/breakpoints';
+@use '@styles/mixins';
 
 $diameter: 40px;
 $border_width: 2px;
@@ -7,11 +8,12 @@ $grid-top-row-height: 10px;
 
 %hover-highlight {
   transition: var(--transition);
-  border: $border_width solid var(--slate-dark);
+  border: $border_width solid var(--navy-lightest);
   background-color: var(--navy-light);
+  pointer-events: none;
 
   li:hover & {
-    border-color: var(--green);
+    border-color: var(--slate-light);
   }
 }
 
@@ -47,7 +49,6 @@ $grid-top-row-height: 10px;
   justify-content: flex-end;
   margin-right: -$border_width;
 
-  pointer-events: none;
   span {
     @extend %hover-highlight;
 
@@ -119,6 +120,7 @@ $grid-top-row-height: 10px;
 .content-container {
   @extend %hover-highlight;
   @extend %hover-animate;
+  @include mixins.noSelect;
     
   grid-column: 3 / -2;
   grid-row: 1 / -1;

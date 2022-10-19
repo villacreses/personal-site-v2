@@ -70,4 +70,8 @@
   line-height: var(--fz-xl);
   letter-spacing: 0.1em;
   writing-mode: vertical-rl;
+
+  &:hover, &:focus {
+    transform: translateY(-3px) scale(1.003);
+  }
 }
