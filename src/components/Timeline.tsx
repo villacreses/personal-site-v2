@@ -17,7 +17,8 @@ const triangle = (
 );
 
 const markdownComponents: ComponentProps<typeof Markdown>['components'] = {
-  a: props => <AnchorLink {...props} />
+  a: ({node, ...props}) => <AnchorLink {...props} />,
+  strong: ({node, ...props}) => <span className="green" {...props} />
 }
 
 export const Timeline: FC<TimelineProps> = ({entries}) => (
