@@ -8,7 +8,7 @@ const AnchorLink: FC<AnchorLinkProps> = ({
   href = '/',
   ...props
 }) => {
-  if(href[0] === '/') {
+  if(href[0] === '/' || href[0] === '#') {
     return (
       <Link href={href} passHref>
         <a {...props}>{children}</a>

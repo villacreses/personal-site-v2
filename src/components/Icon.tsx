@@ -1,5 +1,7 @@
 import { FC, ComponentProps } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import AnchorLink from './AnchorLink';
+import styles from './Icon.module.scss';
 
 import {
   faGithub,
@@ -41,8 +43,25 @@ interface IconProps extends FAProps {
   id: keyof typeof iconMap;
 }
 
+export type IconLinkProps = {
+  href: string;
+  label: string;
+  slug: ComponentProps<typeof Icon>['id'];
+};
+
 const Icon: FC<IconProps> = ({ id, ...props }) => (
   <FontAwesomeIcon icon={iconMap[id]} {...props} />
+);
+
+export const IconLink: FC<IconLinkProps> = ({ href, label, slug }) => (
+  <AnchorLink
+    href={href}
+    title={label}
+    aria-label={label}
+    className={styles["icon-link"]}
+  >
+    <Icon id={slug} />
+  </AnchorLink>
 );
 
 export default Icon;
