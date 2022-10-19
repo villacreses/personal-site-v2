@@ -51,7 +51,7 @@ const panelMarkdownComponents: ComponentProps<typeof Markdown>['components'] = {
       </span>
     );
   },
-  a: (props) => <AnchorLink {...props} />,
+  a: ({node, ...props}) => <AnchorLink {...props} />,
 };
 
 const Panel: FC<PanelProps> = ({

@@ -29,10 +29,10 @@ const MarkdownComponentMap: {
     strong: function Ins ({children}) {
       return <ins>{children}</ins>;
     },
-    a: props => <AnchorLink {...props} />
+    a: ({node, ...props}) => <AnchorLink {...props} />
   },
   workexperience: {
-    a: props => <AnchorLink {...props} />
+    a: ({node, ...props}) => <AnchorLink {...props} />
   }
 };
 

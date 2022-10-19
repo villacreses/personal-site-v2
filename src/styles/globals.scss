@@ -214,6 +214,7 @@ h2 {
 
 h3 {
   font-size: var(--fz-xxl);
+  font-weight: 500;
 }
 
 a {
@@ -309,4 +310,8 @@ span {
     @extend %prelude;
     margin-bottom: 15px;
   }
+}
+
+.green {
+  color: var(--green);
 }
