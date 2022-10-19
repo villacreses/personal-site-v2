@@ -16,6 +16,11 @@ interface LayoutProps extends HeadProps {
   navNumbered?: boolean
 }
 
+type LinksPanelProps = {
+  links: IconLinkProps[];
+  className?: string;
+}
+
 export const EmailPanel: FC<{email: string}> = ({
   email
 }) => (
@@ -30,12 +35,11 @@ export const EmailPanel: FC<{email: string}> = ({
   </div>
 );
 
-
-
-const LinksPanel: FC<{links: Array<IconLinkProps>}> = ({
+const LinksPanel: FC<LinksPanelProps> = ({
   links,
+  className
 }) => (
-  <div className={styles.containerLeft}>
+  <div className={className}>
     <ul>
       {links.map(link => (
         <li key={link.slug}>
@@ -56,9 +60,12 @@ const Layout: FC<LayoutProps> = ({
   <>
     <Head {...props} />
     <Nav links={navLinks} numbered={navNumbered} />
-    <LinksPanel links={content.links} />
+    <LinksPanel links={content.links} className={styles.containerLeft} />
     <EmailPanel email={content.email} />
     <main className={mainClassNames}>{children}</main>
+    <footer className={styles["layout-footer"]}>
+      <LinksPanel links={content.links} className={styles.footerLinks}/>
+    </footer>
   </>
 );
 

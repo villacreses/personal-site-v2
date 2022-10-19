@@ -114,11 +114,19 @@ body {
       background-color: transparent;
     }
 
-    main {
+    %blurred {
       filter: blur(5px) brightness(0.7);
       transition: var(--transition);
       pointer-events: none;
       user-select: none;
+    }
+
+    main {
+      @extend %blurred;
+    }
+
+    footer {
+      @extend %blurred;
     }
   }
 }

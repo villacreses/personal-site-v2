@@ -107,4 +107,8 @@
   p {
     max-width: none;
   }
+
+  @include breakpoints.md {
+    margin: 0 auto;
+  }
 }
