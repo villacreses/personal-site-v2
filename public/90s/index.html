@@ -24,6 +24,7 @@
       table, td {
         background-color: #808080;
         border-style: inset;
+        width:auto;
       }
 
       .blink {
@@ -64,6 +65,24 @@
         border-width: 0;
         background-color: black;
         padding: 5px 2px;
+      }
+
+      .dancing-baby {
+        float: left;
+        width: 150px;
+      }
+
+      .dancing-baby img {
+        width: 150px;
+      }
+
+      .container {
+        width: 800px;
+        overflow: hidden;
+      }
+
+      .container table {
+        float: left;
       }
     </style>
     <script type="text/javascript" src="main.js" defer></script>
@@ -113,7 +132,10 @@
     <br />
     <div class="container">
       <div class="inner">
-        <table style="width: 100%;border-spacing: 1px;">
+        <div class="dancing-baby">
+          <img src="dancing-baby-left.gif" title="The oldest meme on the planet" />
+        </div>
+        <table style="width: 450px; border-spacing: 1px; margin: 24px 25px 0;">
           <tr>
             <td>
               <a href="https://github.com/villacreses">My github</a>
@@ -134,6 +156,9 @@
             </td>
           </tr>
         </table>
+        <div class="dancing-baby">
+          <img src="dancing-baby-right.gif" title="The oldest meme on the planet" />
+        </div>
       </div>
     </div>
     <br />
