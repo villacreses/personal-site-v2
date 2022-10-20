@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!-- https://www.wikihow.com/Make-a-Website-Like-the-90s -->
+<html>
+  <head>
+    <title>
+      Welcome to Mario&apos;s website!
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comic+Neue"/>
+    <style>
+      body {
+        font-family: "Comic Sans MS", "Chalkboard", "Comic Neue";
+        background-image: url("https://background-tiles.com/overview/grey/textures/large/5004.png");
+        text-align: center;
+        width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 800;
+      }
+
+      a {
+        color: yellow;
+      }
+
+      table, td {
+        background-color: #808080;
+        border-style: inset;
+      }
+
+      .blink {
+        -webkit-animation: 1s linear infinite condemned_blink_effect;
+        animation: 1s linear infinite condemned_blink_effect;
+        padding-top: 0;
+        margin-top: 0;
+      }
+
+      @keyframes condemned_blink_effect {
+        0% {
+          visibility: hidden;
+        }
+        50% {
+          visibility: hidden;
+        }
+        100% {
+          visibility: visible;
+        }
+      }
+
+      #hit-counter {
+        border-width: 3px;
+        font-family: sans-serif;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      #hit-counter, #hit-counter td {
+        border-color: black;
+        background-color: #2a2a2a;
+        width: min-content;
+        margin: 0 auto;
+      }
+      
+      #hit-counter td {
+        color: white;
+        border-width: 0;
+        background-color: black;
+        padding: 5px 2px;
+      }
+    </style>
+    <script type="text/javascript" src="main.js" defer></script>
+  </head>
+  <body>
+    <a href="http://www.netscape.ca/ns/browsers/7/download/">
+      <img
+        src="netscape-2.gif"
+        style="width: 300px;"
+        title="Mozilla Firefox, Google Chrome, Apple Safari, Microsoft Internet Explorer, Microsoft Edge, and Opera are NOT recommended for this website."
+      >
+    </a>
+    <p>
+      <font color="yellow">
+        <strong>
+          <marquee behavior="alternate" scrollamount="10">
+            BEST VIEWED IN 800x600 RESOLUTION!!
+          </marquee>
+        </strong>
+      </font>
+    </p>
+    <img src="banner.png" width="700px"/>
+    <img src="http://textfiles.com/underconstruction/CoCollegePark8762construct.gif" />
+    <p style="padding:0;margin:0;">
+      <img 
+        src="http://textfiles.com/underconstruction/HoHollywoodMakeup9828UNDERCONSTRUCTION.GIF"
+        height="25px"
+        width="25px"
+      />
+      <font color="red" id="under-construction" style="background-color: black">
+        This site is under construction! 
+      </font>
+      <img 
+        src="http://textfiles.com/underconstruction/HoHollywoodMakeup9828UNDERCONSTRUCTION.GIF"
+        height="25px"
+        width="25px"
+      />
+    </p>
+    <img src="http://textfiles.com/underconstruction/CoCollegePark8762construct.gif" />
+    <br />
+    <img
+      src="https://scontent.fsac1-1.fna.fbcdn.net/v/t31.18172-8/1511564_643660575697308_1461784377_o.jpg?_nc_cat=104&ccb=1-7&_nc_sid=ba80b0&_nc_ohc=sKpJrP5L26UAX8lIPlY&_nc_ht=scontent.fsac1-1.fna&oh=00_AT_q3tArhDlZyCAK7ARrEPOXYkngfQkxFe4OEv047LrhMA&oe=637862B4"
+      width="400px"
+    />
+    <hr />
+    <br />
+    <div class="container">
+      <div class="inner">
+        <table style="width: 100%;border-spacing: 1px;">
+          <tr>
+            <td>
+              <a href="https://github.com/villacreses">My github</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://mariovillacreses.com">My actual website</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://mariowontreadthis.123guestbook.com/">
+                <img src="https://smirnov.nyc/90s/guestbook.gif" height="25px"/>
+                Sign my guest book!
+                <img src="https://smirnov.nyc/90s/guestbook.gif" height="25px"/>
+              </a>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br />
+    <br />
+    <table id="hit-counter">
+      <tr></tr>
+    </table>
+    <p class="blink">
+      <a href="https://youtu.be/dQw4w9WgXcQ">
+        <strong>
+          You're the 1,000,000th visitor! Click to claim your prize!
+        </strong>
+      </a>
+    </p>
+
+    <p>
+      <a href="http://windows.com">
+        <img src="mac.gif">
+      </a>
+    </p>
+  </body>
+</html>
