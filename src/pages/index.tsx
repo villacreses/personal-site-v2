@@ -20,7 +20,7 @@ const MarkdownComponentMap: {
     code: function Prelude ({children}) {
       return <span className="prelude">{children}</span>
     },
-    a: props => <AnchorLink {...props} />
+    a: ({node, ...props}) => <AnchorLink {...props} />
   },
   about: {
     em: function Del ({children}) {

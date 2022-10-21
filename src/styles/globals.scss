@@ -315,3 +315,19 @@ span {
 .green {
   color: var(--green);
 }
+
+%negligible-font {
+  font-size: var(--fz-xxs);
+  color: var(--navy-lightest);
+}
+.negligible {
+  @extend %negligible-font;
+
+  a {
+    @extend %negligible-font;
+    text-decoration: underline;
+    &:hover::after {
+      display: none;
+    }
+  }
+}
