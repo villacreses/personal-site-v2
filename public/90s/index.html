@@ -7,14 +7,23 @@
     </title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comic+Neue"/>
     <style>
+      html {
+        cursor: url("cursor-dino.png"), auto;
+      }
+
       body {
         font-family: "Comic Sans MS", "Chalkboard", "Comic Neue";
-        background-image: url("https://background-tiles.com/overview/grey/textures/large/5004.png");
+        background-image: url("background.png");
         text-align: center;
         width: 800px;
         margin-left: auto;
         margin-right: auto;
         font-weight: 800;
+        color: #ffffff;
+      }
+
+      img {
+        image-rendering: pixelated;
       }
 
       a {
@@ -25,13 +34,14 @@
         background-color: #808080;
         border-style: inset;
         width:auto;
+        color: #000000;
       }
 
       .blink {
         -webkit-animation: 1s linear infinite condemned_blink_effect;
         animation: 1s linear infinite condemned_blink_effect;
         padding-top: 0;
-        margin-top: 0;
+        margin-top: 7px;
       }
 
       @keyframes condemned_blink_effect {
@@ -84,6 +94,10 @@
       .container table {
         float: left;
       }
+
+      .random img {
+        height: 140px;
+      } 
     </style>
     <script type="text/javascript" src="main.js" defer></script>
   </head>
@@ -105,6 +119,7 @@
       </font>
     </p>
     <img src="banner.png" width="700px"/>
+    <h1>Hi! Welcome to my homepage!</h1>
     <img src="construction_bar.gif" />
     <p style="padding:0;margin:0;">
       <img 
@@ -161,6 +176,13 @@
         </div>
       </div>
     </div>
+    <!-- START: Add random nonsense below -->
+    <div class="random">
+      <img src="potato-head.gif" />
+      <img src="cake.gif" />
+      <img src="doot.gif" />
+    </div>
+    <!-- STOP: Add random nonsense above -->
     <br />
     <br />
     <table id="hit-counter">
@@ -174,6 +196,9 @@
       </a>
     </p>
 
+    <audio controls>
+      <source src="barbiegirl.mp3" type="audio/mpeg">
+    </audio>
     <p>
       <a href="http://windows.com">
         <img src="mac.gif">
