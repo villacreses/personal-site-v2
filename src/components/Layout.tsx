@@ -71,6 +71,11 @@ const Layout: FC<LayoutProps> = ({
           the github repo for this site
         </AnchorLink>
         !
+      <br />
+      <small className="negligible">
+        Still using Netscape? Check out {' '}
+        <a href="/90s/index.html">my optimized site</a>.
+      </small>
       </p>
     </footer>
   </>

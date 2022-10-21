@@ -91,8 +91,9 @@
 
 .footerLinks {
   display: none;
-  font-size: var(--fz-xxl);
   margin: 0 auto 15px;
+  width: 100%;
+  max-width: 270px;
   
   @include breakpoints.md {
     display: block;
@@ -103,5 +104,6 @@
     padding: 0;
     margin: 0 auto;
     display: flex;
+    justify-content: space-between;
   }
 }

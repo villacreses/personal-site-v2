@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- https://www.wikihow.com/Make-a-Website-Like-the-90s -->
+<html>
+  <head>
+    <title>
+      Welcome to Mario&apos;s website!
+    </title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Comic+Neue"/>
+    <style>
+      html {
+        cursor: url("cursor-dino.png"), auto;
+      }
+
+      body {
+        font-family: "Comic Sans MS", "Chalkboard", "Comic Neue";
+        background-image: url("background.png");
+        text-align: center;
+        width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 800;
+        color: #ffffff;
+      }
+
+      img {
+        image-rendering: pixelated;
+      }
+
+      a {
+        color: yellow;
+      }
+
+      table, td {
+        background-color: #808080;
+        border-style: inset;
+        width:auto;
+        color: #000000;
+      }
+
+      .blink {
+        -webkit-animation: 1s linear infinite condemned_blink_effect;
+        animation: 1s linear infinite condemned_blink_effect;
+        padding-top: 0;
+        margin-top: 7px;
+      }
+
+      @keyframes condemned_blink_effect {
+        0% {
+          visibility: hidden;
+        }
+        50% {
+          visibility: hidden;
+        }
+        100% {
+          visibility: visible;
+        }
+      }
+
+      #hit-counter {
+        border-width: 3px;
+        font-family: sans-serif;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      #hit-counter, #hit-counter td {
+        border-color: black;
+        background-color: #2a2a2a;
+        width: min-content;
+        margin: 0 auto;
+      }
+      
+      #hit-counter td {
+        color: white;
+        border-width: 0;
+        background-color: black;
+        padding: 5px 2px;
+      }
+
+      .dancing-baby {
+        float: left;
+        width: 150px;
+      }
+
+      .dancing-baby img {
+        width: 150px;
+      }
+
+      .container {
+        width: 800px;
+        overflow: hidden;
+      }
+
+      .container table {
+        float: left;
+      }
+
+      .random img {
+        height: 140px;
+      } 
+    </style>
+    <script type="text/javascript" src="main.js" defer></script>
+  </head>
+  <body>
+    <a href="http://www.netscape.ca/ns/browsers/7/download/">
+      <img
+        src="netscape-2.gif"
+        style="width: 300px;"
+        title="Mozilla Firefox, Google Chrome, Apple Safari, Microsoft Internet Explorer, Microsoft Edge, and Opera are NOT recommended for this website."
+      >
+    </a>
+    <p>
+      <font color="yellow">
+        <strong>
+          <marquee behavior="alternate" scrollamount="10">
+            BEST VIEWED IN 800x600 RESOLUTION!!
+          </marquee>
+        </strong>
+      </font>
+    </p>
+    <img src="banner.png" width="700px"/>
+    <audio controls>
+      <source src="barbiegirl.mp3" type="audio/mpeg">
+    </audio>
+    <h1>Hi! Welcome to my homepage!</h1>
+    <img src="construction_bar.gif" />
+    <p style="padding:0;margin:0;">
+      <img 
+        src="construction_sign.gif"
+        height="25px"
+        width="25px"
+      />
+      <font color="red" id="under-construction" style="background-color: black">
+        This site is under construction! 
+      </font>
+      <img 
+        src="construction_sign.gif"
+        height="25px"
+        width="25px"
+      />
+    </p>
+    <img src="construction_bar.gif" />
+    <br />
+    <br />
+    <img
+      src="https://scontent.fsac1-1.fna.fbcdn.net/v/t31.18172-8/1511564_643660575697308_1461784377_o.jpg?_nc_cat=104&ccb=1-7&_nc_sid=ba80b0&_nc_ohc=sKpJrP5L26UAX8lIPlY&_nc_ht=scontent.fsac1-1.fna&oh=00_AT_q3tArhDlZyCAK7ARrEPOXYkngfQkxFe4OEv047LrhMA&oe=637862B4"
+      width="300px"
+    />
+    <hr />
+    <br />
+    <div class="container">
+      <div class="inner">
+        <div class="dancing-baby">
+          <img src="dancing-baby-left.gif" title="The oldest meme on the planet" />
+        </div>
+        <table style="width: 450px; border-spacing: 1px; margin: 24px 25px 0;">
+          <tr>
+            <td>
+              <a href="https://github.com/villacreses">My github</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://mariovillacreses.com">My actual website</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://mariowontreadthis.123guestbook.com/">
+                Sign my guest book!
+                <br />
+                <img src="guestbook.gif" height="35px"/>
+              </a>
+            </td>
+          </tr>
+        </table>
+        <div class="dancing-baby">
+          <img src="dancing-baby-right.gif" title="The oldest meme on the planet" />
+        </div>
+      </div>
+    </div>
+    <!-- START: Add random nonsense below -->
+    <div class="random">
+      <img src="potato-head.gif" />
+      <img src="cake.gif" />
+      <img src="doot.gif" />
+    </div>
+    <!-- STOP: Add random nonsense above -->
+    <br />
+    <br />
+    <table id="hit-counter">
+      <tr></tr>
+    </table>
+    <p class="blink">
+      <a href="https://youtu.be/dQw4w9WgXcQ">
+        <strong>
+          You're the 1,000,000th visitor! Click to claim your prize!
+        </strong>
+      </a>
+    </p>
+    <p>
+      <a href="http://windows.com">
+        <img src="mac.gif">
+      </a>
+    </p>
+  </body>
+</html>
