@@ -1,63 +1,87 @@
 - slug: facebook
-  tabLabel: Meta
-  content: >
-    # Rotational Engineer **@ [Meta](https://about.facebook.com)**
-    
-    ## August 2021 - Present
+  category: JOBS
+  shortLabel: Meta
+  companyName: Meta Platforms
+  companyUrl: https://about.facebook.com
+  positions:
+    - title: Software Engineer
+      location: Menlo Park, CA
+      startDate: 2021-08-01
+      endDate: null
+      flavorText: >
+        I've begun my Meta journey under their rotational engineering program, 
+        where I'm helping build the new Metrics platform to enable confident 
+        decision-making at Meta. This is a new initiative to build the backbone 
+        of metrics at data infra.
+      impact:
+        - impact
+        - impact
 
-    I've begun my Meta journey under their rotational engineering program, where I'm
-    helping build the new Metrics platform to enable confident decision-making at 
-    Meta. This is a new initiative to build the backbone of metrics at data infra.
 - slug: doc-ai
-  tabLabel: doc.ai
-  content: >
-    # Software engineer **@ [doc.ai](https://doc.ai/)**
-    
-    ## February 2020 - December 2020
+  category: JOBS
+  shortLabel: doc.ai
+  companyName: Doc.ai
+  companyUrl: https://doc.ai/
+  positions:
+    - title: Software Engineer - Apps Team
+      location: Menlo Park, CA
+      startDate: 2020-02-01 # February 2020
+      endDate: 2020-11-01 # December 2020
+      flavorText: >
+        Worked on the Apps team, which was responsible for building the mobile 
+        front-end for customer-facing apps.
+      impact:
+        - Spearheaded development of UI library for company's new flagship app. 
+        - Constructed realtime geographic visualization of COVID-19 outbreak, 
+          which was used heavily in marketing towards new users.
+        - Streamlined analytics collection and metric vizualization using Retool. 
 
-    Worked on the Apps team, which was responsible for building the mobile front-end
-    for customer-facing apps.
-
-    - Spearheaded development of UI library for company's new flagship app. 
-      
-    - Constructed realtime geographic visualization of COVID-19 outbreak, which was 
-      used heavily in marketing towards new users.
-  
-    - Streamlined analytics collection and metric vizualization using Retool. 
 - slug: knovva
-  tabLabel: Knovva Academy
-  content: >
-    # Full stack web developer **@ [Knovva Academy](https://www.knovva.com/)**
-    
-    ## November 2018 - January 2020
-  
-    - Standardized UI components, reducing non-business frontend code by 80%  
-    
-    - Collaborated with cloud architect to build administrative and analytics tools for 
-      entire company.
+  category: JOBS
+  shortLabel: Knovva Academy
+  companyName: Knovva Academy
+  companyUrl: https://www.knovva.com/
+  positions:
+    - title: Full stack web developer
+      location: Boston, MA
+      startDate: 2018-11-01 # November 2018
+      endDate: 2020-01-01 # January 
+      impact:
+        - Standardized UI components, reducing non-business frontend code by 80%  
+        - Collaborated with cloud architect to build administrative and analytics 
+          tools for entire company.
+
 - slug: socratex
-  tabLabel: Socratex
-  content: >
-    # Co-founder & Lead Developer @ Socratex
-    
-    ## August 2018 - February 2019
+  category: JOBS
+  shortLabel: Socratex
+  companyName: Socratex
+  companyUrl: null
+  positions:
+    - title: Co-founder & Lead Developer
+      location: Brooklyn, NY
+      startDate: 2018-08-01 # August 2018
+      endDate: 2019-02-01 # February 2019
+      impact:
+        - Collaborated with UI/UX Designer and high school teacher in hackathon to 
+          develop video-based platform for sex education.
+        - 1st Place Winner at NY Sextech Hackathon, featured in 
+          [BK Mag](https://www.bkmag.com/2018/09/06/4-brooklyn-entrepreneurs-on-how-their-style-impacts-business/), 
+          [Forbes](https://www.forbes.com/sites/estrellajaramillo/2018/09/18/technology-meets-sex-to-solve-some-of-the-most-pressing-concerns-of-our-times), 
+          and [Men's Health](https://www.menshealth.com/sex-women/a23064407/sex-tech-hackathon/) 
+        - Project considered for official curriculum integration within select NYC 
+          high schools. 
 
-    - Collaborated with UI/UX Designer and high school teacher in hackathon to develop 
-      video-based platform for sex education.
-    
-    - 1st Place Winner at NY Sextech Hackathon, featured in 
-    [BK Mag](https://www.bkmag.com/2018/09/06/4-brooklyn-entrepreneurs-on-how-their-style-impacts-business/), 
-    [Forbes](https://www.forbes.com/sites/estrellajaramillo/2018/09/18/technology-meets-sex-to-solve-some-of-the-most-pressing-concerns-of-our-times), 
-    and [Men's Health](https://www.menshealth.com/sex-women/a23064407/sex-tech-hackathon/) 
-    
-    - Project considered for official curriculum integration within select NYC high schools. 
 - slug: odyssey
-  tabLabel: New World Odyssey 
-  content: >
-    # Co-founder & Webmaster @ New World Odyssey
-    
-    ## November 2013 - May 2014
-
-    - Built and maintained an online catalog of medical technologies using HTML5, CSS, and jQuery
-    
-    - Researched and maintained database of U.S.-manufactured medical technologies
+  category: JOBS
+  shortLabel: New World Odyssey
+  companyName: New World Odyssey
+  companyUrl: null
+  positions:
+    - title: Co-founder & Webmaster
+      location: New York, NY
+      startDate: 2013-11-01 # November 2013
+      endDate: 2014-05-01 # May 2014
+      impact:
+        - Built and maintained an online catalog of medical technologies using HTML5, 
+          CSS, and jQuery
+        - Researched and maintained database of U.S.-manufactured medical technologies
