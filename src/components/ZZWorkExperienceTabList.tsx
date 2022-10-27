@@ -3,26 +3,11 @@ import Markdown from 'react-markdown';
 import DisplayIf from './DisplayIf';
 import TabList from './TabList';
 import TimeRange from './TimeRange';
-
+import CompanyHeaderLink from './CompanyHeaderLink';
 import {experience} from '@data';
 import {ExperienceCategory} from '@types';
 
 import styles from './TabList.module.scss';
-
-const CompanyHeaderLink: FC<{href?: string}> = ({
-  children,
-  href,
-}) => !!href
-  ? (
-    <span className="green">
-      {' @ '}
-      <a href={href}>
-        {children}
-      </a>
-    </span>
-  ) : (
-    <span>{' @ ' + children}</span>
-  )
 
 const tablistData = experience
   .filter(({category}) => category === ExperienceCategory.JOBS)
@@ -37,7 +22,7 @@ const tablistData = experience
       endDate: exp.positions[0].endDate,
       flavorText: exp.positions[0].flavorText,
       impact: exp.positions[0].impact,
-    } as const
+    }
   }));
 
 type ContentContainerProps = typeof tablistData[number]['panelContent'];
@@ -51,7 +36,7 @@ const ContentContainer: FC<ContentContainerProps> = ({
   impact = [],
   title,
 }) => (
-  <div>
+  <>
     <h3>
       {title}
       <CompanyHeaderLink href={companyUrl}>
@@ -74,7 +59,7 @@ const ContentContainer: FC<ContentContainerProps> = ({
         ''
       )}
     </Markdown>
-  </div>
+  </>
 );
 
 export const ZZWorkExperienceTabList: FC = () => (

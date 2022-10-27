@@ -1,3 +1,16 @@
+- slug: godaddy
+  category: JOBS
+  shortLabel: GoDaddy
+  companyName: GoDaddy
+  companyUrl: https://www.godaddy.com/
+  positions:
+    - title: Senior Software Engineer
+      location: Remote
+      startDate: 2022-11-14
+      endDate: null
+      flavorText: >
+        My first senior position
+
 - slug: facebook
   category: JOBS
   shortLabel: Meta
@@ -6,8 +19,8 @@
   positions:
     - title: Software Engineer
       location: Menlo Park, CA
-      startDate: 2021-08-01
-      endDate: null
+      startDate: 2021-08-01T05:00
+      endDate: 2022-08-01T05:00
       flavorText: >
         I've begun my Meta journey under their rotational engineering program, 
         where I'm helping build the new Metrics platform to enable confident 
@@ -22,8 +35,8 @@
   positions:
     - title: Software Engineer - Apps Team
       location: Menlo Park, CA
-      startDate: 2020-02-01 # February 2020
-      endDate: 2020-11-01 # December 2020
+      startDate: 2020-02-01T05:00 # February 2020
+      endDate: 2020-12-01T05:00 # December 2020
       flavorText: >
         Worked on the Apps team, which was responsible for building the mobile 
         front-end for customer-facing apps.
@@ -41,8 +54,8 @@
   positions:
     - title: Full stack web developer
       location: Boston, MA
-      startDate: 2018-11-01 # November 2018
-      endDate: 2020-01-01 # January 
+      startDate: 2018-11-01T05:00 # November 2018
+      endDate: 2020-01-01T05:00 # January 
       impact:
         - Standardized UI components, reducing non-business frontend code by 80%  
         - Collaborated with cloud architect to build administrative and analytics 
@@ -56,8 +69,8 @@
   positions:
     - title: Co-founder & Lead Developer
       location: Brooklyn, NY
-      startDate: 2018-08-01 # August 2018
-      endDate: 2019-02-01 # February 2019
+      startDate: 2018-08-01T05:00 # August 2018
+      endDate: 2019-02-01T05:00 # February 2019
       impact:
         - Collaborated with UI/UX Designer and high school teacher in hackathon to 
           develop video-based platform for sex education.
@@ -76,8 +89,8 @@
   positions:
     - title: Co-founder & Webmaster
       location: New York, NY
-      startDate: 2013-11-01 # November 2013
-      endDate: 2014-05-01 # May 2014
+      startDate: 2013-11-01T05:00 # November 2013
+      endDate: 2014-05-01T05:00 # May 2014
       impact:
         - Built and maintained an online catalog of medical technologies using HTML5, 
           CSS, and jQuery

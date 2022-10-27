@@ -6,8 +6,14 @@ import TimeRange from './TimeRange';
 
 import styles from './Timeline.module.scss';
 
-type TimelineProps = {
-  entries: TTimelineEntry[],
+type TimelineProps<T extends {}> = {
+  ContentContainer: FC<T>;
+  entries: Array<{
+    slug: string;
+    startDate: string;
+    endDate?: string | null;
+    panelContent: T;
+  }>;
 };
 
 const triangle = (
@@ -16,35 +22,36 @@ const triangle = (
   </span>
 );
 
-const markdownComponents: ComponentProps<typeof Markdown>['components'] = {
-  a: ({node, ...props}) => <AnchorLink {...props} />,
-  strong: ({node, ...props}) => <span className="green" {...props} />
-}
-
-export const Timeline: FC<TimelineProps> = ({entries}) => (
-  <ol className={styles.timeline}>
-    {
-      entries.map(({
-        startDate,
-        endDate,
-        content,
-      }) => (
-        <li
-          key={startDate}
-          className={styles["timeline-entry"]}
-        >
-          <i className={styles["timeline-pin"]} />
-          <div className={styles["content-container"]}>
-            <TimeRange
-              startTimestamp={startDate}
-              endTimestamp={endDate}
-              className={styles.dateRange}
-            />
-            <Markdown components={markdownComponents}>{content}</Markdown>
-          </div>
-          {triangle}
-        </li>
-      ))
-    }
-  </ol>
-);
+export default function Timeline<T extends {}> ({
+  ContentContainer,
+  entries,
+}: TimelineProps<T>) {
+  return (
+    <ol className={styles.timeline}>
+      {
+        entries.map(({
+          slug,
+          startDate,
+          endDate,
+          panelContent,
+        }) => (
+          <li
+            key={slug}
+            className={styles["timeline-entry"]}
+          >
+            <i className={styles["timeline-pin"]} />
+            <div className={styles["content-container"]}>
+              <TimeRange
+                startTimestamp={startDate}
+                endTimestamp={endDate}
+                className={styles.dateRange}
+              />
+              <ContentContainer {...panelContent} />
+            </div>
+            {triangle}
+          </li>
+        ))
+      }
+    </ol>
+  )
+};

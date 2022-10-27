@@ -1,7 +1,10 @@
-import { Layout, Timeline, Nav } from '@components';
+import {FC} from 'react';
+import Markdown from 'react-markdown';
+import {DisplayIf, Layout, Timeline} from '@components';
 import styles from '../components/Timeline.module.scss';
-import {timelineContent} from '@data';
+import {experience} from '@data';
 import {AnchorProps} from '@types';
+import CompanyHeaderLink from 'src/components/CompanyHeaderLink';
 
 const navLinks: AnchorProps[] = [
   {
@@ -9,6 +12,52 @@ const navLinks: AnchorProps[] = [
     children: 'Home'
   }
 ];
+
+
+
+const timelineContent = experience
+  .map(exp => ({
+      slug: exp.slug,
+      startDate: exp.positions[0].startDate,
+      endDate: exp.positions[0].endDate,
+      panelContent: {
+        companyName: exp.companyName,
+        companyUrl: exp.companyUrl,
+        title: exp.positions[0].title,
+        flavorText: exp.positions[0].flavorText,
+        impact: exp.positions[0].impact,
+      }
+  }))
+
+type ContentContainerProps = typeof timelineContent[number]['panelContent'];
+
+const ContentContainer: FC<ContentContainerProps> = ({
+  companyName,
+  companyUrl,
+  title,
+  flavorText,
+  impact = []
+}) => (
+  <>
+    <h3>
+      {title}
+      <CompanyHeaderLink href={companyUrl}>
+        {companyName}
+      </CompanyHeaderLink>
+    </h3>
+    <DisplayIf condition={!!flavorText}>
+      <Markdown>
+        {flavorText!}
+      </Markdown>
+    </DisplayIf>
+    <Markdown>
+      {impact.reduce(
+        (acc, impactEntry) => acc + `- ${impactEntry}\n\n`,
+        ''
+      )}
+    </Markdown>
+  </>
+)
 
 const CareerTimeline = () => (
   <Layout
@@ -30,7 +79,10 @@ const CareerTimeline = () => (
         me as a professional.
       </p>
     </section>
-    <Timeline entries={timelineContent} />
+    <Timeline<ContentContainerProps>
+      ContentContainer={ContentContainer}
+      entries={timelineContent}
+    />
   </Layout>
 );
 
