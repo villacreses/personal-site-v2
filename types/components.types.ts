@@ -85,13 +85,13 @@ export type ExperienceMetadata = {
   category: ExperienceCategory;
   shortLabel: string;
   companyName: string;
-  companyUrl: string;
+  companyUrl?: string;
   positions: Array<{
     title: string;
     location: string;
     startDate: string;
     endDate?: string | null;
     flavorText?: string;
-    impact: string[];
+    impact?: string[];
   }>;
 }

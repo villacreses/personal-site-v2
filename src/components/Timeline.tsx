@@ -38,6 +38,7 @@ export const Timeline: FC<TimelineProps> = ({entries}) => (
             <TimeRange
               startTimestamp={startDate}
               endTimestamp={endDate}
+              className={styles.dateRange}
             />
             <Markdown components={markdownComponents}>{content}</Markdown>
           </div>

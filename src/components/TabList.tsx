@@ -1,21 +1,19 @@
-import { FC, HTMLProps, useState, ComponentProps, RefObject } from 'react';
-import Markdown from 'react-markdown';
+import { FC, HTMLProps, useState, RefObject } from 'react';
 import styles from './TabList.module.scss';
 import { useMediaQuery, useTabFocus } from '@hooks';
-import {TabListContentMap} from '@data';
-import AnchorLink from './AnchorLink';
 
 interface TabProps extends HTMLProps<HTMLButtonElement> {
   selected?: boolean;
   tabRef?: RefObject<HTMLButtonElement>;
 }
 
-interface PanelProps extends Omit<HTMLProps<HTMLElement>, 'content'> {
-  content: string;
-}
-
-type TabListProps = {
-  id: string
+type TabListProps<T extends {}> = {
+  ContentContainer: FC<T>;
+  entries: Array<{
+    slug: string;
+    tabLabel: string;
+    panelContent: T;
+  }>;
 };
 
 const Tab: FC<TabProps> = ({
@@ -35,29 +33,14 @@ const Tab: FC<TabProps> = ({
     tabIndex={selected ? 0 : -1}
     onClick={onClick}
   >
-    <span>{children}</span>
+    {children}
   </button>
 );
 
-const panelMarkdownComponents: ComponentProps<typeof Markdown>['components'] = {
-  h1: 'h3',
-  h2: function DateRange ({ node, ...props }) {
-    return <p className={styles.dateRange} {...props} />
-  },
-  strong: function CompanyHighlight ({ children }) {
-    return ( 
-      <span className={styles.companyHighlight}>
-        {children}
-      </span>
-    );
-  },
-  a: ({node, ...props}) => <AnchorLink {...props} />,
-};
-
-const Panel: FC<PanelProps> = ({
+const Panel: FC<{id: string, hidden: boolean}> = ({
   id,
   hidden,
-  content
+  children,
 }) => (
   <div
     className={styles.Panel}
@@ -68,19 +51,16 @@ const Panel: FC<PanelProps> = ({
     aria-hidden={hidden}
     hidden={hidden}
   >
-    <Markdown components={panelMarkdownComponents}>
-      {content}
-    </Markdown>
+    {children}
   </div>
 );
 
-const TabList: FC<TabListProps> = ({ id }) => {
+function TabList<T extends {}>({
+  entries,
+  ContentContainer,
+}: TabListProps<T>) {
   const [activeTab, setActiveTab] = useState(0);
-
-  const contentList = TabListContentMap[id];
-  if (!contentList) throw "Invalid TabList id";
-
-  const { onKeyDown, tabRefs } = useTabFocus(contentList.length);
+  const { onKeyDown, tabRefs } = useTabFocus(entries.length);
 
   const transform = useMediaQuery('(max-width: 600px)')
     ? `translateX(calc(${activeTab} * var(--tab-width)))`
@@ -93,7 +73,7 @@ const TabList: FC<TabListProps> = ({ id }) => {
         aria-label="Work History"
         onKeyDown={onKeyDown}
       >
-        {contentList.map(({ tabLabel, slug }, idx) => (
+        {entries.map(({ tabLabel, slug }, idx) => (
           <Tab
             tabRef={tabRefs[idx]}
             key={slug}
@@ -110,13 +90,14 @@ const TabList: FC<TabListProps> = ({ id }) => {
         />
       </div>
       <div data-containerfor="panels" >
-        {contentList.map(({ slug, content }, idx) => (
+        {entries.map(({slug, panelContent}, idx) => (
           <Panel
             key={slug}
             id={slug}
-            content={content}
             hidden={activeTab !== idx}
-          />
+          >
+            <ContentContainer {...panelContent} />
+          </Panel>
         ))}
       </div>
     </div>

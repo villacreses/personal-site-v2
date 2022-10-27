@@ -183,3 +183,9 @@ $grid-top-row-height: 10px;
     grid-column: 2 / 5;
   }
 }
+
+.dateRange {
+  margin: 0 0 5px 0;
+  font-family: var(--font-mono);
+  font-size: var(--fz-sm) !important;
+}

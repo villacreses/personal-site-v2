@@ -5,7 +5,8 @@ import styles from './Timeline.module.scss';
 
 type TimeRangeProps = {
   startTimestamp: string,
-  endTimestamp?: string
+  endTimestamp?: string | null,
+  className?: string,
 }
 
 type STimestrings = {
@@ -31,6 +32,7 @@ const month = [
 const TimeRange: FC<TimeRangeProps> = ({
   startTimestamp,
   endTimestamp = null,
+  className,
 }) => {
   const [dates, setDates] = useState<STimestrings|null>(null)
 
@@ -42,13 +44,16 @@ const TimeRange: FC<TimeRangeProps> = ({
     if (endTimestamp){
       temp = new Date(endTimestamp)
       end = month[temp.getMonth()] + ' ' + temp.getFullYear();
-    } 
+    } else if (endTimestamp === null) {
+      end = 'Present';
+    }
+
     setDates({start, end})
   }, [startTimestamp, endTimestamp]);
 
   return (
     <DisplayIf condition={!!dates}>
-      <span className={styles.timerange}>
+      <p className={className}>
         <time dateTime={startTimestamp}>
           {dates?.start}
         </time>
@@ -58,10 +63,7 @@ const TimeRange: FC<TimeRangeProps> = ({
             {dates?.end}
           </time>
         </DisplayIf>
-        <DisplayIf condition={!endTimestamp}>
-          <span>Present</span>
-        </DisplayIf>
-      </span>
+      </p>
     </DisplayIf> 
   )
 }

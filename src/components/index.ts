@@ -10,3 +10,4 @@ export { default as DisplayIf } from './DisplayIf'
 export { Timeline } from './Timeline';
 export { default as AnchorLink } from './AnchorLink';
 export { default as LayoutBlank } from './LayoutBlank';
+export {ZZWorkExperienceTabList} from './ZZWorkExperienceTabList'

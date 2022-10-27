@@ -47,7 +47,7 @@
   header: Where I've Worked
   navHeader: Experience
   miscLayout:
-    - component: TabList
+    - component: ZZWorkExperienceTabList
       props:
         id: workexperience
   callToActionText: >

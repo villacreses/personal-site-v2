@@ -13,14 +13,11 @@
         where I'm helping build the new Metrics platform to enable confident 
         decision-making at Meta. This is a new initiative to build the backbone 
         of metrics at data infra.
-      impact:
-        - impact
-        - impact
 
 - slug: doc-ai
   category: JOBS
   shortLabel: doc.ai
-  companyName: Doc.ai
+  companyName: doc.ai
   companyUrl: https://doc.ai/
   positions:
     - title: Software Engineer - Apps Team

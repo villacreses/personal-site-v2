@@ -9,6 +9,7 @@ import {
   Layout,
   ProfileImage,
   ProjectGrid,
+  ZZWorkExperienceTabList,
 } from '@components';
 import {indexContent} from '@data';
 import {AnchorProps} from '@types';
@@ -39,7 +40,7 @@ const MarkdownComponentMap: {
 const MiscComponentMap: {
   [key: string]: ReactNode
 } = {
-  TabList,
+  ZZWorkExperienceTabList,
   ProfileImage,
   ProjectGrid,
 };
