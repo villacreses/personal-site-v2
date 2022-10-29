@@ -166,11 +166,20 @@ $grid-top-row-height: 10px;
   @extend %hover-highlight;
   @extend %hover-animate;
 
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: var(--fz-xl);
+
   border-radius: 50%;
   box-sizing: border-box;
   grid-area: 2 / 1 /3/ 2;
   box-shadow: 0 1px 10px 2px var(--navy-shadow);
+
+  svg {
+
+  }
 }
 
 .page-grid {

@@ -1,20 +1,9 @@
-import {FC, ComponentProps} from 'react';
-import Markdown from 'react-markdown';
-import {TTimelineEntry} from '@types';
-import {AnchorLink} from '@components';
+import {TimelineProps} from '@types';
 import TimeRange from './TimeRange';
+import {Icon} from './Icon';
+import DisplayIf from './DisplayIf';
 
 import styles from './Timeline.module.scss';
-
-type TimelineProps<T extends {}> = {
-  ContentContainer: FC<T>;
-  entries: Array<{
-    slug: string;
-    startDate: string;
-    endDate?: string | null;
-    panelContent: T;
-  }>;
-};
 
 const triangle = (
   <span className={styles.triangle}>
@@ -34,12 +23,17 @@ export default function Timeline<T extends {}> ({
           startDate,
           endDate,
           panelContent,
+          icon,
         }) => (
           <li
             key={slug}
             className={styles["timeline-entry"]}
           >
-            <i className={styles["timeline-pin"]} />
+            <div className={styles["timeline-pin"]}>
+              <DisplayIf condition={!!icon}>
+                <Icon id={icon!} />
+              </DisplayIf>
+            </div>
             <div className={styles["content-container"]}>
               <TimeRange
                 startTimestamp={startDate}

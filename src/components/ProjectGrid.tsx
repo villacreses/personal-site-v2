@@ -1,6 +1,6 @@
 import { FC, ComponentProps } from 'react'
 import Markdown from 'react-markdown';
-import Icon from './Icon';
+import {Icon} from './Icon';
 import DisplayIf from './DisplayIf';
 import AnchorLink from './AnchorLink';
 import styles from './ProjectGrid.module.scss';

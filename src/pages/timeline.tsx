@@ -13,13 +13,12 @@ const navLinks: AnchorProps[] = [
   }
 ];
 
-
-
 const timelineContent = experience
   .map(exp => ({
       slug: exp.slug,
       startDate: exp.positions[0].startDate,
       endDate: exp.positions[0].endDate,
+      icon: exp.category,
       panelContent: {
         companyName: exp.companyName,
         companyUrl: exp.companyUrl,

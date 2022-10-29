@@ -1,7 +1,7 @@
 import { FC, HTMLProps } from 'react';
 import Menu from './Menu';
 import ActionButton from './ActionButton';
-import Icon from './Icon';
+import {Icon} from './Icon';
 
 import styles from './BurgerMenu.module.scss';
 

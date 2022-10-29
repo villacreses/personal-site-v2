@@ -1,4 +1,7 @@
-import {HTMLProps} from "react";
+import {FC, HTMLProps} from 'react';
+import {IconID, ExperienceCategory} from './icons.types'
+
+export * from './icons.types'
 
 const omit = ['classname', 'rel', 'size'] as const;
 
@@ -67,12 +70,6 @@ export type ProjectGridItemProps = {
   note?: string;
 }
 
-export enum ExperienceCategory {
-  JOBS = "JOBS",
-  HACKATHON = "HACKATHON",
-  EDUCATION = "EDUCATION",
-}
-
 /**
  * NOTE: In the case of `endDate`, we make use of all three possible 
  * types: `string`, `null`, and `undefined`. A null end date means the 
@@ -96,3 +93,14 @@ export type ExperienceMetadata = {
     impactShort?: string[]; // truncated version
   }>;
 }
+
+export type TimelineProps<T extends {}> = {
+  ContentContainer: FC<T>;
+  entries: Array<{
+    slug: string;
+    startDate: string;
+    endDate?: string | null;
+    panelContent: T;
+    icon?: IconID; 
+  }>;
+};
