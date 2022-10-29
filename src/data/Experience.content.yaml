@@ -24,15 +24,27 @@
       flavorText: >
         My time at Facebook/Meta was spent contributing to their new internal 
         Metrics platform to enable confident decision-making at Meta. This is 
-        a relatively new initiative to build the backbone of metrics at data infra.
+        a relatively new initiative to build the backbone of metrics at data 
+        infra.
       impact:
         -	Headed backend reliability design for metric authoring API 
-        -	Upgraded frontend codebase for metric catalog to improve user experience and customer retention 
-        -	Wrote modern, performant, and robust code for a diverse array of client and internal projects
-        -	Coordinated discussions with graphic designers, UX engineers, and project managers for feature proposals
+        -	Upgraded frontend codebase for metric catalog to improve user 
+          experience and customer retention 
+        -	Wrote modern, performant, and robust code for a diverse array of 
+          client and internal projects
+        -	Coordinated discussions with graphic designers, UX engineers, and 
+          project managers for feature proposals
         -	Leveraged chron jobs to optimize metric resource management 
         -	Streamlined data model versioning with atomic Hack APIs
-        -	Guided interns on best practices for internal tooling, coding, debugging, and documentation 
+        -	Guided interns on best practices for internal tooling, coding, 
+          debugging, and documentation
+      impactShort:
+        -	Headed backend reliability design for metric authoring API
+        -	Coordinated discussions with graphic designers, UX engineers, and 
+          project managers for feature proposals
+        -	Guided interns on best practices for internal tooling, coding, 
+          debugging, and documentation
+
 
 - slug: doc-ai
   category: JOBS

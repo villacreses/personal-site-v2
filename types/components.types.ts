@@ -93,5 +93,6 @@ export type ExperienceMetadata = {
     endDate?: string | null;
     flavorText?: string;
     impact?: string[];
+    impactShort?: string[]; // truncated version
   }>;
 }

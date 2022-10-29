@@ -1,4 +1,4 @@
-import {FC, PropsWithChildren} from 'react';
+import {FC} from 'react';
 import Markdown from 'react-markdown';
 import DisplayIf from './DisplayIf';
 import TabList from './TabList';
@@ -9,9 +9,13 @@ import {ExperienceCategory} from '@types';
 
 import styles from './TabList.module.scss';
 
+/**
+ * Only show the flavor text for the latest entry, as there is
+ * less impact to write about for the most recent entry.
+ */
 const tablistData = experience
   .filter(({category}) => category === ExperienceCategory.JOBS)
-  .map(exp => ({
+  .map((exp, idx) => ({
     slug: exp.slug,
     tabLabel: exp.shortLabel,
     panelContent: {
@@ -20,9 +24,12 @@ const tablistData = experience
       title: exp.positions[0].title,
       startDate: exp.positions[0].startDate,
       endDate: exp.positions[0].endDate,
-      flavorText: exp.positions[0].flavorText,
-      impact: exp.positions[0].impact,
-    }
+      flavorText: idx === 0 
+        ? exp.positions[0].flavorText
+        : null,
+      impact: exp.positions[0].impactShort 
+        || exp.positions[0].impact,
+    },
   }));
 
 type ContentContainerProps = typeof tablistData[number]['panelContent'];
