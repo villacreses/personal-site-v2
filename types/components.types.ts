@@ -1,4 +1,7 @@
-import {HTMLProps} from "react";
+import {FC, HTMLProps} from 'react';
+import {IconID, ExperienceCategory} from './icons.types'
+
+export * from './icons.types'
 
 const omit = ['classname', 'rel', 'size'] as const;
 
@@ -66,3 +69,38 @@ export type ProjectGridItemProps = {
   website?: string;
   note?: string;
 }
+
+/**
+ * NOTE: In the case of `endDate`, we make use of all three possible 
+ * types: `string`, `null`, and `undefined`. A null end date means the 
+ * listed position is ongoing (corresponding to an end date of "Present"),
+ * while and undefined end date signals that the listed position was a 
+ * single-day occurence (thus using an end date makes no sense)
+ */
+export type ExperienceMetadata = {
+  slug: string;
+  category: ExperienceCategory;
+  shortLabel: string;
+  companyName: string;
+  companyUrl?: string;
+  positions: Array<{
+    title: string;
+    location: string;
+    startDate: string;
+    endDate?: string | null;
+    flavorText?: string;
+    impact?: string[];
+    impactShort?: string[]; // truncated version
+  }>;
+}
+
+export type TimelineProps<T extends {}> = {
+  ContentContainer: FC<T>;
+  entries: Array<{
+    slug: string;
+    startDate: string;
+    endDate?: string | null;
+    panelContent: T;
+    icon?: IconID; 
+  }>;
+};

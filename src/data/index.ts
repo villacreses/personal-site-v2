@@ -5,7 +5,7 @@ import tmln from './Timeline.content.yaml';
 import proj from './Projects.content.yaml';
 
 import {
-  TabContent,
+  ExperienceMetadata,
   Section,
   metadataType,
   TTimelineEntry,
@@ -16,9 +16,4 @@ export const indexContent = idx as Section[];
 export const metadata = meta as metadataType;
 export const timelineContent = tmln as TTimelineEntry[];
 export const projectContent = proj as ProjectGridItemProps[]
-
-export const TabListContentMap: {
-  [key: string]: Array<TabContent>
-} = {
-  workexperience: exp,
-}
+export const experience = exp as ExperienceMetadata[];

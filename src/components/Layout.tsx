@@ -2,8 +2,10 @@ import {FC} from 'react'
 import {AnchorProps} from '@types';
 import AnchorLink from './AnchorLink';
 import Head, {HeadProps} from './Head';
-import {IconLink, IconLinkProps} from './Icon';
+import {IconLink} from './Icon';
 import Nav from './Nav';
+
+import {IconLinkProps} from '@types';
 
 import content from '../data/Layout.content.yaml';
 

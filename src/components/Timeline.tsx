@@ -1,14 +1,9 @@
-import {FC, ComponentProps} from 'react';
-import Markdown from 'react-markdown';
-import {TTimelineEntry} from '@types';
-import {AnchorLink} from '@components';
+import {TimelineProps} from '@types';
 import TimeRange from './TimeRange';
+import {Icon} from './Icon';
+import DisplayIf from './DisplayIf';
 
 import styles from './Timeline.module.scss';
-
-type TimelineProps = {
-  entries: TTimelineEntry[],
-};
 
 const triangle = (
   <span className={styles.triangle}>
@@ -16,34 +11,41 @@ const triangle = (
   </span>
 );
 
-const markdownComponents: ComponentProps<typeof Markdown>['components'] = {
-  a: ({node, ...props}) => <AnchorLink {...props} />,
-  strong: ({node, ...props}) => <span className="green" {...props} />
-}
-
-export const Timeline: FC<TimelineProps> = ({entries}) => (
-  <ol className={styles.timeline}>
-    {
-      entries.map(({
-        startDate,
-        endDate,
-        content,
-      }) => (
-        <li
-          key={startDate}
-          className={styles["timeline-entry"]}
-        >
-          <i className={styles["timeline-pin"]} />
-          <div className={styles["content-container"]}>
-            <TimeRange
-              startTimestamp={startDate}
-              endTimestamp={endDate}
-            />
-            <Markdown components={markdownComponents}>{content}</Markdown>
-          </div>
-          {triangle}
-        </li>
-      ))
-    }
-  </ol>
-);
+export default function Timeline<T extends {}> ({
+  ContentContainer,
+  entries,
+}: TimelineProps<T>) {
+  return (
+    <ol className={styles.timeline}>
+      {
+        entries.map(({
+          slug,
+          startDate,
+          endDate,
+          panelContent,
+          icon,
+        }) => (
+          <li
+            key={slug}
+            className={styles["timeline-entry"]}
+          >
+            <div className={styles["timeline-pin"]}>
+              <DisplayIf condition={!!icon}>
+                <Icon id={icon!} />
+              </DisplayIf>
+            </div>
+            <div className={styles["content-container"]}>
+              <TimeRange
+                startTimestamp={startDate}
+                endTimestamp={endDate}
+                className={styles.dateRange}
+              />
+              <ContentContainer {...panelContent} />
+            </div>
+            {triangle}
+          </li>
+        ))
+      }
+    </ol>
+  )
+};

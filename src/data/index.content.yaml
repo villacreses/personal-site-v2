@@ -9,7 +9,7 @@
 
     I'm a software engineer specializing in building extraordinary
     experiences for the web. Currently I'm working as
-    a rotational engineer at [Meta](https://about.facebook.com).
+    a senior software engineer at [GoDaddy](https://www.godaddy.com/).
   callToAction:
     children: Get in touch
     href: mailto:MarioVillacreses@outlook.com
@@ -18,22 +18,23 @@
   navHeader: About
   markdown: > 
     Hello! My name is Mario and I'm a firm believer in the web's ability
-    to empower individuals. While studying for a BA in Mathematics, I joined 
-    an international trade startup with friends. With the sparse HTML and
-    CSS knowledge I had remembered from high school, I helped build the 
-    reputation of our humble business across urban China.
+    to empower individuals. 
+
+    
+    During college I had joined a friend's international trade startup, 
+    where I used my then-sparse knowledge of HTML and CSS to elevate our 
+    humble business to a profitable status. I joined a coding bootcamp 
+    soon after college to see how big of an impact I could make with a 
+    little more know-how. 
 
 
-    How much we had accomplished with so little technical knowledge opened 
-    my eyes to how transformative the web can truly be. I joined a coding 
-    bootcamp after college because I wanted to see how big of an impact I 
-    could make.
+    Fast forward to today, and I've had the privilege of participating in 
+    several hackathons—even winning some—and working at companies of all 
+    sizes, from small startups to "Big Tech". 
+    
 
-
-    Fast forward to today, and I've had the privilege of working at several 
-    startups—and participating in many hackathons—before landing at my 
-    dream company: *Facebook* **Meta**. My journey has just begun and I have nothing
-    but optimism for what the future will bring!
+    My journey continues to grow and I have nothing but optimism for what 
+    the future will bring!
   miscLayout:
     - component: ProfileImage
       props:
@@ -47,7 +48,7 @@
   header: Where I've Worked
   navHeader: Experience
   miscLayout:
-    - component: TabList
+    - component: ZZWorkExperienceTabList
       props:
         id: workexperience
   callToActionText: >

@@ -1,55 +1,11 @@
-import { FC, ComponentProps } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {FC} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import AnchorLink from './AnchorLink';
 import styles from './Icon.module.scss';
 
-import {
-  faGithub,
-  faHackerrank,
-  faLinkedinIn,
-  faMedium,
-  faStackOverflow,
-  faDev,
-  faCodepen,
-  faHackerNews,
-} from '@fortawesome/free-brands-svg-icons';
+import {IconProps, IconLinkProps, iconMap} from '@types';
 
-import {
-  faFolder,
-} from '@fortawesome/free-regular-svg-icons';
-
-import {
-  faBars,
-  faExternalLinkAlt,
-} from '@fortawesome/free-solid-svg-icons'
-
-const iconMap = {
-  github: faGithub,
-  linkedin: faLinkedinIn,
-  stackoverflow: faStackOverflow,
-  medium: faMedium,
-  hackerrank: faHackerrank,
-  folder: faFolder,
-  external: faExternalLinkAlt,
-  burger: faBars,
-  devto: faDev,
-  codepen: faCodepen,
-  hackernews: faHackerNews,
-} as const;
-
-type FAProps = Omit<ComponentProps<typeof FontAwesomeIcon>, 'icon'>
-
-interface IconProps extends FAProps {
-  id: keyof typeof iconMap;
-}
-
-export type IconLinkProps = {
-  href: string;
-  label: string;
-  slug: ComponentProps<typeof Icon>['id'];
-};
-
-const Icon: FC<IconProps> = ({ id, ...props }) => (
+export const Icon: FC<IconProps> = ({ id, ...props }) => (
   <FontAwesomeIcon icon={iconMap[id]} {...props} />
 );
 
@@ -63,5 +19,3 @@ export const IconLink: FC<IconLinkProps> = ({ href, label, slug }) => (
     <Icon id={slug} />
   </AnchorLink>
 );
-
-export default Icon;

@@ -166,7 +166,12 @@ $grid-top-row-height: 10px;
   @extend %hover-highlight;
   @extend %hover-animate;
 
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: var(--fz-xl);
+
   border-radius: 50%;
   box-sizing: border-box;
   grid-area: 2 / 1 /3/ 2;
@@ -182,4 +187,10 @@ $grid-top-row-height: 10px;
   & > * {
     grid-column: 2 / 5;
   }
+}
+
+.dateRange {
+  margin: 0 0 5px 0;
+  font-family: var(--font-mono);
+  font-size: var(--fz-sm) !important;
 }
