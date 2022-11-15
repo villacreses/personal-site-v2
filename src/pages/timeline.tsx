@@ -38,12 +38,12 @@ const ContentContainer: FC<ContentContainerProps> = ({
   impact = []
 }) => (
   <>
-    <h3>
-      {title}
+    <h2 className={styles['timeline-item-header']}>
       <CompanyHeaderLink href={companyUrl}>
         {companyName}
       </CompanyHeaderLink>
-    </h3>
+    </h2>
+    <h3>{title}</h3>
     <DisplayIf condition={!!flavorText}>
       <Markdown>
         {flavorText!}
@@ -67,15 +67,9 @@ const CareerTimeline = () => (
       <h1>{`Mario's Career History`}</h1>   
       <p>
         This is the timeline of my professional accomplishments, and events 
-        that have impacted my career. I hope that this will motivate you to 
-        follow your dreams and to write down your own accomplishments along 
-        the way!
-      </p>
-      <p>
-      <strong>Under construction! </strong>
-        Currently this timeline only has my work history, but I intend to add 
-        a plethora of other accomplishments and experiences that have shaped 
-        me as a professional.
+        that have impacted my career. I hope that, by sharing my experiences,
+        that you&apos;ll also be motivated to follow your dreams and to share 
+        the story of your journey along the way!
       </p>
     </section>
     <Timeline<ContentContainerProps>

@@ -46,7 +46,7 @@ const ContentContainer: FC<ContentContainerProps> = ({
   <>
     <h3>
       {title}
-      <CompanyHeaderLink href={companyUrl}>
+      <CompanyHeaderLink href={companyUrl} prefix=" @ ">
         {companyName}
       </CompanyHeaderLink>
     </h3>

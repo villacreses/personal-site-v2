@@ -1,18 +1,19 @@
 import {FC} from 'react';
 
-const CompanyHeaderLink: FC<{href?: string}> = ({
+const CompanyHeaderLink: FC<{href?: string, prefix?: string}> = ({
   children,
   href,
+  prefix = '',
 }) => !!href
   ? (
     <span className="green">
-      {' @ '}
+      {prefix}
       <a href={href}>
         {children}
       </a>
     </span>
   ) : (
-    <span>{' @ ' + children}</span>
+    <span>{prefix + children}</span>
   )
 
 export default CompanyHeaderLink;

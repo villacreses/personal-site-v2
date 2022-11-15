@@ -98,6 +98,52 @@
         - Project considered for official curriculum integration within select NYC 
           high schools. 
 
+- slug: graph-hacks-2018
+  category: HACKATHON
+  shortLabel: Graph Hacks Hackathon
+  companyName: Graph Hacks 2018
+  positions: 
+    - title: 1st place winner
+      location: New York, NY
+      startDate: 2019-09-01T05:00
+      flavorText: >
+        Graph Hacks 2018: Buzzword Bingo Hackathon
+
+- slug: sextech
+  category: HACKATHON
+  shortLabel: Sextech Hackathon
+  companyName: NYC SexTech Hackathon 2018
+  companyUrl: null
+  positions:
+    - title: 1st Place Winner
+      location: Brooklyn, NY
+      startDate: 2018-08-01T05:00
+      flavorText: I won! 
+
+- slug: fullstack
+  category: EDUCATION
+  shortLabel: Fullstack
+  companyName: Fullstack Academy
+  companyUrl: https://www.fullstackacademy.com/
+  positions:
+    - title: Cohort FSA-1802
+      location: New York, NY
+      startDate: 2018-02-21T05:00
+      endDate: 2018-05-21T05:00
+      flavorText: I attended!
+
+- slug: cuny-queens
+  category: EDUCATION
+  shortLabel: Queens College
+  companyName: CUNY Queens College
+  companyUrl: https://qc.cuny.edu
+  positions:
+    - title: Bachelor of Arts in Applied Mathematics
+      location: Flushing, NY
+      startDate: 2016-05-20T05:00
+      flavorText: >
+        I graduated!
+
 - slug: odyssey
   category: JOBS
   shortLabel: New World Odyssey
