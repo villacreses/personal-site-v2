@@ -39,7 +39,10 @@ const ContentContainer: FC<ContentContainerProps> = ({
 }) => (
   <>
     <h2 className={styles['timeline-item-header']}>
-      <CompanyHeaderLink href={companyUrl}>
+      <CompanyHeaderLink
+        href={companyUrl}
+        withExternalIndicator
+      >
         {companyName}
       </CompanyHeaderLink>
     </h2>
