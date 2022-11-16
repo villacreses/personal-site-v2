@@ -82,10 +82,14 @@ $grid-top-row-height: 10px;
   margin-bottom: 0;
   padding: 0 0 var(--fz-h1);
   
-  row-gap: 30px;
+  row-gap: clamp(30px, 5vw, 80px);
   
   @include breakpoints.mobile-portrait {
     margin-left: -10px;
+  }
+
+  @include breakpoints.sm {
+    row-gap: 30px;
   }
   
   /* The line */
