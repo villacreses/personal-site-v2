@@ -1,6 +1,7 @@
 import {FC} from 'react';
 import {Icon} from './Icon';
 import DisplayIf from './DisplayIf';
+import AnchorLink from './AnchorLink'
 
 type CompanyHeaderLinkProps = {
   href?: string;
@@ -17,7 +18,7 @@ const CompanyHeaderLink: FC<CompanyHeaderLinkProps> = ({
   ? (
     <span className="green">
       {prefix}
-      <a href={href}>
+      <AnchorLink href={href}>
         {children}
         <DisplayIf condition={!!withExternalIndicator}>
           <Icon
@@ -30,7 +31,7 @@ const CompanyHeaderLink: FC<CompanyHeaderLinkProps> = ({
             }}
           />
         </DisplayIf>
-      </a>
+      </AnchorLink>
     </span>
   ) : (
     <span>{prefix + children}</span>
