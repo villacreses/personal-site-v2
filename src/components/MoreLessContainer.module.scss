@@ -1,0 +1,28 @@
+@use '@styles/breakpoints';
+@use '@styles/mixins';
+
+.hideOnMd {
+  @include breakpoints.md {
+    &[data-isopen=false][data-ignore=false] {
+      display: none;
+    }
+  }
+}
+
+.toggle {
+  display: none;
+  
+  margin: 10px auto 0 auto;
+  background: none;
+  color: var(--green);
+  
+  svg {
+    margin-right: 5px;
+  }
+
+  @include breakpoints.md {
+    &[data-ignore=false] {
+      display: block;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import Markdown from 'react-markdown';
-import {DisplayIf, Layout, Timeline} from '@components';
+import {DisplayIf, Layout, MoreLessContainer, Timeline} from '@components';
 import styles from '../components/Timeline.module.scss';
 import {experience} from '@data';
 import {AnchorProps} from '@types';
@@ -38,23 +38,28 @@ const ContentContainer: FC<ContentContainerProps> = ({
   impact = []
 }) => (
   <>
-    <h3>
-      {title}
-      <CompanyHeaderLink href={companyUrl}>
+    <h2 className={styles['timeline-item-header']}>
+      <CompanyHeaderLink
+        href={companyUrl}
+        withExternalIndicator
+      >
         {companyName}
       </CompanyHeaderLink>
-    </h3>
-    <DisplayIf condition={!!flavorText}>
+    </h2>
+    <h3>{title}</h3>
+    <MoreLessContainer ignoreIf={!flavorText && !impact.length}>
+      <DisplayIf condition={!!flavorText}>
+        <Markdown>
+          {flavorText!}
+        </Markdown>
+      </DisplayIf>
       <Markdown>
-        {flavorText!}
+        {impact.reduce(
+          (acc, impactEntry) => acc + `- ${impactEntry}\n\n`,
+          ''
+          )}
       </Markdown>
-    </DisplayIf>
-    <Markdown>
-      {impact.reduce(
-        (acc, impactEntry) => acc + `- ${impactEntry}\n\n`,
-        ''
-      )}
-    </Markdown>
+    </MoreLessContainer>
   </>
 )
 
@@ -67,15 +72,9 @@ const CareerTimeline = () => (
       <h1>{`Mario's Career History`}</h1>   
       <p>
         This is the timeline of my professional accomplishments, and events 
-        that have impacted my career. I hope that this will motivate you to 
-        follow your dreams and to write down your own accomplishments along 
-        the way!
-      </p>
-      <p>
-      <strong>Under construction! </strong>
-        Currently this timeline only has my work history, but I intend to add 
-        a plethora of other accomplishments and experiences that have shaped 
-        me as a professional.
+        that have impacted my career. I hope that, by sharing my experiences,
+        that you&apos;ll also be motivated to follow your dreams and to share 
+        the story of your journey along the way!
       </p>
     </section>
     <Timeline<ContentContainerProps>

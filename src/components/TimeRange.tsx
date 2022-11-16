@@ -31,7 +31,7 @@ const month = [
 
 const TimeRange: FC<TimeRangeProps> = ({
   startTimestamp,
-  endTimestamp = null,
+  endTimestamp,
   className,
 }) => {
   const [dates, setDates] = useState<STimestrings|null>(null)
@@ -39,13 +39,15 @@ const TimeRange: FC<TimeRangeProps> = ({
   useEffect(() => {
     let temp = new Date(startTimestamp);
     let start = month[temp.getMonth()] + ' ' + temp.getFullYear();
-    
     let end;
+
     if (endTimestamp){
       temp = new Date(endTimestamp)
       end = month[temp.getMonth()] + ' ' + temp.getFullYear();
     } else if (endTimestamp === null) {
       end = 'Present';
+    } else {
+      start = `${month[temp.getMonth()]} ${temp.getDay() + 1}, ${temp.getFullYear()}`
     }
 
     setDates({start, end})
@@ -57,8 +59,8 @@ const TimeRange: FC<TimeRangeProps> = ({
         <time dateTime={startTimestamp}>
           {dates?.start}
         </time>
-        {` - `}
         <DisplayIf condition={!!dates?.end}>
+          {` - `}
           <time dateTime={endTimestamp!}>
             {dates?.end}
           </time>

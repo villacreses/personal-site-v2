@@ -19,7 +19,9 @@ import {
   faBars,
   faExternalLinkAlt,
   faGraduationCap,
-  faSuitcase
+  faSuitcase,
+  faCaretUp,
+  faCaretDown,
 } from '@fortawesome/free-solid-svg-icons';
 
 export enum ExperienceCategory {
@@ -43,6 +45,8 @@ export const iconMap = {
   suitcase: faSuitcase,
   school: faGraduationCap,
   hourglass: faHourglass,
+  caretUp: faCaretUp,
+  caretDown: faCaretDown,
   [ExperienceCategory.JOBS]: faSuitcase,
   [ExperienceCategory.HACKATHON]: faHourglass,
   [ExperienceCategory.EDUCATION]: faGraduationCap,

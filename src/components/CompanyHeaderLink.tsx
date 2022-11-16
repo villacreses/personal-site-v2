@@ -1,18 +1,40 @@
 import {FC} from 'react';
+import {Icon} from './Icon';
+import DisplayIf from './DisplayIf';
+import AnchorLink from './AnchorLink'
 
-const CompanyHeaderLink: FC<{href?: string}> = ({
+type CompanyHeaderLinkProps = {
+  href?: string;
+  prefix?: string;
+  withExternalIndicator?: boolean;
+}
+
+const CompanyHeaderLink: FC<CompanyHeaderLinkProps> = ({
   children,
   href,
+  prefix = '',
+  withExternalIndicator,
 }) => !!href
   ? (
     <span className="green">
-      {' @ '}
-      <a href={href}>
+      {prefix}
+      <AnchorLink href={href}>
         {children}
-      </a>
+        <DisplayIf condition={!!withExternalIndicator}>
+          <Icon
+            id="external"
+            style={{
+              fontSize: '0.35em',
+              marginLeft: 3,
+              marginTop: 3,
+              verticalAlign: 'top',
+            }}
+          />
+        </DisplayIf>
+      </AnchorLink>
     </span>
   ) : (
-    <span>{' @ ' + children}</span>
+    <span>{prefix + children}</span>
   )
 
 export default CompanyHeaderLink;

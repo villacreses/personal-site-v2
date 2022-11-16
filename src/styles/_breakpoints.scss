@@ -22,6 +22,12 @@
   }
 }
 
+@mixin md_up {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+
 @mixin sm {
   @media (max-width: 600px) {
     @content;

@@ -13,14 +13,18 @@ $grid-top-row-height: 10px;
   pointer-events: none;
 
   li:hover & {
-    border-color: var(--slate-light);
+    @include breakpoints.md_up {
+      border-color: var(--slate-dark);
+    }
   }
 }
 
 %hover-animate {
   transition: var(--transition);
   li:hover & {
-    transform: translateY(-2px);
+    @include breakpoints.md_up {
+      transform: translateY(-2px);
+    }
   }
 }
 
@@ -82,7 +86,7 @@ $grid-top-row-height: 10px;
   margin-bottom: 0;
   padding: 0 0 var(--fz-h1);
   
-  row-gap: 30px;
+  row-gap: clamp(40px, 5vw, 55px);
   
   @include breakpoints.mobile-portrait {
     margin-left: -10px;
@@ -193,4 +197,13 @@ $grid-top-row-height: 10px;
   margin: 0 0 5px 0;
   font-family: var(--font-mono);
   font-size: var(--fz-sm) !important;
+}
+
+.timeline-item-header {
+  margin: 0;
+  a {
+    &:hover {
+      color: var(--green-pale);
+    }
+  }
 }
