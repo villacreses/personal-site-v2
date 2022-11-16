@@ -1,6 +1,6 @@
 import {FC} from 'react';
 import Markdown from 'react-markdown';
-import {DisplayIf, Layout, Timeline} from '@components';
+import {DisplayIf, Layout, MoreLessContainer, Timeline} from '@components';
 import styles from '../components/Timeline.module.scss';
 import {experience} from '@data';
 import {AnchorProps} from '@types';
@@ -44,17 +44,19 @@ const ContentContainer: FC<ContentContainerProps> = ({
       </CompanyHeaderLink>
     </h2>
     <h3>{title}</h3>
-    <DisplayIf condition={!!flavorText}>
+    <MoreLessContainer ignoreIf={!flavorText && !impact.length}>
+      <DisplayIf condition={!!flavorText}>
+        <Markdown>
+          {flavorText!}
+        </Markdown>
+      </DisplayIf>
       <Markdown>
-        {flavorText!}
+        {impact.reduce(
+          (acc, impactEntry) => acc + `- ${impactEntry}\n\n`,
+          ''
+          )}
       </Markdown>
-    </DisplayIf>
-    <Markdown>
-      {impact.reduce(
-        (acc, impactEntry) => acc + `- ${impactEntry}\n\n`,
-        ''
-      )}
-    </Markdown>
+    </MoreLessContainer>
   </>
 )
 
