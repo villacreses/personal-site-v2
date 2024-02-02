@@ -9,14 +9,17 @@
       startDate: 2022-11-14T05:00
       endDate: null
       impact:
-        - Reduced storage costs of inventory device metadata caching by 50% by 
-          proposing alternative architecture setups, and piloting the new 
-          architecture with the team.
-        - Reduced CI/CD build time by 20 minutes from 31 to 11 minutes, by 
-          optimizing the build times of the Docker containers in Github Actions.
-        - Reduced the number of sprints required to complete the creation of new 
-          user roles from 4 to 1 by changing the user authorization flow of a 
-          team-owned product
+        - Cut down inventory device metadata caching storage costs by half through 
+          innovative architecture design and successful pilot testing with the team.
+        -	Slashed CI/CD build time by over 60% from 31 to 11 minutes by enhancing 
+          the build times of the Docker containers in Github Actions.
+        - Simplified legacy authentication/authorization flow, cutting down average 
+          time spent creating new user roles from 4 sprints to 1 sprint.
+        - Empowered customers to switch between feature bundles and subscription tiers 
+          by seamlessly integrating data from multiple APIs and guaranteeing data 
+          consistency across servers and databases.
+        - Reengineered the pricing fee architecture to give customers the freedom to 
+          set their own custom transaction costs for their credit card terminals.
 
 
 - slug: facebook
